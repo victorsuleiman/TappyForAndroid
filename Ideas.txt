@@ -1,2 +1,11 @@
 Hangman
 Login system
+main menu
+end screen
+matching game
+card game
+escape room
+tic-tac-toe
+type a word
+genious
+accelerator rotate
