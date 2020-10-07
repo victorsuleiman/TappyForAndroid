@@ -7,7 +7,7 @@ James Dai Dung -
 Taraneh Talebi - 300309630
 
 Project Idea:
-Our project will be a simple minigames app that gives you a score based on how much time you take to beat all minigames. 
+Our project will be a simple minigames app that gives you a score based on how much time you take to beat all minigames which will all be recorded in a database. 
 Our idea is for it to be versatile to the point we can apply what we learn in class directly to those minigames, and try 
 to study some game design principles (like instantiating a game object, game state, high scores, timer, etc.) so we go 
 beyond the class concepts. Each minigame (including title and end screen) will be a different activity. We are currently 
