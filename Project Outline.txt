@@ -1,0 +1,20 @@
+This is the email we need to send to Priya until Oct. 15th explaining the project we'll do:
+
+Group Name: GroupName
+Members:
+Victor Correa Suleiman - 300315653
+James Dai Dung ...- 
+Taraneh Talebi ...-
+
+Project Idea:
+Our project will be a simple minigames app that gives you a score based on how much time you take to beat all minigames. Our idea is for it to be versatile to the point we can apply what we learn in class directly to those minigames, and try to study some game design principles (like instantiating a game object, game state, high scores, timer, etc.) so we go beyond the class concepts. Each minigame (including title and end screen) will be a different activity. We are currently brainstorming some minigame ideas and these are examples on what we've thought so far:
+
+-> hangman
+-> card game
+-> escape room
+-> matching game
+-> reflex game
+-> genious
+
+We hope you liked our idea and approve it. See you on class!
+GroupName

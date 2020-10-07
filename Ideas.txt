@@ -8,4 +8,5 @@ escape room
 tic-tac-toe
 type a word
 genious
+reflection-based (click button when green)
 accelerator rotate
