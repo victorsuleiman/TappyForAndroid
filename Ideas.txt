@@ -10,3 +10,5 @@ type a word
 genious
 reflection-based (click button when green)
 accelerator rotate
+Find the imporster 
+Database for high score
