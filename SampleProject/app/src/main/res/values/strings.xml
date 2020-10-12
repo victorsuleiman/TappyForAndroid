@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SampleProject</string>
+    <string name="startButton">Start Game</string>
+    <string name="tappy">Tap 10 Times!</string>
+    <string name="gameTitle">Why is Victor so good looking?</string>
+    <string name="level2Title">Isn\'t your finger tired?</string>
 </resources>
