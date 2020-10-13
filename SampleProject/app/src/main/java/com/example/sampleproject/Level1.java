@@ -26,7 +26,7 @@ public class Level1 extends AppCompatActivity {
                 tapBtn.setText(tappy);
                 if (i>= 9)
                 {
-                    startActivity(new Intent(Level1.this, Level2.class));
+                    startActivity(new Intent(Level1.this, TicTacToe.class));
                 }
             }
         });
