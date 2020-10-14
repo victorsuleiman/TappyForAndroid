@@ -5,10 +5,10 @@ end screen
 matching game
 card game
 escape room
-tic-tac-toe
+tic-tac-toe (DRAFT VERSION DONE)
 type a word
 genious
-reflection-based (click button when green)
+reaction-based (click button when green)
 accelerator rotate
-Find the imporster 
+Find the imposter 
 Database for high score
