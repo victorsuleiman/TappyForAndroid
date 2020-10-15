@@ -1,0 +1,4 @@
+Move to proper project
+Choose a design aesthetic + General theme
+Have a level selector activity as a ListView
+Get started on Database
