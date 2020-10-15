@@ -1,6 +1,7 @@
 This is the email we need to send to Priya until Oct. 15th explaining the project we'll do:
 
-Group Name: GroupName
+Group Name: JVT Games
+Group Number: 3
 Members:
 Victor Correa Suleiman - 300315653
 Dai-Dung (James) Nguyen - 300319276
