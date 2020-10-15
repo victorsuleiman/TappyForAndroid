@@ -1,0 +1,18 @@
+Third-party sign-in
+Leaderboard is a good idea
+Recycler view is a good extension to the class
+fragments - choose games as a card view - also a good extension
+threading, information visualization
+pick games that shows the breadth and depth
+
+Options for technical extensions: 
+
+Threading (if possible)
+Database SQL Lite, local is okay
+Leaderboards
+Performance tracker
+Graphs
+Recycle view: probably not
+Fragments (dynamic UI components)
+
+Try to cover more technical breadth and depth, showcase your technical concepts
