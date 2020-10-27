@@ -1,4 +1,5 @@
-Move to proper project
+Move to proper project----------DONE
 Choose a design aesthetic + General theme
-Have a level selector activity as a ListView
+Have a level selector activity as a ListView---------James
 Get started on Database
+Simons Says----------Victor
