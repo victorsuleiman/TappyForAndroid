@@ -9,4 +9,5 @@
     <string name="BtnResetTxt">Reset</string>
     <string name="textViewCpuScoreString">CPU: 0</string>
     <string name="txtViewPlayerScoreTxt">Player: 0</string>
+    <string name="actual_game_title">Can you be the next Tappy master?</string>
 </resources>

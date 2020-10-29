@@ -3,4 +3,21 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="ButtonColor">#00BCD4</color>
+
+    <color name="Press10">#3F51B5</color>
+    <color name="Press9">#673AB7</color>
+    <color name="Press8">#E91E63</color>
+    <color name="Press7">#FF5722</color>
+    <color name="Press6">#FF9800</color>
+    <color name="Press5">#FFC107</color>
+    <color name="Press4">#FFEB3B</color>
+    <color name="Press3">#CDDC39</color>
+    <color name="Press2">#8BC34A</color>
+    <color name="Press1">#4CAF50</color>
+    <color name="TextColor">#FFFFFF</color>
+
+
+
+
 </resources>
