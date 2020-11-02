@@ -29,12 +29,12 @@ public class Level1 extends AppCompatActivity {
                 String tappy = (10 - i) + " more!";
                 tapBtn.setText(tappy);
 
-//                colorID = "Press" + (10 - i);
+                colorID = "Press" + (10 - i);
 //               int resColor= getResources().getIdentifier(R.color.Press(10-i);
-//                int resID = getResources().getIdentifier(colorID, "color", getPackageName());
-//                tapBtn.setBackgroundColor(resID);
+                int resID = getResources().getIdentifier("com.example.sampleproject:color/"+colorID, null, null);
+                tapBtn.setBackgroundColor(resID);
 
-                if(i==1){
+                /*if(i==1){
                     tapBtn.setBackgroundColor(getResources().getColor(R.color.Press9));
                 }else if(i==2){
                     tapBtn.setBackgroundColor(getResources().getColor(R.color.Press8));
@@ -52,7 +52,7 @@ public class Level1 extends AppCompatActivity {
                     tapBtn.setBackgroundColor(getResources().getColor(R.color.Press2));
                 }else if(i==9){
                     tapBtn.setBackgroundColor(getResources().getColor(R.color.Press1));
-                }
+                } */
 
                 if (i >= 9) {
                     startActivity(new Intent(Level1.this, TicTacToe.class));
