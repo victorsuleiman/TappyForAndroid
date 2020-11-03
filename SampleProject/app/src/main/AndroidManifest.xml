@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/steps_round"
         android:supportsRtl="true"
         android:theme="@style/AwesomeTheme">
-        <activity android:name=".HangMan"></activity>
+        <activity android:name=".HangMan" />
+        <activity android:name=".SimonSays" />
         <activity android:name=".LevelList" />
         <activity android:name=".TicTacToe" />
         <activity android:name=".Level2" />
