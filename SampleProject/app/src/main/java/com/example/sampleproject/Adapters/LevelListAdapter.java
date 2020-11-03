@@ -1,4 +1,4 @@
-package com.example.sampleproject;
+package com.example.sampleproject.Adapters;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.sampleproject.R;
 
 import java.util.List;
 
