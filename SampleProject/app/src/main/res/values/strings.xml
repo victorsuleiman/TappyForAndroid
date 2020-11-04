@@ -39,6 +39,7 @@
     <string name="simonTitle">Simon!</string>
     <string name="test">test</string>
     <string-array name="hangmanList">
+        <item>Choose a category</item>
         <item>ANIMAL</item>
         <item>ACTIVITIES</item>
         <item>2020</item>

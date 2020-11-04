@@ -46,8 +46,9 @@ public class LevelList extends AppCompatActivity {
                         startActivity(new Intent(LevelList.this, TicTacToe.class));
                         break;
                     case 3:
-                        startActivity(new Intent(LevelList.this, SimonSays.class));
+                        startActivity(new Intent(LevelList.this, HangMan.class));
                         break;
+
                     default:
                         Toast.makeText(LevelList.this, "Yo, something is wrong", Toast.LENGTH_SHORT).show();
                 }
