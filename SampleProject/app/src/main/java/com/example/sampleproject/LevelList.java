@@ -17,8 +17,8 @@ import java.util.List;
 
 public class LevelList extends AppCompatActivity {
 
-    List<String> levelNames = new ArrayList<>(Arrays.asList("Level 1", "Level 2", "Tic Tac Toe", "SimonSays"));
-    List<Integer> levelImg = new ArrayList<>(Arrays.asList(R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.logo_main_activity)); //placeholder TODO: add images
+    List<String> levelNames = new ArrayList<>(Arrays.asList("Level 1", "Level 2", "Tic Tac Toe", "SimonSays","HangMan"));
+    List<Integer> levelImg = new ArrayList<>(Arrays.asList(R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.hangman_winpose2)); //placeholder TODO: add images
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,9 @@ public class LevelList extends AppCompatActivity {
                         startActivity(new Intent(LevelList.this, TicTacToe.class));
                         break;
                     case 3:
+                        startActivity(new Intent(LevelList.this, SimonSays.class));
+                        break;
+                    case 4:
                         startActivity(new Intent(LevelList.this, HangMan.class));
                         break;
 

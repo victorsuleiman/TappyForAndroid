@@ -25,13 +25,13 @@ public class HangMan extends AppCompatActivity {
             "DRIVE", "PARTY", "EAT", "DRINK", "CLEAN", "STUDY", "DIE"};
     final String[] words2020 = new String[]{"QUARANTINE", "COVID", "CORONA", "WWIII", "BLACK LIVES MATTER"};
 
-    List<Integer> tuneListPic = new ArrayList<>(Arrays.asList(R.drawable.hangman_lvl0,
-            R.drawable.hangman_lvl1,R.drawable.hangman_lvl2,R.drawable.hangman_lvl3,R.drawable.hangman_lvl4,R.drawable.hangman_lvl5,R.drawable.hangman_lvl6));
+    List<Integer> hangManPics = new ArrayList<>(Arrays.asList(R.drawable.hangman_lvl0,
+            R.drawable.hangman_lvl1,R.drawable.hangman_lvl2,R.drawable.hangman_lvl3,
+            R.drawable.hangman_lvl4,R.drawable.hangman_lvl5,R.drawable.hangman_lvl6));
 
     final int MAX_ERRORS = 6;
     String wordChosen;
-    ArrayList<String> letters = new ArrayList<>();
-    ImageView img;
+    ImageView hangManImg;
     TextView dashBox;
     TextView msgBox;
     String dash="";
@@ -71,6 +71,7 @@ public class HangMan extends AppCompatActivity {
 
                 for(int i=0;i<wordChosen.length();i++){
                     dash=dash+"_";
+
                 }
                 dashBox.setText(dash);
                 msgBox.setText(wordChosen);
@@ -94,12 +95,20 @@ public class HangMan extends AppCompatActivity {
     public void touchLetter(View view) {
         Button btn=(Button)view;
         String dash2="";
-        Toast.makeText(this, "Letter entered "+btn.getText(), Toast.LENGTH_LONG).show();
+       // Toast.makeText(this, "Letter entered "+btn.getText(), Toast.LENGTH_LONG).show();
         char letterChosen=btn.getText().charAt(0);
         for(int i=0;i<wordChosen.length();i++){
             if(letterChosen==wordChosen.charAt(i)){
                 dash2=dash2+letterChosen;
-            }else{
+//            }else if(letterChosen!=wordChosen.charAt(i)){
+//                Toast.makeText(HangMan.this,"Wrong letter",Toast.LENGTH_SHORT).show();
+//                for(int j=0;j<7;j++){
+//                    hangManImg.findViewById(R.id.hangManImg);
+//                    int imgIs= hangManPics.get(j);
+//                    hangManImg.setImageResource(imgIs);
+//                }
+            }
+                else{
                 dash2=dash2+dash.charAt(i);
             }
         }
