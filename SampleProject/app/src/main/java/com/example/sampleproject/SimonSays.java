@@ -71,6 +71,8 @@ public class SimonSays extends AppCompatActivity {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                roundNumber = 1;
+                playerPresses = 0;
                 //instantiating a ButtonColor list for the random ButtonColors
                 List<ButtonColor> colorOrder = assignOrder();
                 gameStarted = true;
