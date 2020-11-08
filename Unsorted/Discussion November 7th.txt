@@ -1,0 +1,18 @@
+Nov 7th notes:
+- Group- Deadline is gonna be 22nd
+- Tarane finish hangman and Reaction Tap 
+- James finish Shazam and does the high score page, Override the back button 
+- Victor should just make simon and tic tac toe better
+- We need a finishing page (To record the highest time score and Retry button )
+ 	-High score page 
+	-score of each actibity is recorded seperately 
+	-in the database we will have the sum of each activity time which is basically the final score
+	-Have an if check to make sure no Null values in the times(Each game has been played)
+- We need to make the list view much better
+- Tarane will do the recording of the app 
+- All just start with the report of our own games
+ - Change names:		tip tap toe
+				Tapman
+ 				Reaction Tap 
+				Shazam-
+ 				Simon- 
