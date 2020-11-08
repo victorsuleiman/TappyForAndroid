@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class NameThatSong extends AppCompatActivity {
@@ -14,7 +15,8 @@ public class NameThatSong extends AppCompatActivity {
     Button submitBtn;
     EditText answerText;
     MediaPlayer aPlayer = null;
-    Song song1 = new Song();
+    Song song1 = new Song(); //TODO: change to song array based on DB, uses songParser class
+    ImageButton playPauseBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +25,29 @@ public class NameThatSong extends AppCompatActivity {
 
         submitBtn = findViewById(R.id.ntsSubmitBtn);
         answerText = findViewById(R.id.ntsAnswerField);
+        playPauseBtn = findViewById(R.id.playPauseBtn);
 
-        //TODO: move to Play/Pause button
-        /*play song*/
-        aPlayer = MediaPlayer.create(NameThatSong.this, song1.tune);
-        aPlayer.start();
+        playPauseBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //stop player if already playing
+                if (aPlayer != null && aPlayer.isPlaying())
+                {
+                    aPlayer.stop();
+                    playPauseBtn.setImageResource(R.drawable.hangman_winpose); //TODO: change to Play img
+                }
+                else
+                {
+                    /*play song*/
+                    aPlayer = MediaPlayer.create(NameThatSong.this, song1.tune);
+                    aPlayer.start();
+                    playPauseBtn.setImageResource(R.drawable.hangman_lvl3); //TODO: change to Pause img
+                }
+            }
+        });
+
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,8 +72,8 @@ public class NameThatSong extends AppCompatActivity {
     }
 
 
-
-    public static class Song
+    /*class for making song objects*/
+    public class Song
     {
         private String songName;
         private String artist;
@@ -82,5 +102,11 @@ public class NameThatSong extends AppCompatActivity {
         public int getTune() {
             return tune;
         }
+    }
+
+    /*used to parse song from DB*/
+    public class SongParser
+    {
+
     }
 }

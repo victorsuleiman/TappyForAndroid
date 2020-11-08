@@ -38,12 +38,12 @@
     <string name="z">Z</string>
     <string name="simonTitle">Simon!</string>
     <string name="test">test</string>
-    <string-array name="hangmanList">
+    <!-- <string-array name="hangmanList">
         <item>Choose a category</item>
         <item>ANIMAL</item>
         <item>ACTIVITIES</item>
         <item>2020</item>
-    </string-array>
+    </string-array> -->
     <string name="init_word">_ _ _ _ _ _ _</string>
     <string name="new_game">New Game</string>
     <string name="you_win">You win</string>

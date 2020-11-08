@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintVertical_bias="0.172" />
 
     <Button
         android:id="@+id/ntsSubmitBtn"
@@ -31,12 +31,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ntsAnswerField" />
+        app:layout_constraintTop_toBottomOf="@+id/ntsAnswerField"
+        app:layout_constraintVertical_bias="0.333" />
 
     <EditText
         android:id="@+id/ntsAnswerField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="236dp"
+        android:layout_height="61dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
@@ -46,5 +47,17 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ntsTitleTxt"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintVertical_bias="0.472" />
+
+    <ImageButton
+        android:id="@+id/playPauseBtn"
+        android:layout_width="113dp"
+        android:layout_height="89dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/ntsAnswerField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ntsTitleTxt"
+        app:layout_constraintVertical_bias="0.424"
+        app:srcCompat="@android:drawable/ic_media_play" />
 </androidx.constraintlayout.widget.ConstraintLayout>
