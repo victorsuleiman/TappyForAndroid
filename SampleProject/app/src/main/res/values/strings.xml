@@ -52,7 +52,14 @@
     <string name="word_to_find">Word to find was: #word#</string>
     <string name="try_an_other">Try another letter</string>
     <string name="letter_already_entered">Letter already entered</string>
-
+    <string name="ntsTitle">Name That Song!</string>
+    <string name="ntsGuessBtn">THAT\'S THE SONG!</string>
+    <string name="ntsTxtHint">Guess</string>
+    <string-array name="hangmanList">
+        <item>ANIMAL</item>
+        <item>ACTIVITIES</item>
+        <item>2020</item>
+    </string-array>
 
 
 </resources>

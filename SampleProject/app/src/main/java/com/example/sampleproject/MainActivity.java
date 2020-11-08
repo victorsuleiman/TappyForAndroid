@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         startGameBtn = findViewById(R.id.startButton); //hook button object to preferred button
-
+        startGameBtn.setText("Level List");
         /*give the button an onClickListener*/
         startGameBtn.setOnClickListener(new View.OnClickListener()
         {

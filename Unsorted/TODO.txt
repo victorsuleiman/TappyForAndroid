@@ -3,3 +3,4 @@ Choose a design aesthetic + General theme
 Have a level selector activity as a ListView---------James
 Get started on Database
 Simons Says----------Victor
+Shazam this----------James

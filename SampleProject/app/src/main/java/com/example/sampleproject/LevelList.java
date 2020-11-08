@@ -17,8 +17,11 @@ import java.util.List;
 
 public class LevelList extends AppCompatActivity {
 
-    List<String> levelNames = new ArrayList<>(Arrays.asList("Level 1", "Level 2", "Tic Tac Toe", "SimonSays","HangMan"));
-    List<Integer> levelImg = new ArrayList<>(Arrays.asList(R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.hangman_winpose2)); //placeholder TODO: add images
+    List<String> levelNames = new ArrayList<>(Arrays.asList("Level 1", "Level 2", "Tic Tac Toe", "SimonSays","HangMan",
+            "Name That Song"));
+    List<Integer> levelImg = new ArrayList<>(Arrays.asList(R.drawable.logo_main_activity,R.drawable.logo_main_activity,
+            R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.hangman_winpose2,
+            R.drawable.hangman_lvl6)); //placeholder TODO: add images
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,9 @@ public class LevelList extends AppCompatActivity {
                     case 4:
                         startActivity(new Intent(LevelList.this, HangMan.class));
                         break;
-
+                    case 5:
+                        startActivity(new Intent(LevelList.this, NameThatSong.class));
+                        break;
                     default:
                         Toast.makeText(LevelList.this, "Yo, something is wrong", Toast.LENGTH_SHORT).show();
                 }
