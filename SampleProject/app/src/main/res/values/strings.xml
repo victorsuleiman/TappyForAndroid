@@ -36,7 +36,7 @@
     <string name="x">X</string>
     <string name="y">Y</string>
     <string name="z">Z</string>
-    <string name="simonTitle">Simon!</string>
+    <string name="simonTitle">Simon</string>
     <string name="test">test</string>
     <!-- <string-array name="hangmanList">
         <item>Choose a category</item>

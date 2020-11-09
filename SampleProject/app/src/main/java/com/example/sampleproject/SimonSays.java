@@ -2,6 +2,9 @@ package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -10,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.sampleproject.SupportClasses.ButtonColor;
+import com.example.sampleproject.SupportClasses.ButtonAttribute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,12 +49,13 @@ public class SimonSays extends AppCompatActivity {
     private CountDownTimer timer;
     private long timeLeft;
     private final int tickTime = 1000;
-    private final List <ButtonColor> buttonColors = new ArrayList<>();
+    private final List <ButtonAttribute> buttonAttributes = new ArrayList<>();
     private int roundNumber = 1;
     private int playerPresses = 0;
     private boolean rightOrder = true;
     private boolean gameStarted = false;
     private boolean patternShowing = false;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +63,14 @@ public class SimonSays extends AppCompatActivity {
         setContentView(R.layout.activity_simon_says);
 
         //Adding the buttons and their respective colors so I can freely use it
-        buttonColors.add(new ButtonColor((Button)findViewById(R.id.buttonGreen),R.color.lightGreen,R.color.darkGreen,"green"));
-        buttonColors.add(new ButtonColor((Button)findViewById(R.id.buttonRed),R.color.lightRed,R.color.darkRed,"red"));
-        buttonColors.add(new ButtonColor((Button)findViewById(R.id.buttonYellow),R.color.lightYellow,R.color.darkOrange,"yellow"));
-        buttonColors.add(new ButtonColor((Button)findViewById(R.id.buttonBlue),R.color.lightBlue,R.color.darkBlue,"blue"));
+        buttonAttributes.add(new ButtonAttribute((Button)findViewById(R.id.buttonGreen),R.color.lightGreen,R.color.darkGreen,"green",
+                R.raw.simon_sound_green));
+        buttonAttributes.add(new ButtonAttribute((Button)findViewById(R.id.buttonRed),R.color.lightRed,R.color.darkRed,"red",
+                R.raw.simon_sound_red));
+        buttonAttributes.add(new ButtonAttribute((Button)findViewById(R.id.buttonYellow),R.color.lightYellow,R.color.darkOrange,"yellow",
+                R.raw.simon_sound_yellow));
+        buttonAttributes.add(new ButtonAttribute((Button)findViewById(R.id.buttonBlue),R.color.lightBlue,R.color.darkBlue,"blue",
+                R.raw.simon_sound_blue));
 
         Button testButton = findViewById(R.id.buttonSimonStart);
 
@@ -74,7 +82,7 @@ public class SimonSays extends AppCompatActivity {
                 roundNumber = 1;
                 playerPresses = 0;
                 //instantiating a ButtonColor list for the random ButtonColors
-                List<ButtonColor> colorOrder = assignOrder();
+                List<ButtonAttribute> colorOrder = assignOrder();
                 gameStarted = true;
                 //setOnClickListeners for all colored buttons
                 setButtonListeners(colorOrder);
@@ -84,7 +92,7 @@ public class SimonSays extends AppCompatActivity {
 
     }
 
-    private void showPattern(final List<ButtonColor> buttons) {
+    private void showPattern(final List<ButtonAttribute> buttons) {
 
         //timeLeft will be array length times tick -> REFACTOR! NEEDS TO BE CURRENT ROUND NUMBER!
         timeLeft = tickTime*roundNumber;
@@ -97,6 +105,7 @@ public class SimonSays extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 try {
                     highlightButton(buttons.get(i).getButton(),buttons.get(i).getHighlightColor());
+                    playSound(buttons.get(i));
                     unHighlightButton(buttons.get(i).getButton(),buttons.get(i).getDarkColor());
                     i++;
                 } catch (Exception ex) {
@@ -112,13 +121,13 @@ public class SimonSays extends AppCompatActivity {
         }.start();
     }
 
-    private List<ButtonColor> assignOrder() {
+    private List<ButtonAttribute> assignOrder() {
         Random rand = new Random();
-        List<ButtonColor> order = new ArrayList<>();
+        List<ButtonAttribute> order = new ArrayList<>();
         //grab a random ButtonColor from the buttons
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            int randomIndex = rand.nextInt(buttonColors.size());
-            order.add(buttonColors.get(randomIndex));
+            int randomIndex = rand.nextInt(buttonAttributes.size());
+            order.add(buttonAttributes.get(randomIndex));
         }
         return order;
     }
@@ -139,14 +148,14 @@ public class SimonSays extends AppCompatActivity {
         }, 500);
     }
 
-    void setButtonListeners(final List<ButtonColor> colorOrder) {
+    void setButtonListeners(final List<ButtonAttribute> colorOrder) {
 
         //see the roundNumber, see the buttonPresses,
         //compare the button that has been pressed with the button in the order array
         //if it's the same button, either keep going or if it's the last button, user won.
-        for (int i = 0; i < buttonColors.size(); i++) {
-            final ButtonColor currentButton = buttonColors.get(i);
-            buttonColors.get(i).getButton().setOnClickListener(new View.OnClickListener() {
+        for (int i = 0; i < buttonAttributes.size(); i++) {
+            final ButtonAttribute currentButton = buttonAttributes.get(i);
+            buttonAttributes.get(i).getButton().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //don't do anything if game has not started or pattern is still being shown
@@ -172,7 +181,7 @@ public class SimonSays extends AppCompatActivity {
                                         {
                                             showPattern(colorOrder);
                                         }
-                                    }, 500);
+                                    }, 3000);
 
                                 }
                             }
@@ -190,24 +199,38 @@ public class SimonSays extends AppCompatActivity {
     }
 
     void setOnTouchListeners() {
-        for (int i = 0; i < buttonColors.size(); i++) {
-            final ButtonColor currentButtonColor = buttonColors.get(i);
-            final Button currentButton = currentButtonColor.getButton();
+        for (int i = 0; i < buttonAttributes.size(); i++) {
+            final ButtonAttribute currentButtonAttribute = buttonAttributes.get(i);
+            final Button currentButton = currentButtonAttribute.getButton();
             currentButton.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        currentButton.setBackgroundColor(getResources().getColor(currentButtonColor.getDarkColor()));
+                        currentButton.setBackgroundColor(getResources().getColor(currentButtonAttribute.getDarkColor()));
+                        playSound(currentButtonAttribute);
                     }
                     else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        currentButton.setBackgroundColor(getResources().getColor(currentButtonColor.getHighlightColor()));
+                        currentButton.setBackgroundColor(getResources().getColor(currentButtonAttribute.getHighlightColor()));
                     }
                     return false;
                 }
             });
         }
 
+    }
+
+    void playSound(ButtonAttribute button) {
+        if (mediaPlayer != null && mediaPlayer.isPlaying())
+        {
+            mediaPlayer.stop();
+        }
+        else
+        {
+            /*play song*/
+            mediaPlayer = MediaPlayer.create(SimonSays.this, button.getSound());
+            mediaPlayer.start();
+        }
     }
 
 
