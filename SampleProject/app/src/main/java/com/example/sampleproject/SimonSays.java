@@ -153,7 +153,8 @@ public class SimonSays extends AppCompatActivity {
         //see the roundNumber, see the buttonPresses,
         //compare the button that has been pressed with the button in the order array
         //if it's the same button, either keep going or if it's the last button, user won.
-        for (int i = 0; i < buttonAttributes.size(); i++) {
+        for (int i = 0; i < buttonAttributes.size(); i++)
+        {
             final ButtonAttribute currentButton = buttonAttributes.get(i);
             buttonAttributes.get(i).getButton().setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -162,6 +163,7 @@ public class SimonSays extends AppCompatActivity {
                     if (!gameStarted || patternShowing) return;
                     else  {
                         //right button
+
                         if (currentButton.getButtonName().equals(colorOrder.get(playerPresses).getButtonName())) {
                             playerPresses++;
                             if (playerPresses == roundNumber) {
@@ -230,6 +232,17 @@ public class SimonSays extends AppCompatActivity {
             /*play song*/
             mediaPlayer = MediaPlayer.create(SimonSays.this, button.getSound());
             mediaPlayer.start();
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+                @Override
+                public void onCompletion(MediaPlayer player) {
+                    mediaPlayer.stop();
+
+                    // play next audio file
+
+                }
+
+            });
         }
     }
 
