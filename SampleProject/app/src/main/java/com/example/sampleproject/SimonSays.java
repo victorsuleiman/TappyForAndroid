@@ -232,16 +232,15 @@ public class SimonSays extends AppCompatActivity {
             /*play song*/
             mediaPlayer = MediaPlayer.create(SimonSays.this, button.getSound());
             mediaPlayer.start();
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
+            /*stop mediaPlayer once done*/
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+            {
                 @Override
-                public void onCompletion(MediaPlayer player) {
+                public void onCompletion(MediaPlayer player)
+                {
                     mediaPlayer.stop();
-
-                    // play next audio file
-
                 }
-
             });
         }
     }
