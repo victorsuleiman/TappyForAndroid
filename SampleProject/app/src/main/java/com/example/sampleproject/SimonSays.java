@@ -240,7 +240,7 @@ public class SimonSays extends AppCompatActivity {
                 public void onCompletion(MediaPlayer player)
                 {
                     mediaPlayer.stop();
-
+                    mediaPlayer.reset();
                     // play next audio file
 
 
