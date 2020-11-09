@@ -35,6 +35,7 @@ public class HangMan extends AppCompatActivity {
     TextView dashBox;
     TextView msgBox;
     String dash="";
+    int tryCounter = 0; //amount of times the user guessed
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class HangMan extends AppCompatActivity {
         setContentView(R.layout.activity_hang_man);
 
 
+        hangManImg = findViewById(R.id.hangManImg);
         category = findViewById(R.id.categorySpin);
         dashBox=findViewById(R.id.dashBox);
         msgBox=findViewById(R.id.msgBox);
@@ -51,7 +53,14 @@ public class HangMan extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
               //  Toast.makeText(HangMan.this, "Kar kon", Toast.LENGTH_SHORT).show();
-
+                //reset game when changed
+                dash =""; //reset dash board
+                //reset picture
+                hangManImg.setImageResource(R.drawable.hangman_lvl0);
+                //reset tries
+                tryCounter = 0;
+                //reset message box
+                msgBox.setText("");
                 switch (position) {
                     case 0:
                         wordChosen="";
@@ -66,15 +75,16 @@ public class HangMan extends AppCompatActivity {
                     case 3:
                         wordChosen=getRandom(words2020);
                         break;
-
                 }
 
                 for(int i=0;i<wordChosen.length();i++){
                     dash=dash+"_";
 
+
                 }
-                dashBox.setText(dash);
-                msgBox.setText(wordChosen);
+                String displayText = interlace(dash);
+                dashBox.setText(displayText);
+               // msgBox.setText(wordChosen);
 
             }
 
@@ -92,33 +102,62 @@ public class HangMan extends AppCompatActivity {
         return array[rnd];
     }
 
+    public static String interlace(String aString)
+    {
+        String interlaced = " ";
+        for (int i = 0; i < aString.length(); i++)
+        {
+            interlaced += aString.charAt(i) + " ";
+        }
+        return interlaced;
+    }
+
     public void touchLetter(View view) {
         Button btn=(Button)view;
         String dash2="";
        // Toast.makeText(this, "Letter entered "+btn.getText(), Toast.LENGTH_LONG).show();
         char letterChosen=btn.getText().charAt(0);
-        for(int i=0;i<wordChosen.length();i++){
-            if(letterChosen==wordChosen.charAt(i)){
-                dash2=dash2+letterChosen;
-//            }else if(letterChosen!=wordChosen.charAt(i)){
-//                Toast.makeText(HangMan.this,"Wrong letter",Toast.LENGTH_SHORT).show();
-//                for(int j=0;j<7;j++){
-//                    hangManImg.findViewById(R.id.hangManImg);
-//                    int imgIs= hangManPics.get(j);
-//                    hangManImg.setImageResource(imgIs);
-//                }
-            }
-                else{
-                dash2=dash2+dash.charAt(i);
-            }
+        boolean correct = false; //initially false
+
+        //only run code if there are still tries left
+        if (tryCounter > 5) //if out of tries (check for lose)
+        {
+            msgBox.setText("Game over bruh");
+
         }
-        dash=dash2;
-        dashBox.setText(dash);
+        else //still have tries
+        {
+            for (int i = 0; i < wordChosen.length(); i++) {
+                if (letterChosen == wordChosen.charAt(i)) {
+                    dash2 = dash2 + letterChosen;
+                    correct = true; //user did get the correct letter
+                } else {
+                    dash2 = dash2 + dash.charAt(i);
+                }
+            }
 
+            //if user guessed wrong
+            if (correct == false)
+            {
+                tryCounter++;
+                int imgIs = hangManPics.get(tryCounter);
+                hangManImg.setImageResource(imgIs);
+                Toast.makeText(this, "Wrong letter" , Toast.LENGTH_SHORT).show();
+            }
+            else //user guessed right
+            {
+                if (dash2.indexOf("_") == -1) //no _ means we've won!
+                {
+                    //Win condition
+                    hangManImg.setImageResource(R.drawable.hangman_winpose);
+                    msgBox.setText("You Won!");
+                }
+            }
 
-
-
-
+            dash = dash2;
+            String displayText = interlace(dash);
+            dashBox.setText(displayText);
+        } //end else (still have tries)
     }
 
 

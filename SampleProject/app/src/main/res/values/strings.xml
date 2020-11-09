@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SampleProject</string>
+    <string name="app_name">Tappy</string>
     <string name="startButton">Start Game</string>
     <string name="tappy">Tap 10 Times!</string>
     <string name="gameTitle">Why is Victor so good looking?</string>
@@ -9,6 +9,7 @@
     <string name="BtnResetTxt">Reset</string>
     <string name="textViewCpuScoreString">CPU: 0</string>
     <string name="txtViewPlayerScoreTxt">Player: 0</string>
+    <string name="TapMan">TapMan!Hangman but cooler</string>
     <string name="actual_game_title">Can you be the next Tappy master?</string>
     <string name="a">A</string>
     <string name="b">B</string>
@@ -38,12 +39,12 @@
     <string name="z">Z</string>
     <string name="simonTitle">Simon</string>
     <string name="test">test</string>
-    <!-- <string-array name="hangmanList">
+ <string-array name="hangmanList">
         <item>Choose a category</item>
         <item>ANIMAL</item>
         <item>ACTIVITIES</item>
         <item>2020</item>
-    </string-array> -->
+    </string-array>
     <string name="init_word">_ _ _ _ _ _ _</string>
     <string name="new_game">New Game</string>
     <string name="you_win">You win</string>
@@ -55,11 +56,7 @@
     <string name="ntsTitle">Name That Song!</string>
     <string name="ntsGuessBtn">THAT\'S THE SONG!</string>
     <string name="ntsTxtHint">Guess</string>
-    <string-array name="hangmanList">
-        <item>ANIMAL</item>
-        <item>ACTIVITIES</item>
-        <item>2020</item>
-    </string-array>
+
 
 
 </resources>

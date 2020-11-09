@@ -9,20 +9,22 @@
         android:roundIcon="@mipmap/steps_round"
         android:supportsRtl="true"
         android:theme="@style/AwesomeTheme">
-        <activity android:name=".NameThatSong"></activity>
+        <activity android:name=".NameThatSong" />
         <activity android:name=".HangMan" />
         <activity android:name=".SimonSays" />
         <activity android:name=".LevelList" />
         <activity android:name=".TicTacToe" />
         <activity android:name=".Level2" />
         <activity android:name=".Level1" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        <activity android:name=".MainActivity">
+
+        </activity>    </application>
 
 </manifest>
