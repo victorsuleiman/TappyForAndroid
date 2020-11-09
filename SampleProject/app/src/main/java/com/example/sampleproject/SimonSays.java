@@ -237,6 +237,7 @@ public class SimonSays extends AppCompatActivity {
                 @Override
                 public void onCompletion(MediaPlayer player) {
                     mediaPlayer.stop();
+                    mediaPlayer.reset();
 
                     // play next audio file
 
