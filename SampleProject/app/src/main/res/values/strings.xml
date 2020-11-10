@@ -39,7 +39,7 @@
     <string name="z">Z</string>
     <string name="simonTitle">Simon</string>
     <string name="test">test</string>
- <string-array name="hangmanList">
+    <string-array name="hangmanList">
         <item>Choose a category</item>
         <item>ANIMAL</item>
         <item>ACTIVITIES</item>
@@ -57,6 +57,10 @@
     <string name="ntsGuessBtn">THAT\'S THE SONG!</string>
     <string name="ntsTxtHint">Guess</string>
 
+    <string name="TitleForTapRec">Reaction Tap</string>
+    <string name="DescriptionTap">Tap the button when the color changes to green</string>
+    <string name="tapButton">TAP ME!</string>
+    <string name="readyButton">READY!</string>
 
 
 </resources>
