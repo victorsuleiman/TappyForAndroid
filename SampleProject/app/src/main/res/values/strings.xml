@@ -59,7 +59,7 @@
 
     <string name="TitleForTapRec">Reaction Tap</string>
     <string name="DescriptionTap">Tap the button when the color changes to green</string>
-    <string name="tapButton">TAP ME!</string>
+    <string name="tapButton">WAIT!</string>
     <string name="readyButton">READY!</string>
 
 
