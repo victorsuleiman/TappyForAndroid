@@ -3,10 +3,8 @@ package com.example.sampleproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -16,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sampleproject.SupportClasses.Constants;
+import com.example.sampleproject.SupportClasses.DBHelper;
 import com.example.sampleproject.SupportClasses.TimeRecorder;
 
 import java.util.ArrayList;
