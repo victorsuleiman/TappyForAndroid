@@ -134,46 +134,39 @@ public class DBHelper extends SQLiteOpenHelper
         }
     }
 
+    public long getTotalTime()
+    {
+        List<Score> allScores = new ArrayList<Score>();
+        String queryStr = "SELECT * FROM scores;";
 
+        try
+        {
+            Cursor cursor = tappyDB.rawQuery(queryStr, null);
+            if (cursor != null)
+            {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast())
+                {
+                    Score eachScore = new Score(cursor.getString(0), cursor.getString(1), cursor.getLong(2), cursor.getString(3));
+                    allScores.add(eachScore);
+                    cursor.moveToNext();
+                }
+            }
+            long totalTime = 0;
+            for (Score eachScore : allScores)
+            {
+                totalTime += eachScore.getScore();
+            }
+            return totalTime;
+        }
+        catch (Exception ex)
+        {
+            Log.d("DB Tappy", "Querying score error " + ex.getMessage());
+            return 0;
+        }
+    }
 
-//    public List<String[]> browseScoresRecs()
-//    {
-//        List<String[]> ScoreList = new ArrayList<>();
-//
-//        String[] headRec = new String[3];
-//        headRec[0] = "username";
-//        headRec[1] = "game";
-//        headRec[2] = "score";
-//
-//        ScoreList.add(headRec);
-//
-//        String queryStr = "SELECT * FROM scores";
-//
-//        try {
-//            Cursor cursor = tappyDB.rawQuery(queryStr, null);
-//            if (cursor != null)
-//            {
-//                cursor.moveToFirst();
-//                while (!cursor.isAfterLast())
-//                {
-//                    String[] eachRecArray = new String[3];
-//                    eachRecArray[0] = cursor.getString(0); //correspond to username
-//                    eachRecArray[1] = cursor.getString(1); // game
-//                    eachRecArray[2] = cursor.getString(2); // score
-//
-//                    ScoreList.add(eachRecArray);
-//                    cursor.moveToNext();
-//                }
-//            }
-//        }
-//        catch (Exception ex)
-//        {
-//            Log.d("DB Tappy", "Querying user  recs error " + ex.getMessage());
-//        }
-//
-//        return ScoreList;
-//    } //ends browse Scores
-
+    /*add User score with no additional info*/
     public static void addUserScore (String username, String game, long score)
     {
         long result = 0;
