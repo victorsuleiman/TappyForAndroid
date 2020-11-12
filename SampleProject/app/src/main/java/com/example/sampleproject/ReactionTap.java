@@ -10,10 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class ReactionTap extends AppCompatActivity {
     Button reactionStart,tapButton;
     TextView reactionTime;
     long startTime;
+    long endTime;
 
 
     @Override
@@ -27,10 +30,15 @@ public class ReactionTap extends AppCompatActivity {
 
         reactionStart.setEnabled(true);
         tapButton.setEnabled(false);
+        final int[] time=new int[]{3000,4000,5000,6000,7000};
+        final int rnd = new Random().nextInt(time.length);
+
 
         reactionStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                reactionTime.setText("");
+                tapButton.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightRed));
                 Handler handler=new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -42,15 +50,16 @@ public class ReactionTap extends AppCompatActivity {
                         tapButton.setEnabled(true);
 
                     }
-                },2000);
+                },time[rnd]);
             }
         });
 
         tapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                endTime=System.currentTimeMillis();
+                reactionTime.setText((endTime-startTime)+"");
+                tapButton.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightBlue));
             }
         });
 

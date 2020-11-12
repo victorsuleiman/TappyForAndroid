@@ -18,10 +18,10 @@ import java.util.List;
 public class LevelList extends AppCompatActivity {
 
     List<String> levelNames = new ArrayList<>(Arrays.asList("Level 1", "Level 2", "Tic Tac Toe", "SimonSays","HangMan",
-            "Name That Song"));
+            "Name That Song","Reaction Tap"));
     List<Integer> levelImg = new ArrayList<>(Arrays.asList(R.drawable.logo_main_activity,R.drawable.logo_main_activity,
             R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.hangman_winpose2,
-            R.drawable.hangman_lvl6)); //placeholder TODO: add images
+            R.drawable.hangman_lvl6,R.drawable.logo_main_activity)); //placeholder TODO: add images
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,9 @@ public class LevelList extends AppCompatActivity {
                         break;
                     case 5:
                         startActivity(new Intent(LevelList.this, NameThatSong.class));
+                        break;
+                    case 6:
+                        startActivity(new Intent(LevelList.this, ReactionTap.class));
                         break;
                     default:
                         Toast.makeText(LevelList.this, "Yo, something is wrong", Toast.LENGTH_SHORT).show();
