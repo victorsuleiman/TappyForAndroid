@@ -11,14 +11,40 @@
     <RelativeLayout
         android:id="@+id/RelativeLayoutPlayers"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="146dp">
 
         <TextView
-            android:id="@+id/textViewPlayerScore"
+            android:id="@+id/textViewTicTacToeRules"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:freezesText="true"
-            android:text="@string/txtViewPlayerScoreTxt"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="89dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/brush"
+            android:text="@string/DudeIDontEvenKnowWhatShouldICallTheseThingsAnymore"
+            android:textColor="@color/darkRed"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textViewTicTapToeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:fontFamily="@font/retro_computer_personal_use"
+            android:text="@string/TicTapToeTitle2"
+            android:textColor="@color/lightYellow"
             android:textSize="30sp" />
 
         <TextView
@@ -26,25 +52,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewPlayerScore"
+            android:layout_alignStart="@+id/textViewPlayerScore"
+            android:layout_alignLeft="@+id/textViewPlayerScore"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/retro_computer_personal_use"
             android:freezesText="true"
             android:text="@string/textViewCpuScoreString"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
-        <Button
-            android:id="@+id/buttonReset"
+        <TextView
+            android:id="@+id/textViewPlayerScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="67dp"
-            android:layout_marginLeft="67dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="66dp"
-            android:layout_marginRight="66dp"
-            android:layout_toEndOf="@+id/textViewPlayerScore"
-            android:layout_toRightOf="@+id/textViewPlayerScore"
-            android:text="@string/BtnResetTxt" />
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="194dp"
+            android:layout_marginRight="194dp"
+            android:fontFamily="@font/retro_computer_personal_use"
+            android:freezesText="true"
+            android:text="@string/txtViewPlayerScoreTxt"
+            android:textSize="25sp" />
 
     </RelativeLayout>
 
@@ -59,24 +90,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
 
         <Button
             android:id="@+id/button_01"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
 
         <Button
             android:id="@+id/button_02"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -90,24 +124,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
 
         <Button
             android:id="@+id/button_11"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
 
         <Button
             android:id="@+id/button_12"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -122,24 +159,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
 
         <Button
             android:id="@+id/button_21"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
 
         <Button
             android:id="@+id/button_22"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="60sp" />
+            android:textSize="70sp" />
     </LinearLayout>
 
 </LinearLayout>

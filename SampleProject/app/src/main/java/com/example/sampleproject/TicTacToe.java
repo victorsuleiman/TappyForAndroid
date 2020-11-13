@@ -78,33 +78,38 @@ public class TicTacToe extends AppCompatActivity {
             }
         }
 
-        Button buttonReset = findViewById(R.id.buttonReset);
-        buttonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetGame();
-            }
-        });
     }
 
-    private void resetGame() {
-        playerPoints = 0;
-        cpuPoints = 0;
-        updatePointsText();
-        resetBoard();
-    }
+
 
     private void player1Wins() {
         playerPoints++;
-        Toast.makeText(this,"Player 1 Wins!", Toast.LENGTH_SHORT).show();
-        if (playerPoints == 3) startActivity(new Intent(TicTacToe.this,Level2.class));
+        if (playerPoints == 3) {
+            Toast.makeText(this,"Player Wins the Game!", Toast.LENGTH_SHORT).show();
+            resetPoints();
+            updatePointsText();
+        } else {
+            Toast.makeText(this,"Player Wins the Round!", Toast.LENGTH_SHORT).show();
+        }
+
         updatePointsText();
         resetBoard();
+    }
+
+    private void resetPoints() {
+        playerPoints = 0;
+        cpuPoints = 0;
     }
 
     private void cpuWins() {
         cpuPoints++;
-        Toast.makeText(this,"CPU Wins!", Toast.LENGTH_SHORT).show();
+        if (cpuPoints == 3) {
+            Toast.makeText(this,"CPU Wins the Game!", Toast.LENGTH_SHORT).show();
+            resetPoints();
+            updatePointsText();
+        } else {
+            Toast.makeText(this,"CPU Wins the Round!", Toast.LENGTH_SHORT).show();
+        }
         updatePointsText();
         resetBoard();
     }
@@ -115,8 +120,8 @@ public class TicTacToe extends AppCompatActivity {
     }
 
     private void updatePointsText() {
-        textViewPlayer.setText("Player: " + playerPoints);
-        textViewCpu.setText("CPU: " + cpuPoints);
+        textViewPlayer.setText("You (X): " + playerPoints);
+        textViewCpu.setText("CPU (O): " + cpuPoints);
     }
 
     private void resetBoard() {
@@ -184,7 +189,7 @@ public class TicTacToe extends AppCompatActivity {
         Button playPos = cpuAI();
 
         playPos.setText("O");
-
+        if (checkForWin()) cpuWins();
         roundCount++;
         playerTurn = true;
     }

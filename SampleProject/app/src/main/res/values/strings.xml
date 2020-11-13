@@ -4,11 +4,11 @@
     <string name="tappy">Tap 10 Times!</string>
     <string name="gameTitle">Why is Victor so good looking?</string>
     <string name="level2Title">Isn\'t your finger tired?</string>
-    <string name="txtViewP1Txt">Player 1: 0</string>
+    <string name="txtViewP1Txt">Player 1 (X): 0</string>
     <string name="textViewP2Txt">Player 2: 0</string>
     <string name="BtnResetTxt">Reset</string>
-    <string name="textViewCpuScoreString">CPU: 0</string>
-    <string name="txtViewPlayerScoreTxt">Player: 0</string>
+    <string name="textViewCpuScoreString">CPU (O): 0</string>
+    <string name="txtViewPlayerScoreTxt">You (X): 0</string>
     <string name="TapMan">TapMan!Hangman but cooler</string>
     <string name="actual_game_title">Can you be the next Tappy master?</string>
     <string name="a">A</string>
@@ -61,6 +61,9 @@
     <string name="DescriptionTap">Tap the button when the color changes to green</string>
     <string name="tapButton">WAIT!</string>
     <string name="readyButton">READY!</string>
+    <string name="TicTapToeTitle">O Tic Tap Toe X</string>
+    <string name="TicTapToeTitle2">Tic Tap Toe</string>
+    <string name="DudeIDontEvenKnowWhatShouldICallTheseThingsAnymore">Win 3 Rounds!</string>
 
 
 </resources>
