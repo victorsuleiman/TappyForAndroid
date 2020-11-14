@@ -10,13 +10,21 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NameThatSong extends AppCompatActivity {
 
     Button submitBtn;
     EditText answerText;
     MediaPlayer aPlayer = null;
     Song song1 = new Song(); //TODO: change to song array based on DB, uses songParser class
+    List<Song> songList = new ArrayList<>(); //holds all song;
     ImageButton playPauseBtn;
+    long startTime; //used to calculate time taken for guess
+    long endTime;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,28 +35,33 @@ public class NameThatSong extends AppCompatActivity {
         answerText = findViewById(R.id.ntsAnswerField);
         playPauseBtn = findViewById(R.id.playPauseBtn);
 
+        songList = SongParser(); //getting song list
+
+        /*Clicking Play/pause button*/
         playPauseBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
+
                 //stop player if already playing
                 if (aPlayer != null && aPlayer.isPlaying())
                 {
                     aPlayer.stop();
-                    playPauseBtn.setImageResource(R.drawable.hangman_winpose); //TODO: change to Play img
+                    playPauseBtn.setImageResource(R.drawable.play_button); //TODO: change to Play img
                 }
                 else
                 {
                     /*play song*/
-                    aPlayer = MediaPlayer.create(NameThatSong.this, song1.tune);
+                    aPlayer = MediaPlayer.create(NameThatSong.this, songList.get(0).getTune());
                     aPlayer.start();
-                    playPauseBtn.setImageResource(R.drawable.hangman_lvl3); //TODO: change to Pause img
+                    playPauseBtn.setImageResource(R.drawable.pause_button); //TODO: change to Pause img
                 }
             }
         });
 
 
+        /*Clicking submit button*/
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -59,6 +72,7 @@ public class NameThatSong extends AppCompatActivity {
                 if (userAnswer.equalsIgnoreCase(song1.getSongName()))
                 {
                     Toast.makeText(NameThatSong.this, "Perfect!", Toast.LENGTH_SHORT).show();
+                    aPlayer.stop();
                 }
                 else
                 {
@@ -71,42 +85,15 @@ public class NameThatSong extends AppCompatActivity {
 
     }
 
-
-    /*class for making song objects*/
-    public class Song
-    {
-        private String songName;
-        private String artist;
-        private String hintNo1;
-        private String hintNo2;
-        private int tune;
-
-        public Song() {
-            songName = "In The End";
-            artist = "Linkin Park";
-            tune = R.raw.in_the_end_lp;
-        }
-        public Song(String songName, String artist, String hintNo1, String hintNo2, int tune)
-        {
-            this.songName = songName;
-            this.artist = artist;
-            this.hintNo1 = hintNo1;
-            this.hintNo2 = hintNo2;
-            this.tune = tune;
-        }
-
-        public String getSongName() {
-            return songName;
-        }
-
-        public int getTune() {
-            return tune;
-        }
-    }
-
     /*used to parse song from DB*/
-    public class SongParser
+    public static List<Song> SongParser()
     {
-
+        Song song1 = new Song();
+        List<Song> songList = new ArrayList<>();
+        songList.add(song1);
+        return songList;
     }
+
 }
+
+//Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
