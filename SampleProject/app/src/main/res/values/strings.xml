@@ -64,6 +64,7 @@
     <string name="TicTapToeTitle">O Tic Tap Toe X</string>
     <string name="TicTapToeTitle2">Tic Tap Toe</string>
     <string name="DudeIDontEvenKnowWhatShouldICallTheseThingsAnymore">Win 3 Rounds!</string>
+    <string name="playPause">Play/Pause</string>
 
 
 </resources>

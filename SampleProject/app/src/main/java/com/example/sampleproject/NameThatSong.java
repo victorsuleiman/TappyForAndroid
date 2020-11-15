@@ -68,15 +68,18 @@ public class NameThatSong extends AppCompatActivity {
             {
                 //compare input vs song name
                 String userAnswer = answerText.getText().toString();
-
-                if (userAnswer.equalsIgnoreCase(song1.getSongName()))
+                if (userAnswer.equals(null))
                 {
-                    Toast.makeText(NameThatSong.this, "Perfect!", Toast.LENGTH_SHORT).show();
-                    aPlayer.stop();
+                    Toast.makeText(NameThatSong.this, "Please enter an answer", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Toast.makeText(NameThatSong.this, "BOOOOOOO", Toast.LENGTH_SHORT).show();
+                    if (userAnswer.equalsIgnoreCase(song1.getSongName())) {
+                        Toast.makeText(NameThatSong.this, "Perfect!", Toast.LENGTH_SHORT).show();
+                        aPlayer.stop();
+                    } else {
+                        Toast.makeText(NameThatSong.this, "BOOOOOOO", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 //TODO:change textview based on correct or not
