@@ -6,8 +6,7 @@ public class Song
 {
     private String songName;
     private String artist;
-    private String hintNo1;
-    private String hintNo2;
+    private String hint;
     private int coverArt;
     private int tune;
 
@@ -15,14 +14,16 @@ public class Song
         songName = "In The End";
         artist = "Linkin Park";
         tune = R.raw.in_the_end_lp;
+
     }
-    public Song(String songName, String artist, String hintNo1, String hintNo2, int tune)
+    public Song(String songName, String artist, int tune, int coverArt, String hint)
     {
         this.songName = songName;
         this.artist = artist;
-        this.hintNo1 = hintNo1;
-        this.hintNo2 = hintNo2;
-        this.tune = tune;
+        setTune(tune);
+        this.coverArt = coverArt;
+        this.hint = hint;
+
     }
 
     public String getSongName() {
@@ -32,6 +33,6 @@ public class Song
     public int getTune() {
         return tune;
     }
-
+    public void  setTune(int tune) { this.tune = tune; }
 
 }

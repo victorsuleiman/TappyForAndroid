@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AwesomeTheme">
         <activity android:name=".ReactionTap"></activity>
-        <activity android:name=".NameThatSong" />
+        <activity android:name=".NameThatSong"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".HangMan" />
         <activity android:name=".SimonSays" />
         <activity android:name=".LevelList" />

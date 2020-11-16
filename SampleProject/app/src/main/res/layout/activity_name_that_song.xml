@@ -10,80 +10,84 @@
     <Button
         android:id="@+id/ntsSubmitBtn"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="256dp"
-        android:layout_height="105dp"
+        android:layout_width="353dp"
+        android:layout_height="142dp"
         android:text="@string/ntsGuessBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ntsAnswerField"
-        app:layout_constraintVertical_bias="0.321" />
+        app:layout_constraintVertical_bias="0.681" />
 
     <EditText
         android:id="@+id/ntsAnswerField"
-        android:layout_width="236dp"
-        android:layout_height="61dp"
+        android:layout_width="219dp"
+        android:layout_height="62dp"
         android:autofillHints="@string/ntsTxtHint"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/ntsTxtHint"
         android:inputType="textPersonName"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ntsTitleTxt"
-        app:layout_constraintVertical_bias="0.242" />
+        app:layout_constraintVertical_bias="0.606" />
 
     <ImageButton
         android:id="@+id/playPauseBtn"
-        android:layout_width="114dp"
-        android:layout_height="112dp"
+        android:layout_width="177dp"
+        android:layout_height="176dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/playPause"
         android:foregroundGravity="center"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72"
+        app:layout_constraintVertical_bias="0.358"
         app:srcCompat="@drawable/play_button" />
 
     <TextView
         android:id="@+id/ntsTitleTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="353dp"
+        android:layout_height="76dp"
+        android:fontFamily="@font/great_vibes"
         android:gravity="center"
         android:text="@string/ntsTitle"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textSize="30sp"
+        android:textSize="44sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="101dp"
-        android:layout_height="91dp"
+        android:id="@+id/decImg2"
+        android:layout_width="62dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/headphonesImg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.686"
         app:srcCompat="@drawable/headphones" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="108dp"
-        android:layout_height="101dp"
+        android:id="@+id/decImg3"
+        android:layout_width="73dp"
+        android:layout_height="63dp"
+        android:contentDescription="@string/vinylImg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.679"
         app:srcCompat="@drawable/vinylrecord" />
 </androidx.constraintlayout.widget.ConstraintLayout>
