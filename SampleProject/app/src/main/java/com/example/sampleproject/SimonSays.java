@@ -2,6 +2,7 @@ package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -249,5 +250,11 @@ public class SimonSays extends AppCompatActivity {
         }
     }
 
+    //returns to Level List when back button is pressed
+    @Override
+    public void onBackPressed() {
 
+        startActivity(new Intent(this,LevelList.class));
+
+    }
 }

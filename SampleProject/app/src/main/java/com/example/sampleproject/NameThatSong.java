@@ -2,6 +2,7 @@ package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +31,8 @@ User guesses right => Get the time they needed to guess, reset timer, get a new 
 User guesses wrong => Display hints (this can happen a few times). Hints includes album art, artist name and trivia
 
 The game can be repeated, the timer and song generator will work properly
+Resources are accessed dynamically
+Play/Pause button works as intended, the song always resume from where paused, unless a new song is gotten
  */
 public class NameThatSong extends AppCompatActivity {
 
@@ -46,6 +49,7 @@ public class NameThatSong extends AppCompatActivity {
 
     boolean songPlayed = false; //check if song has been played or not
     int currentSong; //holds the song currently being played
+    int currentPos; //used for Play/Pause function
     Random rand = new Random(); //used to generate random number for a random song
 
 
@@ -74,19 +78,22 @@ public class NameThatSong extends AppCompatActivity {
                 //stop player if already playing
                 if (aPlayer != null && aPlayer.isPlaying())
                 {
-                    aPlayer.stop();
+                    currentPos = aPlayer.getCurrentPosition();
+                    aPlayer.pause();
                     playPauseBtn.setImageResource(R.drawable.play_button);
                 }
                 else
                 {
-                    if (songPlayed == false) //song never played => starts timer and marks that the user has listened
+                    if (songPlayed == false) //song never played => starts timer and marks that the user has listened, play songs from the beginning
                     {
                         startTime = System.currentTimeMillis(); //starts timer once the user have heard the song
                         songPlayed = true;
+                        aPlayer = MediaPlayer.create(NameThatSong.this, songList.get(currentSong).getTune());
                     }
-
-                    /*play song*/
-                    aPlayer = MediaPlayer.create(NameThatSong.this, songList.get(currentSong).getTune());
+                    else /*resume song*/
+                    {
+                        aPlayer.seekTo(currentPos);
+                    }
                     aPlayer.start();
                     playPauseBtn.setImageResource(R.drawable.pause_button);
                 }
@@ -101,7 +108,7 @@ public class NameThatSong extends AppCompatActivity {
             {
                 //compare input vs song name
                 String userAnswer = answerText.getText().toString();
-                if (userAnswer.equals(null)) //no answer given
+                if (userAnswer.equals("")) //no answer given
                 {
                     Toast.makeText(NameThatSong.this, "Please enter an answer", Toast.LENGTH_SHORT).show();
                 }
@@ -120,6 +127,7 @@ public class NameThatSong extends AppCompatActivity {
 
                         currentSong = rand.nextInt(songList.size()); //get random current song
                         songPlayed = false; //reset song played
+                        answerText.setText(""); //clear user answer field
                     }
                     else //wrong guess
                     {
@@ -130,9 +138,9 @@ public class NameThatSong extends AppCompatActivity {
                     }
                 }
 
-                //TODO:change textview/button based on correct or not
             }
         });
+
 
     }
 
@@ -200,6 +208,14 @@ public class NameThatSong extends AppCompatActivity {
             }
         }
         return dataList;
+    }
+
+    //returns to Level List when back button is pressed
+    @Override
+    public void onBackPressed() {
+
+        startActivity(new Intent(this,LevelList.class));
+
     }
 }
 

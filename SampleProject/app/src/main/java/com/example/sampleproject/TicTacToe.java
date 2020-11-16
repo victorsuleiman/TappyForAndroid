@@ -309,4 +309,11 @@ public class TicTacToe extends AppCompatActivity {
         cpuPoints = savedInstanceState.getInt("player2Points");
         playerTurn = savedInstanceState.getBoolean("player1Turn");
     }
+
+    @Override
+    public void onBackPressed() {
+
+        startActivity(new Intent(this,LevelList.class));
+
+    }
 }

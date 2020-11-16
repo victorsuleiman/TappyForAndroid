@@ -3,6 +3,7 @@ package com.example.sampleproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -163,5 +164,11 @@ public class HangMan extends AppCompatActivity {
         } //end else (still have tries)
     }
 
+    //returns to Level List when back button is pressed
+    @Override
+    public void onBackPressed() {
 
+        startActivity(new Intent(this,LevelList.class));
+
+    }
 }

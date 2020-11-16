@@ -17,11 +17,11 @@ import java.util.List;
 
 public class LevelList extends AppCompatActivity {
 
-    List<String> levelNames = new ArrayList<>(Arrays.asList("Level 1", "Level 2", "Tic Tac Toe", "SimonSays","HangMan",
-            "Name That Song","Reaction Tap"));
-    List<Integer> levelImg = new ArrayList<>(Arrays.asList(R.drawable.logo_main_activity,R.drawable.logo_main_activity,
+    List<String> levelNames = new ArrayList<>(Arrays.asList("Level 1", "Name That Song", "Tic Tac Toe", "SimonSays","HangMan",
+            "Level 2","Reaction Tap"));
+    List<Integer> levelImg = new ArrayList<>(Arrays.asList(R.drawable.logo_main_activity,R.drawable.nts_logo,
             R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.hangman_winpose2,
-            R.drawable.hangman_lvl6,R.drawable.logo_main_activity)); //placeholder TODO: add images
+            R.drawable.logo_main_activity,R.drawable.logo_main_activity)); //placeholder TODO: add images
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class LevelList extends AppCompatActivity {
                         startActivity(new Intent(LevelList.this, Level1.class));
                         break;
                     case 1:
-                        startActivity(new Intent(LevelList.this, Level2.class));
+                        startActivity(new Intent(LevelList.this, NameThatSong.class));
                         break;
                     case 2:
                         startActivity(new Intent(LevelList.this, TicTacToe.class));
@@ -55,7 +55,7 @@ public class LevelList extends AppCompatActivity {
                         startActivity(new Intent(LevelList.this, HangMan.class));
                         break;
                     case 5:
-                        startActivity(new Intent(LevelList.this, NameThatSong.class));
+                        startActivity(new Intent(LevelList.this, Level2.class));
                         break;
                     case 6:
                         startActivity(new Intent(LevelList.this, ReactionTap.class));
