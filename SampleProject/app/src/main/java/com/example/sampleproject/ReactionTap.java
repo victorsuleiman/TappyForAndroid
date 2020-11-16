@@ -57,6 +57,7 @@ public class ReactionTap extends AppCompatActivity {
         tapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO: 3
                 endTime=System.currentTimeMillis();
                 reactionTime.setText((endTime-startTime)+"");
                 tapButton.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightBlue));
