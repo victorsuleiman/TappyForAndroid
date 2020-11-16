@@ -1,6 +1,7 @@
 package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.media.Image;
 import android.os.Bundle;
@@ -131,8 +132,10 @@ public class HangMan extends AppCompatActivity {
                 if (letterChosen == wordChosen.charAt(i)) {
                     dash2 = dash2 + letterChosen;
                     correct = true; //user did get the correct letter
+                    btn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightBlue));
                 } else {
                     dash2 = dash2 + dash.charAt(i);
+                    btn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightRed));
                 }
             }
 
