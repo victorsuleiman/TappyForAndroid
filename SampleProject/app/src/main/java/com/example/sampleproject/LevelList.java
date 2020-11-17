@@ -66,4 +66,12 @@ public class LevelList extends AppCompatActivity {
             }
         });
     }
+
+    //returns to Level List when back button is pressed
+    @Override
+    public void onBackPressed() {
+
+        startActivity(new Intent(this,MainActivity.class));
+
+    }
 }

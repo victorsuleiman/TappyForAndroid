@@ -54,7 +54,7 @@
     <string name="try_an_other">Try another letter</string>
     <string name="letter_already_entered">Letter already entered</string>
     <string name="ntsTitle">Name That Song!</string>
-    <string name="ntsGuessBtn">THAT\'S THE SONG!</string>
+    <string name="ntsGuessBtn">GUESS THE SONG!</string>
     <string name="ntsTxtHint">Guess</string>
 
     <string name="TitleForTapRec">Reaction Tap</string>
@@ -67,6 +67,7 @@
     <string name="playPause">Play/Pause</string>
     <string name="headphonesImg">headphones</string>
     <string name="vinylImg">vinyl</string>
+    <string name="ntsAlbumArt">Album Art Background</string>
 
 
 </resources>
