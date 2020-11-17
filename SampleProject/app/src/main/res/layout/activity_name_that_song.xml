@@ -1,93 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    tools:context=".NameThatSong">
-
-    <Button
-        android:id="@+id/ntsSubmitBtn"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="353dp"
-        android:layout_height="142dp"
-        android:text="@string/ntsGuessBtn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ntsAnswerField"
-        app:layout_constraintVertical_bias="0.681" />
-
-    <EditText
-        android:id="@+id/ntsAnswerField"
-        android:layout_width="219dp"
-        android:layout_height="62dp"
-        android:autofillHints="@string/ntsTxtHint"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/ntsTxtHint"
-        android:inputType="textPersonName"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ntsTitleTxt"
-        app:layout_constraintVertical_bias="0.606" />
-
-    <ImageButton
-        android:id="@+id/playPauseBtn"
-        android:layout_width="177dp"
-        android:layout_height="176dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/playPause"
-        android:foregroundGravity="center"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358"
-        app:srcCompat="@drawable/play_button" />
-
-    <TextView
-        android:id="@+id/ntsTitleTxt"
-        android:layout_width="391dp"
-        android:layout_height="83dp"
-        android:fontFamily="@font/great_vibes"
-        android:gravity="center"
-        android:text="@string/ntsTitle"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textSize="54sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095" />
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/decImg2"
-        android:layout_width="62dp"
-        android:layout_height="70dp"
-        android:contentDescription="@string/headphonesImg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686"
-        app:srcCompat="@drawable/headphones" />
+        android:id="@+id/imageSwitcherNTS"
+        android:layout_width="match_parent"
+        android:layout_height="1080px"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:contentDescription="@string/ntsAlbumArt"
 
-    <ImageView
-        android:id="@+id/decImg3"
-        android:layout_width="73dp"
-        android:layout_height="63dp"
-        android:contentDescription="@string/vinylImg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679"
-        app:srcCompat="@drawable/vinylrecord" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        ></ImageView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ntsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B2000000"
+        tools:context=".NameThatSong">
+
+        <Button
+            android:id="@+id/ntsSubmitBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="353dp"
+            android:layout_height="142dp"
+            android:text="@string/ntsGuessBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ntsAnswerField"
+            app:layout_constraintVertical_bias="0.681" />
+
+        <EditText
+            android:id="@+id/ntsAnswerField"
+            android:layout_width="219dp"
+            android:layout_height="62dp"
+            android:autofillHints="@string/ntsTxtHint"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/ntsTxtHint"
+            android:inputType="textPersonName"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ntsTitleTxt"
+            app:layout_constraintVertical_bias="0.606" />
+
+        <ImageButton
+            android:id="@+id/playPauseBtn"
+            android:layout_width="249dp"
+            android:layout_height="233dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/playPause"
+            android:foregroundGravity="center"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.283"
+            app:srcCompat="@drawable/play_button" />
+
+        <ImageView
+            android:id="@+id/decImg2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="@string/headphonesImg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.686"
+            app:srcCompat="@drawable/headphones" />
+
+        <ImageView
+            android:id="@+id/decImg3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="@string/vinylImg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.691"
+            app:srcCompat="@drawable/vinylrecord" />
+
+        <TextView
+            android:id="@+id/ntsTitleTxt"
+            android:layout_width="391dp"
+            android:layout_height="83dp"
+            android:fontFamily="@font/great_vibes"
+            android:gravity="center"
+            android:text="@string/ntsTitle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textSize="54sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.06" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
