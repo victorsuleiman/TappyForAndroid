@@ -40,11 +40,11 @@ public class TimeRecorder {
         }
     }
 
-    public void stopAndResetTimer() {
+    public void stopAndResetTimer(boolean playerWon) {
         if (timerStarted) {
             this.timerStarted = false;
             this.timerTask.cancel();
-            Toast.makeText(this.context, "Timer Stopped and time = " + getTime() + "seconds.", Toast.LENGTH_SHORT).show();
+            if (playerWon) Toast.makeText(this.context, "You Win! Your time was " + getTime() + " seconds.", Toast.LENGTH_SHORT).show();
             Log.d("TIMER STUFF", "Timer Stopped and time = " + getTime() + "seconds.");
             time = 0.0;
         }

@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.sampleproject.SupportClasses.ButtonAttribute;
+import com.example.sampleproject.SupportClasses.TimeRecorder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ import java.util.Random;
 
 public class SimonSays extends AppCompatActivity {
 
-    //Pseudo-code for what I will try to do:
+    //Pseudo-code for what I did:
     /*
     An array of 7 buttons. Each position will represent one button that will be highlighted in order, from 1 to 7.
     With every onClickListener, I need to check if the user is pressing the button in the right order.
@@ -40,12 +41,6 @@ public class SimonSays extends AppCompatActivity {
         so the postDelayed stuff needs to be less than the tick.
      */
 
-    /*
-    * Random order is made. Now I need to
-    * Set onclickListeners for each of the buttons
-    * Make it incrementally show the pattern
-    * */
-
     private final int NUMBER_OF_ROUNDS = 7;
     private CountDownTimer timer;
     private long timeLeft;
@@ -58,10 +53,15 @@ public class SimonSays extends AppCompatActivity {
     private boolean patternShowing = false;
     private MediaPlayer mediaPlayer;
 
+    private TimeRecorder timeRecorder;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_says);
+
+        timeRecorder = new TimeRecorder(this);
 
         //Adding the buttons and their respective colors so I can freely use it
         buttonAttributes.add(new ButtonAttribute((Button)findViewById(R.id.buttonGreen),R.color.lightGreen,R.color.darkGreen,"green",
@@ -80,14 +80,20 @@ public class SimonSays extends AppCompatActivity {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                roundNumber = 1;
-                playerPresses = 0;
-                //instantiating a ButtonColor list for the random ButtonColors
-                List<ButtonAttribute> colorOrder = assignOrder();
-                gameStarted = true;
-                //setOnClickListeners for all colored buttons
-                setButtonListeners(colorOrder);
-                showPattern(colorOrder);
+                if (gameStarted) {
+                    Toast.makeText(SimonSays.this, "Game is still running!", Toast.LENGTH_SHORT).show();
+                } else {
+                    roundNumber = 1;
+                    playerPresses = 0;
+                    //instantiating a ButtonColor list for the random ButtonColors
+                    List<ButtonAttribute> colorOrder = assignOrder();
+                    gameStarted = true;
+                    //setOnClickListeners for all colored buttons
+                    setButtonListeners(colorOrder);
+                    timeRecorder.startRecording();
+                    showPattern(colorOrder);
+                }
+
             }
         });
 
@@ -171,7 +177,8 @@ public class SimonSays extends AppCompatActivity {
                                 roundNumber ++;
                                 if (roundNumber > NUMBER_OF_ROUNDS) {
                                     //game is won!
-                                    Toast.makeText(SimonSays.this, "Game Won!", Toast.LENGTH_LONG).show();
+                                    gameStarted = false;
+                                    timeRecorder.stopAndResetTimer(true);
                                 } else {
                                     //round won, need to show
                                     Toast.makeText(SimonSays.this, "Round Won! Next Round...", Toast.LENGTH_SHORT).show();
@@ -194,6 +201,8 @@ public class SimonSays extends AppCompatActivity {
                             roundNumber = 1;
                             playerPresses = 0;
                             Toast.makeText(SimonSays.this, "Wrong Button! Start again!", Toast.LENGTH_SHORT).show();
+                            gameStarted = false;
+                            timeRecorder.stopAndResetTimer(false);
                         }
                     }
                 }

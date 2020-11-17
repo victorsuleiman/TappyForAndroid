@@ -7,64 +7,27 @@
     tools:context=".SimonSays">
 
     <Button
-        android:id="@+id/buttonSimonStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/retro_computer_personal_use"
-        android:text="@string/startButton"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSimonTitle" />
-
-    <TextView
-        android:id="@+id/textViewSimonTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/retro_computer_personal_use"
-        android:text="@string/simonTitle"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/buttonRed"
         android:layout_width="115dp"
         android:layout_height="115dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginLeft="228dp"
+        android:layout_marginTop="124dp"
         android:background="@android:color/holo_red_dark"
         android:rotation="45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSimonTitle" />
 
     <Button
-        android:id="@+id/buttonBlue"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="284dp"
-        android:background="@android:color/holo_blue_dark"
-        android:rotation="45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSimonTitle" />
-
-    <Button
-        android:id="@+id/buttonYellow"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="284dp"
-        android:background="@android:color/holo_orange_dark"
-        android:rotation="45"
+        android:id="@+id/buttonSimonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/retro_computer_personal_use"
+        android:text="@string/startButton"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSimonTitle" />
 
@@ -73,10 +36,47 @@
         style="@style/AppTheme.RoundedCornerMaterialButton"
         android:layout_width="115dp"
         android:layout_height="115dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="124dp"
         android:background="@android:color/holo_green_dark"
+        android:rotation="45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSimonTitle" />
+
+    <TextView
+        android:id="@+id/textViewSimonTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginLeft="124dp"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/retro_computer_personal_use"
+        android:text="@string/simonTitle"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonYellow"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="288dp"
+        android:background="@android:color/holo_orange_dark"
+        android:rotation="45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSimonTitle" />
+
+    <Button
+        android:id="@+id/buttonBlue"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginLeft="228dp"
+        android:layout_marginTop="288dp"
+        android:background="@android:color/holo_blue_dark"
         android:rotation="45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSimonTitle" />

@@ -43,7 +43,7 @@ public class Level2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                stopTimer();
-                timeRecorder.stopAndResetTimer();
+                timeRecorder.stopAndResetTimer(true);
             }
         });
     }
