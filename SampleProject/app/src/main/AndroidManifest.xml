@@ -12,7 +12,8 @@
         <activity android:name=".ReactionTap"></activity>
         <activity android:name=".NameThatSong"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".HangMan" />
+        <activity android:name=".HangMan"
+            android:allowEmbedded="@style/AppTheme.NoActionBar" />
         <activity android:name=".SimonSays" />
         <activity android:name=".LevelList" />
         <activity android:name=".TicTacToe" />

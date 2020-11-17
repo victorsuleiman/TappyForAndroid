@@ -25,10 +25,19 @@ public class HangMan extends AppCompatActivity {
     final String[] wordsActivities = new String[]{"SKI", "RUN", "JUMP", "SING", "DANCE", "WRITE", "BIKE", "DRIVE", "BIKE",
             "DRIVE", "PARTY", "EAT", "DRINK", "CLEAN", "STUDY", "DIE"};
     final String[] words2020 = new String[]{"QUARANTINE", "COVID", "CORONA", "WWIII", "BLACK LIVES MATTER"};
+    String[] button=new String[]{"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U"
+                                  ,"V","W","X","Y","Z"};
 
     List<Integer> hangManPics = new ArrayList<>(Arrays.asList(R.drawable.hangman_lvl0,
             R.drawable.hangman_lvl1,R.drawable.hangman_lvl2,R.drawable.hangman_lvl3,
             R.drawable.hangman_lvl4,R.drawable.hangman_lvl5,R.drawable.hangman_lvl6));
+
+    /*
+    button+[i]
+    Button
+    setbackground
+    gray
+     */
 
     final int MAX_ERRORS = 6;
     String wordChosen;
@@ -62,6 +71,9 @@ public class HangMan extends AppCompatActivity {
                 tryCounter = 0;
                 //reset message box
                 msgBox.setText("");
+
+
+
                 switch (position) {
                     case 0:
                         wordChosen="";
@@ -123,7 +135,7 @@ public class HangMan extends AppCompatActivity {
         //only run code if there are still tries left
         if (tryCounter > 5) //if out of tries (check for lose)
         {
-            msgBox.setText("Game over bruh");
+            msgBox.setText("Game over Bruh!");
 
         }
         else //still have tries
@@ -132,10 +144,11 @@ public class HangMan extends AppCompatActivity {
                 if (letterChosen == wordChosen.charAt(i)) {
                     dash2 = dash2 + letterChosen;
                     correct = true; //user did get the correct letter
-                    btn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightBlue));
+
+
                 } else {
                     dash2 = dash2 + dash.charAt(i);
-                    btn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightRed));
+                    btn.setBackgroundColor(getResources().getColor(R.color.lightRed));
                 }
             }
 
@@ -162,6 +175,20 @@ public class HangMan extends AppCompatActivity {
             dashBox.setText(displayText);
         } //end else (still have tries)
     }
+
+   public void letterColorBack(String[] letters){
+        letters=new String[26];
+       Button[] letterButton = new Button[26];
+
+        for(int i=0;i<letters.length;i++) {
+            String buttonNumber = "button" + letters[i];
+
+           // letterButton = findViewById(R.id.);
+
+        }
+
+
+   }
 
 
 }

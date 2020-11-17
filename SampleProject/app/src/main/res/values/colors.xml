@@ -27,6 +27,9 @@
     <color name="darkOrange">#FF8800</color>
     <color name="darkBlue">#0099CC</color>
     <color name="splashColor">#EEF2E2</color>
+    <color name="buttonHangMan">#DDDDDD</color>
+
+
 
 
 </resources>
