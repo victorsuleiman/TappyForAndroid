@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -33,14 +34,8 @@ public class HangMan extends AppCompatActivity {
             R.drawable.hangman_lvl1,R.drawable.hangman_lvl2,R.drawable.hangman_lvl3,
             R.drawable.hangman_lvl4,R.drawable.hangman_lvl5,R.drawable.hangman_lvl6));
 
-    /*
-    button+[i]
-    Button
-    setbackground
-    gray
-     */
 
-    final int MAX_ERRORS = 6;
+
     String wordChosen;
     ImageView hangManImg;
     TextView dashBox;
@@ -72,9 +67,7 @@ public class HangMan extends AppCompatActivity {
                 tryCounter = 0;
                 //reset message box
                 msgBox.setText("");
-
-
-
+                letterColorBack(button);
                 switch (position) {
                     case 0:
                         wordChosen="";
@@ -178,28 +171,18 @@ public class HangMan extends AppCompatActivity {
     }
 
 
-   public void letterColorBack(String[] letters){
-        letters=new String[26];
-       Button[] letterButton = new Button[26];
+    public void letterColorBack(String[] letters){
+        Button[] letterButton = new Button[26];
 
         for(int i=0;i<letters.length;i++) {
             String buttonNumber = "button" + letters[i];
-
-           // letterButton = findViewById(R.id.);
+            int buttonId=getResources().getIdentifier(buttonNumber,"id",getPackageName());
+            Log.e("TAG", "button "+buttonId);
+            letterButton[i]=findViewById(buttonId);
+            letterButton[i].setBackgroundColor(getResources().getColor(R.color.buttonHangMan));
 
         }
 
 
    }
 }
-
-//=======
-//    //returns to Level List when back button is pressed
-//    @Override
-//    public void onBackPressed() {
-//
-//        startActivity(new Intent(this,LevelList.class));
-//>>>>>>
-//
-//    }
-//}
