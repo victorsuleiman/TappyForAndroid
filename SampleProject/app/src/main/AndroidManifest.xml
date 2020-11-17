@@ -9,16 +9,30 @@
         android:roundIcon="@mipmap/steps_round"
         android:supportsRtl="true"
         android:theme="@style/AwesomeTheme">
-        <activity android:name=".ReactionTap"></activity>
+        <activity android:name=".ReactionTap">android:theme="@style/AppTheme.NoActionBar"</activity>
         <activity android:name=".NameThatSong"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".HangMan"
-            android:allowEmbedded="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SimonSays" />
-        <activity android:name=".LevelList" />
-        <activity android:name=".TicTacToe" />
-        <activity android:name=".Level2" />
-        <activity android:name=".Level1" />
+        <activity android:name=".HangMan"></activity>
+<!--&lt;!&ndash;<<<<<<< HEAD&ndash;&gt;-->
+<!--            android:allowEmbedded="@style/AppTheme.NoActionBar" />-->
+<!--        <activity android:name=".SimonSays" />-->
+<!--        <activity android:name=".LevelList" />-->
+<!--        <activity android:name=".TicTacToe" />-->
+<!--        <activity android:name=".Level2" />-->
+<!--        <activity android:name=".Level1" />-->
+<!--=======-->
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".SimonSays"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".LevelList"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".TicTacToe"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Level2"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Level1"
+            android:theme="@style/AppTheme.NoActionBar"/>
+<!--&gt;>>>>>> cc93c6a08847bf228b513cf76000f5cfc55fef52-->
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

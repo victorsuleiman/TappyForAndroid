@@ -1,0 +1,6 @@
+implement DB
+Changing theme to Fullscreen
+Create Table on first Activity (HighScore)
+Tarane tells us about the graph 
+James finish DB implementation
+Victor write the email

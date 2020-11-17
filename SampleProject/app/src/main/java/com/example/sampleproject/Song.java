@@ -1,14 +1,16 @@
 package com.example.sampleproject;
 
+import androidx.annotation.NonNull;
+
 import com.example.sampleproject.R;
 
 public class Song
 {
     private String songName;
     private String artist;
-    private String hint;
-    private int coverArt;
     private int tune;
+    private int coverArt;
+    private String hint;
 
     public Song() {
         songName = "In The End";
@@ -35,4 +37,23 @@ public class Song
     }
     public void  setTune(int tune) { this.tune = tune; }
 
+    public String getArtist() {
+        return artist;
+    }
+
+    public int getCoverArt() {
+        return coverArt;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+
+    //toString used for testing
+    @NonNull
+    @Override
+    public String toString() {
+        return songName + " " + artist + " " + tune + " " + coverArt + " " + hint;
+    }
 }

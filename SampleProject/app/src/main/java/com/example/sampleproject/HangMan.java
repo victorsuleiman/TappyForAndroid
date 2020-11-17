@@ -3,6 +3,7 @@ package com.example.sampleproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -176,6 +177,7 @@ public class HangMan extends AppCompatActivity {
         } //end else (still have tries)
     }
 
+
    public void letterColorBack(String[] letters){
         letters=new String[26];
        Button[] letterButton = new Button[26];
@@ -189,6 +191,15 @@ public class HangMan extends AppCompatActivity {
 
 
    }
-
-
 }
+
+//=======
+//    //returns to Level List when back button is pressed
+//    @Override
+//    public void onBackPressed() {
+//
+//        startActivity(new Intent(this,LevelList.class));
+//>>>>>>
+//
+//    }
+//}

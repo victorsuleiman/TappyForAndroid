@@ -12,14 +12,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sampleproject.SupportClasses.TimeRecorder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class TicTacToe extends AppCompatActivity {
 
+    private TimeRecorder timeRecorder;
+
     private Button[][] buttons = new Button[3][3];
 
+    private boolean gameStarted = false;
     private boolean playerTurn = true;
 
     private int roundCount;
@@ -34,6 +39,8 @@ public class TicTacToe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
+
+        timeRecorder = new TimeRecorder(this);
 
         textViewPlayer = findViewById(R.id.textViewPlayerScore);
         textViewCpu = findViewById(R.id.textViewCpuScore);
@@ -50,6 +57,12 @@ public class TicTacToe extends AppCompatActivity {
                 buttons[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        if (!gameStarted){
+                            gameStarted = true;
+                            timeRecorder.startRecording();
+                        }
+
                         //checks if this button on the view that was clicked already
                         if (!((Button) v).getText().toString().equals("")) {
                             return;
@@ -85,11 +98,12 @@ public class TicTacToe extends AppCompatActivity {
     private void player1Wins() {
         playerPoints++;
         if (playerPoints == 3) {
-            Toast.makeText(this,"Player Wins the Game!", Toast.LENGTH_SHORT).show();
+            gameStarted = false;
+            timeRecorder.stopAndResetTimer(true);
             resetPoints();
             updatePointsText();
         } else {
-            Toast.makeText(this,"Player Wins the Round!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"You won the Round!", Toast.LENGTH_SHORT).show();
         }
 
         updatePointsText();
@@ -104,7 +118,9 @@ public class TicTacToe extends AppCompatActivity {
     private void cpuWins() {
         cpuPoints++;
         if (cpuPoints == 3) {
-            Toast.makeText(this,"CPU Wins the Game!", Toast.LENGTH_SHORT).show();
+            gameStarted = false;
+            timeRecorder.stopAndResetTimer(false);
+            Toast.makeText(this,"CPU Wins the Game! Try again.", Toast.LENGTH_SHORT).show();
             resetPoints();
             updatePointsText();
         } else {
@@ -308,5 +324,12 @@ public class TicTacToe extends AppCompatActivity {
         playerPoints = savedInstanceState.getInt("player1Points");
         cpuPoints = savedInstanceState.getInt("player2Points");
         playerTurn = savedInstanceState.getBoolean("player1Turn");
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        startActivity(new Intent(this,LevelList.class));
+
     }
 }
