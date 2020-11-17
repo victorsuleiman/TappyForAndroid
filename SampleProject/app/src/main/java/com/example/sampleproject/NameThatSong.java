@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -42,11 +45,13 @@ User guesses wrong => Display hints (this can happen a few times). Hints include
 The game can be repeated, the timer and song generator will work properly
 Resources are accessed with dynamic names
 Play/Pause button works as intended, the song always resume from where paused, unless a new song is gotten
-Uses Relative layout and ImageSwitcher to set a background that's tinted and centered
+Uses Relative layout and ImageView to set a background that's tinted and centered
  */
 public class NameThatSong extends AppCompatActivity {
 
     ImageView bgImg;
+    ImageView decImgLeft;
+    ImageView decImgRight;
     Button submitBtn;
     EditText answerText;
     MediaPlayer aPlayer = null;
@@ -64,6 +69,8 @@ public class NameThatSong extends AppCompatActivity {
     int currentPos; //used for Play/Pause function
     Random rand = new Random(); //used to generate random number for a random song
 
+    RotateAnimation animL = new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f); //used to rotate images when correct guess
+    RotateAnimation animR = new RotateAnimation(360f, 0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f); //used to rotate images when correct guess
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +81,21 @@ public class NameThatSong extends AppCompatActivity {
         answerText = findViewById(R.id.ntsAnswerField);
         playPauseBtn = findViewById(R.id.playPauseBtn);
         bgImg = findViewById(R.id.imageSwitcherNTS);
+        decImgLeft = findViewById(R.id.decImg2);
+        decImgRight = findViewById(R.id.decImg3);
+
+        animL.setInterpolator(new LinearInterpolator());
+        animL.setRepeatCount(1);
+        animL.setDuration(700);
+
+        animR.setInterpolator(new LinearInterpolator());
+        animR.setRepeatCount(1);
+        animR.setDuration(700);
 
         songList = SongParser(); //getting song list
-
         currentSong = rand.nextInt(songList.size()); //get random current song
 
-        Toast.makeText(this, songList.get(currentSong).toString(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, songList.get(currentSong).toString(), Toast.LENGTH_SHORT).show();
 
 
 
@@ -99,9 +115,10 @@ public class NameThatSong extends AppCompatActivity {
                 }
                 else
                 {
-                    if (songPlayed == false) //song never played => starts timer and marks that the user has listened, play songs from the beginning
+                    if (songPlayed == false) //song never played => starts timer and marks that the user has listened, play songs from the beginning, stop animation if exist
                     {
                         startTime = System.currentTimeMillis(); //starts timer once the user have heard the song
+
                         submitBtn.setText("Try to guess the song and click here");
                         songPlayed = true;
                         aPlayer = MediaPlayer.create(NameThatSong.this, songList.get(currentSong).getTune());
@@ -123,7 +140,7 @@ public class NameThatSong extends AppCompatActivity {
             public void onClick(View view)
             {
                 //compare input vs song name
-                String userAnswer = answerText.getText().toString();
+                String userAnswer = answerText.getText().toString().trim(); //answer trimmed
                 if (songPlayed == false)
                 {
                     Toast.makeText(NameThatSong.this, "Listen to the song first :)", Toast.LENGTH_SHORT).show();
@@ -147,9 +164,12 @@ public class NameThatSong extends AppCompatActivity {
                         }
                         else
                         {
-                            submitBtn.setText("Correct! You took " + formatMilliseconds(timeTaken) + "\nAnd " + tries + " guess(es)"
+                            submitBtn.setText("Correct! You took " + formatMilliseconds(timeTaken) + "\nAnd " + tries + " guesses"
                                     + "\nTry again? A new song is waiting!");
                         }
+
+                        decImgLeft.startAnimation(animL);
+                        decImgRight.startAnimation(animR);
 
                         aPlayer.stop(); //stop current song
                         playPauseBtn.setImageResource(R.drawable.play_button); //reset play button
@@ -174,7 +194,6 @@ public class NameThatSong extends AppCompatActivity {
                         }
                         else
                         {
-                            //hint 3 : set bg
                             int hintImg = songList.get(currentSong).getCoverArt();
                             bgImg.setBackgroundResource(hintImg);
                             submitBtn.setText("Still not right yet.\nHere's the cover art");
@@ -395,7 +414,7 @@ public class NameThatSong extends AppCompatActivity {
     public void onBackPressed() {
 
         startActivity(new Intent(this,LevelList.class));
-
+        aPlayer.stop(); //stop song
     }
 }
 
