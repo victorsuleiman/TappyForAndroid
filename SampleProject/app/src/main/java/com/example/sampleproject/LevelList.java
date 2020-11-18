@@ -19,9 +19,15 @@ public class LevelList extends AppCompatActivity {
 
     List<String> levelNames = new ArrayList<>(Arrays.asList("Level 1", "Name That Song", "Tic Tac Toe", "SimonSays","HangMan",
             "Level 2","Reaction Tap"));
-    List<Integer> levelImg = new ArrayList<>(Arrays.asList(R.drawable.logo_main_activity,R.drawable.nts_logo,
-            R.drawable.logo_main_activity,R.drawable.logo_main_activity,R.drawable.hangman_winpose2,
-            R.drawable.logo_main_activity,R.drawable.logo_main_activity)); //placeholder TODO: add images
+    List<Integer> levelImg = new ArrayList<>(Arrays.asList(
+            R.drawable.logo_main_activity, //Level 1
+            R.drawable.nts_logo, //Name that song
+            R.drawable.logo_main_activity, //Tic Tac Toe
+            R.drawable.logo_main_activity, //Simons Says
+            R.drawable.hangman_winpose2, //Hangman
+            R.drawable.logo_main_activity, //Level 2
+            R.drawable.logo_main_activity //Reaction tap
+    )); //placeholder TODO: add images
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity
             }
         }); //end setOnClickListener of startGameBtn
 
+        //TODO: starts DB implementation
+        //TODO: get username
+            //TODO: check if username already exists in DB and act accordingly
     }
 
     //return home on back pressed
