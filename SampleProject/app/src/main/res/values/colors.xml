@@ -30,6 +30,11 @@
     <color name="buttonHangMan">#7C7C7C</color>
 
 
+    <color name="Green">#4CAF50</color>
+    <color name="Red">#F44336</color>
+    <color name="Blue">#03A9F4</color>
+
+
 
 
 </resources>

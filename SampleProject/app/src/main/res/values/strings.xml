@@ -69,5 +69,11 @@
     <string name="vinylImg">vinyl</string>
     <string name="ntsAlbumArt">Album Art Background</string>
 
+    <string name="Start">Press to start</string>
+    <string name="wait">WAIT FOR GREEN ...</string>
+    <string name="click">Click! </string>
+    <string name="clickagain">Click Again to continue!</string>
+    <string name="soon">TOO SOON!</string>
+
 
 </resources>

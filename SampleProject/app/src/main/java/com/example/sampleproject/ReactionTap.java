@@ -3,6 +3,7 @@ package com.example.sampleproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Trace;
@@ -10,13 +11,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 import java.util.Random;
 
 public class ReactionTap extends AppCompatActivity {
-    Button reactionStart,tapButton;
-    TextView reactionTime;
+    enum MyState
+    {
+        waitState ,
+        clickState,
+        reactionState,
+
+    }
+    MyState myState= MyState.waitState;
+    Button buttonReaction;
+    final int[] time=new int[]{3000,4000,5000,6000,7000};
     long startTime;
     long endTime;
+    int rnd;
+    final int LIMIT=5;
+    int counter=1;
 
 
     @Override
@@ -24,45 +40,85 @@ public class ReactionTap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_tap);
 
-        reactionStart=findViewById(R.id.reactionStart);
-        tapButton=findViewById(R.id.tapButton);
-        reactionTime=findViewById(R.id.reactionTime);
+        //GraphView.series=new LineGraphSeries<>();
 
-        reactionStart.setEnabled(true);
-        tapButton.setEnabled(false);
-        final int[] time=new int[]{3000,4000,5000,6000,7000};
-        final int rnd = new Random().nextInt(time.length);
+//        GraphView.series.appendData(new DataPoint(0,0),true,20);
+
+        buttonReaction=findViewById(R.id.buttonReaction);
+        rnd = new Random().nextInt(time.length);
 
 
-        reactionStart.setOnClickListener(new View.OnClickListener() {
+        buttonReaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reactionTime.setText("");
-                tapButton.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightRed));
-                Handler handler=new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        startTime=System.currentTimeMillis();
-                        tapButton.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.Press3));
-                        tapButton.setText("TAP ME!");
-                        reactionStart.setEnabled(false);
-                        tapButton.setEnabled(true);
 
-                    }
-                },time[rnd]);
+
+                switch(myState){
+                    case waitState:
+                        waitMethod();
+                        break;
+                    case clickState:
+                        clickMethod();
+                        break;
+                    case reactionState:
+                        reactionMethod();
+                        break;
+
+                }
+
             }
         });
 
-        tapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO: 3
-                endTime=System.currentTimeMillis();
-                reactionTime.setText((endTime-startTime)+"");
-                tapButton.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.lightBlue));
-            }
-        });
 
     }
+    public void waitMethod(){
+        buttonReaction.setBackgroundColor(getResources().getColor(R.color.Red));
+        buttonReaction.setEnabled(false);
+        rnd = new Random().nextInt(time.length);
+        buttonReaction.setText(R.string.wait);
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                myState= MyState.clickState;
+                clickMethod();
+
+
+
+            }
+        },time[rnd]);
+
+    }
+    public void clickMethod(){
+        buttonReaction.setBackgroundColor(getResources().getColor(R.color.Green));
+        buttonReaction.setEnabled(true);
+        buttonReaction.setText(R.string.click);
+        myState=MyState.reactionState;
+        startTime=System.currentTimeMillis();
+
+
+
+    }
+    public void reactionMethod(){
+        buttonReaction.setBackgroundColor(getResources().getColor(R.color.Blue));
+        endTime=System.currentTimeMillis();
+        String str= getResources().getString(R.string.clickagain);
+        double showTime=(endTime-startTime);
+        buttonReaction.setText(str+"\n"+showTime+" ms");
+        myState= MyState.waitState;
+//        GraphView.series.appendData(new DataPoint(counter,showTime),true,20);
+        counter++;
+
+        if(counter==LIMIT){
+           startActivity(new Intent(ReactionTap.this,ReactionGraph.class));
+
+        }
+
+
+    }
+
+
+
+}
 }
