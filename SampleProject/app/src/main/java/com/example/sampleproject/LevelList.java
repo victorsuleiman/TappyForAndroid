@@ -64,7 +64,7 @@ public class LevelList extends AppCompatActivity {
                         startActivity(new Intent(LevelList.this, Level2.class));
                         break;
                     case 6:
-                        startActivity(new Intent(LevelList.this, ReactionTap.class));
+                        startActivity(new Intent(LevelList.this,ReactionTap.class));
                         break;
                     default:
                         Toast.makeText(LevelList.this, "Yo, something is wrong", Toast.LENGTH_SHORT).show();

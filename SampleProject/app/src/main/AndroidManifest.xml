@@ -10,20 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AwesomeTheme">
         <activity android:name=".ReactionGraph"></activity>
-        <activity android:name=".ReactionTap">
-            android:theme="@style/AppTheme.NoActionBar"
-        </activity>
+        <activity android:name=".ReactionTap" />
+        <activity android:name=".ReactionTapDos" />
         <activity
             android:name=".NameThatSong"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HangMan" /> <!-- &lt;!&ndash;<<<<<<< HEAD&ndash;&gt; -->
-        <!-- android:allowEmbedded="@style/AppTheme.NoActionBar" /> -->
-        <!-- <activity android:name=".SimonSays" /> -->
-        <!-- <activity android:name=".LevelList" /> -->
-        <!-- <activity android:name=".TicTacToe" /> -->
-        <!-- <activity android:name=".Level2" /> -->
-        <!-- <activity android:name=".Level1" /> -->
-        <!-- ======= -->
+        <activity android:name=".HangMan" />
         <activity
             android:name=".SimonSays"
             android:theme="@style/AppTheme.NoActionBar" />
