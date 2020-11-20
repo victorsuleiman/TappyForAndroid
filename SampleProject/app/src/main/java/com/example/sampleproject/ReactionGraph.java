@@ -30,8 +30,7 @@ public class ReactionGraph extends AppCompatActivity {
         series.setDrawBackground(true);
         series.setBackgroundColor(Color.argb(60,242, 199, 70));
         series.setDrawDataPoints(true);
+
         series.setDataPointsRadius(20);
-
-
     }
 }
