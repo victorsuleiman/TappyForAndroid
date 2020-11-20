@@ -15,6 +15,8 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+
+
 import java.util.Random;
 
 public class ReactionTap extends AppCompatActivity {
@@ -40,7 +42,7 @@ public class ReactionTap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_tap);
 
-        //GraphView.series=new LineGraphSeries<>();
+//        GraphView.series=new LineGraphSeries<>();
 
 //        GraphView.series.appendData(new DataPoint(0,0),true,20);
 
@@ -70,7 +72,9 @@ public class ReactionTap extends AppCompatActivity {
         });
 
 
-    }
+    } //ends onCreate
+
+
     public void waitMethod(){
         buttonReaction.setBackgroundColor(getResources().getColor(R.color.Red));
         buttonReaction.setEnabled(false);
@@ -120,5 +124,4 @@ public class ReactionTap extends AppCompatActivity {
 
 
 
-}
 }

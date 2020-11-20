@@ -28,6 +28,5 @@ public class ReactionGraph extends AppCompatActivity {
         series.setBackgroundColor(R.color.Green);
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(15);
-
     }
 }

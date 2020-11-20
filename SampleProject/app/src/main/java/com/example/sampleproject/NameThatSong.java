@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sampleproject.SupportClasses.Song;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -167,7 +169,8 @@ public class NameThatSong extends AppCompatActivity {
             public void onClick(View view)
             {
                 //compare input vs song name
-                String userAnswer = answerText.getText().toString().trim(); //answer trimmed
+                String userAnswer = answerText.getText().toString();
+                userAnswer = stripString(userAnswer); //format answer so you don't have to be 100% correct with symbols
                 if (songPlayed == false)
                 {
                     Toast.makeText(NameThatSong.this, "Listen to the song first :)", Toast.LENGTH_SHORT).show();
@@ -180,6 +183,7 @@ public class NameThatSong extends AppCompatActivity {
                 {
                     tries ++;
                     String actualAnswer = songList.get(currentSong).getSongName();
+                    actualAnswer = stripString(actualAnswer); //format answer to be more lax
                     if (userAnswer.equalsIgnoreCase(actualAnswer)) //user guesses right
                     {
                         endTime = System.currentTimeMillis();
@@ -236,6 +240,15 @@ public class NameThatSong extends AppCompatActivity {
         }); //ends clicking submit Button
     } //ends onCreate
 
+    /* Strips everything that's not a-z from string. Turns everything lowercase
+        E.g: "It's Raining Men" into "itsrainingmen", "Let's Go!" into "letsgo"
+    */
+    public static String stripString(String aString)
+    {
+        String newString = aString.replaceAll("[^a-zA-Z]","");
+        return newString.toLowerCase();
+    }
+
     /*used to parse song from DB*/
     public List<Song> SongParser()
     {
@@ -263,7 +276,7 @@ public class NameThatSong extends AppCompatActivity {
             songList.add(aSong); //add object to list
         }
         return songList;
-    }
+    } //ends songParser
 
     /*get Data from CSV file*/
     private List<String[]> ReadCSV()

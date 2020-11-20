@@ -1,4 +1,4 @@
-package com.example.sampleproject;
+package com.example.sampleproject.SupportClasses;
 
 import androidx.annotation.NonNull;
 
@@ -20,16 +20,26 @@ public class Song
     }
     public Song(String songName, String artist, int tune, int coverArt, String hint)
     {
-        this.songName = songName;
-        this.artist = artist;
+        setSongName(songName);
+        setArtist(artist);
         setTune(tune);
-        this.coverArt = coverArt;
-        this.hint = hint;
+        setCoverArt(coverArt);
+        setHint(hint);
 
     }
 
     public String getSongName() {
         return songName;
+    }
+    public void setSongName(String songName) {
+        this.songName = songName;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
     public int getTune() {
@@ -37,17 +47,26 @@ public class Song
     }
     public void  setTune(int tune) { this.tune = tune; }
 
-    public String getArtist() {
-        return artist;
-    }
+
 
     public int getCoverArt() {
         return coverArt;
     }
-
+    public void setCoverArt(int coverArt) {
+        this.coverArt = coverArt;
+    }
     public String getHint() {
         return hint;
     }
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
+
+
+
+
+
 
 
     //toString used for testing
