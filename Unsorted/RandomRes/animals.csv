@@ -1,15 +1,15 @@
-ID,Word
-1,MONKEY
-2,RHINO
-3,CAT
-4,DOG
-5,BIRD
-6,HIPPO
-7,COW
-8,HORSE
-9,WHALE
-10,TURTLE
-11,FISH
-12,GOAT
-13,RABBIT
-14,SNAKE
+ID,Word,Hint
+1,MONKEY,Likes bananas!
+2,RHINO,Cows with horns on the nose!
+3,CAT,Goes Meow!
+4,DOG,Mans bestfriend!
+5,BIRD,Can fly!
+6,HIPPO,I think moto moto likes you!
+7,COW,Mooooo!
+8,HORSE,Used to meassure a cars HP!
+9,WHALE,Shoots water from the top of their head!
+10,TURTLE,Slow and steady wins the race!
+11,FISH,Nemo!
+12,GOAT,Baaahhhhh!
+13,RABBIT,Likes Carrots!
+14,SNAKE,Has no hands or legs but can choke you!
