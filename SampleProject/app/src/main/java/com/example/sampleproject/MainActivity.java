@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity
 
                 img.startAnimation(rotateAnim);
                 try {
-                    TimeUnit.SECONDS.sleep(5);
-                    startActivity(intent);
+//                    TimeUnit.SECONDS.sleep(5);
+//                    startActivity(intent);
                 }catch(Exception ex){
                     Log.e("MainActivity", "Animation time out ");
                 }
@@ -48,14 +48,27 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        rotateAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                startActivity(intent);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
         Bundle bundle=new Bundle();
         bundle.getString("UserName",editText.getText().toString());
         intent.putExtras(bundle);
-
-
-
-
-
+        
     }
 
     //return home on back pressed
@@ -67,11 +80,5 @@ public class MainActivity extends AppCompatActivity
         startActivity(a);
     }
 
-//    public void imageButton(View view){
-//        view=findViewById(R.id.playButton);
-//       Animation rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate);
-//       view.getRotation();
-//        startActivity(new Intent(MainActivity.this,LevelList.class));
-//
-//    }
+
 }
