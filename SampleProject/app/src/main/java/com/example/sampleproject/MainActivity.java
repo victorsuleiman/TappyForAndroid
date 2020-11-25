@@ -67,11 +67,5 @@ public class MainActivity extends AppCompatActivity
         startActivity(a);
     }
 
-//    public void imageButton(View view){
-//        view=findViewById(R.id.playButton);
-//       Animation rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate);
-//       view.getRotation();
-//        startActivity(new Intent(MainActivity.this,LevelList.class));
-//
-//    }
+
 }
