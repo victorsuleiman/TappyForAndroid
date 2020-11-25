@@ -2,12 +2,17 @@ package com.example.sampleproject.Adapters;
 
 
 import android.graphics.Color;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.sampleproject.R;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class GridAdapter extends BaseAdapter {
@@ -35,17 +40,21 @@ public class GridAdapter extends BaseAdapter {
     }
 
     @Override
+
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView==null){
-            ImageView imageview = new ImageView(parent.getContext());
-            imageview.setScaleType(ImageView.ScaleType.FIT_CENTER);//maintains the propotion but scales the image to fit into the image view.
-            imageview.setLayoutParams(new ViewGroup.LayoutParams(GridView.AUTO_FIT,120));
-            imageview.setImageResource(lvlImg.get(position));
-            imageview.setBackgroundColor(Color.LTGRAY);
-            convertView= imageview;
-
+        View v = convertView;
+  //        LayoutInflater _inflater = (LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if (v == null) {
+            LayoutInflater _inflater = LayoutInflater.from(parent.getContext());
+            v = _inflater.inflate(R.layout.gridlayout, parent, false);
         }
+        // Get the TextView and ImageView from CustomView for displaying item
+        TextView txtview =  v.findViewById(R.id.listitemTextView1);
+        ImageView imgview = v.findViewById(R.id.listitemImageView1);
 
-        return convertView;
+        // Set the text and image for current item using data from map list
+        txtview.setText(lvlName.get(position));
+        imgview.setImageResource(lvlImg.get(position));
+        return v;
     }
 }

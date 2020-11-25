@@ -28,6 +28,7 @@ public class HangMan extends AppCompatActivity {
     final String[] wordsActivities = new String[]{"SKI", "RUN", "JUMP", "SING", "DANCE", "WRITE", "BIKE", "DRIVE", "BIKE",
             "DRIVE", "PARTY", "EAT", "DRINK", "CLEAN", "STUDY", "DIE"};
     final String[] words2020 = new String[]{"QUARANTINE", "COVID", "CORONA", "WWIII", "BLACK LIVES MATTER"};
+
     String[] button=new String[]{"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U"
                                   ,"V","W","X","Y","Z"};
 

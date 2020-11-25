@@ -8,16 +8,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sampleproject.Helper.SQLHelper;
+
 public class Level1 extends AppCompatActivity {
 
    // String colorID = "";
     int i = 0;
     Button tapBtn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
+
+
+
 
         tapBtn = findViewById(R.id.tappyTappy);
         int resColor = R.color.Press10;
