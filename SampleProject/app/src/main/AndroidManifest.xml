@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/steps_round"
         android:supportsRtl="true"
         android:theme="@style/AwesomeTheme">
-        <activity android:name=".LevelGrid"></activity>
+        <activity android:name=".HighScores"></activity>
+        <activity android:name=".UserInfo" />
+        <activity android:name=".LevelGrid" />
         <activity android:name=".ReactionGraph" />
         <activity android:name=".ReactionTap" />
         <activity android:name=".ReactionTapDos" />

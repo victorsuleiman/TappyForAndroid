@@ -241,12 +241,13 @@ public class NameThatSong extends AppCompatActivity {
         }); //ends clicking submit Button
     } //ends onCreate
 
-    /* Strips everything that's not a-z from string. Turns everything lowercase
+    /* Strips everything that's not letters or digits or from string. Turns everything lowercase
         E.g: "It's Raining Men" into "itsrainingmen", "Let's Go!" into "letsgo"
     */
     public static String stripString(String aString)
     {
-        String newString = aString.replaceAll("[^a-zA-Z]","");
+        //regular expression: only numbers and letters will be kept in string
+        String newString = aString.replaceAll("[^a-zA-Z0-9]","");
         return newString.toLowerCase();
     }
 

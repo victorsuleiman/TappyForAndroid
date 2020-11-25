@@ -2,8 +2,13 @@ package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -11,15 +16,25 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 public class MainActivity extends AppCompatActivity
 {
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String USERNAME = "Username";
+
+    SQLiteDatabase tappyDB;
+
     ImageView img;
     Animation rotateAnim;
     EditText editText;
+    String username;
+    String currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,27 +46,23 @@ public class MainActivity extends AppCompatActivity
         img=findViewById(R.id.playButton);
         img.setClickable(true);
         rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate);
-        final Intent intent=new Intent(MainActivity.this,LevelList.class);
+        final Intent intent = new Intent(MainActivity.this,LevelList.class);
+
+        createDB();
+        createTables();
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                username = editText.getText().toString();
+                saveUser(username);
                 img.startAnimation(rotateAnim);
-                try {
-//                    TimeUnit.SECONDS.sleep(5);
-//                    startActivity(intent);
-                }catch(Exception ex){
-                    Log.e("MainActivity", "Animation time out ");
-                }
-
             }
         });
 
         rotateAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
             }
 
             @Override
@@ -61,15 +72,140 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onAnimationRepeat(Animation animation) {
-
             }
         });
 
-        Bundle bundle=new Bundle();
-        bundle.getString("UserName",editText.getText().toString());
-        intent.putExtras(bundle);
-        
+//        Bundle bundle = new Bundle();
+//        bundle.getString("UserName",editText.getText().toString());
+//        intent.putExtras(bundle);
+
     }
+
+    /*save username into shared pref*/
+    public void saveUser(String username)
+    {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        SharedPreferences.Editor editor = sharedPref.edit(); //editor needed to put content in
+
+        editor.putString(USERNAME, username);
+        editor.commit();
+
+        Toast.makeText(this, username + " written to sharedpref", Toast.LENGTH_SHORT).show();
+        //TODO: check if existing user or not
+    }
+
+    public void loadData()
+    {
+        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        currentUser = sharedPref.getString(USERNAME, "Anonymous"); //if user not found, make username "Anonymous"
+    }
+
+    /*create main DB*/
+    private void createDB()
+    {
+        try {
+            tappyDB = openOrCreateDatabase("Tappy.db", MODE_PRIVATE, null);
+
+            Log.d("DB Tappy", "DB created");
+        }
+        catch (Exception ex)
+        {
+            Log.e("DB Tappy", ex.getMessage());
+        }
+    }
+
+
+    private void createTables()
+    {
+        try
+        {
+            String setPRAGMAForeignKeysOn = "PRAGMA foreign_keys = ON;";
+
+            //Drop tables if exists
+            String dropUsersTableCmd = "DROP TABLE IF EXISTS " + "users;";
+            String dropScoresTableCmd = "DROP TABLE IF EXISTS " + "scores;";
+
+            //User table
+            String createUsersTableCmd = "CREATE TABLE users "
+                    + "(username TEXT PRIMARY KEY, fullName TEXT, email TEXT);";
+
+            //Score table
+            String createScoresTableCmd = "CREATE TABLE scores "
+                    + "(username TEXT, game TEXT, score REAL, FOREIGN KEY(username) REFERENCES users(username));";
+
+
+            tappyDB.execSQL(setPRAGMAForeignKeysOn);
+            tappyDB.execSQL(dropScoresTableCmd);
+            tappyDB.execSQL(dropUsersTableCmd); //cannot be dropped first because of user table reference
+
+            tappyDB.execSQL(createUsersTableCmd);
+            tappyDB.execSQL(createScoresTableCmd);
+
+            Log.d("DB Tappy", "Tables created");
+        }
+        catch (Exception ex)
+        {
+            Log.e("DB Tappy", "Error creating table" + ex.getMessage());
+        }
+
+    }
+
+    private void addUserToDB(String username)
+    {
+        long result = 0;
+        ContentValues val = new ContentValues();
+        val.put("username", username);
+
+        result = tappyDB.insert("username",null, val);
+        if (result != -1)
+        {
+            Log.d("DB Tappy", "rowid == " + result + " user " + username + " inserted!");
+        }
+        else
+        {
+            Log.e("DB Tappy", "Error inserting user with username " + username);
+
+        }
+    }
+
+    private List<String[]> browseUsersRecs()
+    {
+        List<String[]> UserList = new ArrayList<>();
+
+        String[] headRec = new String[3];
+        headRec[0] = "username";
+        headRec[1] = "fullname";
+        headRec[2] = "email";
+
+        UserList.add(headRec);
+
+        String queryStr = "SELECT * FROM users";
+
+        try {
+            Cursor cursor = tappyDB.rawQuery(queryStr, null);
+            if (cursor != null)
+            {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast())
+                {
+                    String[] eachRecArray = new String[3];
+                    eachRecArray[0] = cursor.getString(0); //correspond to username
+                    eachRecArray[1] = cursor.getString(1); // full name
+                    eachRecArray[2] = cursor.getString(2); // email
+
+                    UserList.add(eachRecArray);
+                    cursor.moveToNext();
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.d("DB Tappy", "Querying user  recs error " + ex.getMessage());
+        }
+
+        return UserList;
+    }
+
 
     //return home on back pressed
     @Override

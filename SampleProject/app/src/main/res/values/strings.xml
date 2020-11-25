@@ -39,12 +39,6 @@
     <string name="z">Z</string>
     <string name="simonTitle">Simon</string>
     <string name="test">test</string>
-    <string-array name="hangmanList">
-        <item>Choose a category</item>
-        <item>ANIMAL</item>
-        <item>ACTIVITIES</item>
-        <item>2020</item>
-    </string-array>
     <string name="init_word">_ _ _ _ _ _ _</string>
     <string name="new_game">New Game</string>
     <string name="you_win">You win</string>
@@ -56,8 +50,8 @@
     <string name="ntsTitle">Name That Song!</string>
     <string name="ntsGuessBtn">GUESS THE SONG!</string>
     <string name="ntsTxtHint">Guess</string>
-
     <string name="TitleForTapRec">Reaction Tap</string>
+
     <string name="DescriptionTap">Tap the button when the color changes to green</string>
     <string name="tapButton">WAIT!</string>
     <string name="readyButton">READY!</string>
@@ -68,12 +62,19 @@
     <string name="headphonesImg">headphones</string>
     <string name="vinylImg">vinyl</string>
     <string name="ntsAlbumArt">Album Art Background</string>
-
     <string name="Start">Press to start</string>
+
     <string name="wait">WAIT FOR GREEN ...</string>
     <string name="click">Click! </string>
     <string name="clickagain">Click Again to continue!</string>
     <string name="userName">Enter username with no space</string>
+    <string name="updateInfoButton">Update Info</string>
+    <string-array name="hangmanList">
+        <item>Choose a category</item>
+        <item>ANIMAL</item>
+        <item>ACTIVITIES</item>
+        <item>2020</item>
+    </string-array>
 
 
 </resources>
