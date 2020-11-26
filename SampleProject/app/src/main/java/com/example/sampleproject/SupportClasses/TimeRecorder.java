@@ -54,4 +54,8 @@ public class TimeRecorder {
         double realTime = this.time - 1;
         return realTime;
     }
+
+    public void setTime(double time) {
+        this.time = time;
+    }
 }
