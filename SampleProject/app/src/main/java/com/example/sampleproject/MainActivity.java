@@ -46,14 +46,12 @@ public class MainActivity extends AppCompatActivity
         img=findViewById(R.id.playButton);
         img.setClickable(true);
         rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate);
-<<<<<<< Updated upstream
-        final Intent intent = new Intent(MainActivity.this,LevelList.class);
 
         createDB();
         createTables();
-=======
+
         final Intent intent=new Intent(MainActivity.this,LevelGrid.class);
->>>>>>> Stashed changes
+
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
