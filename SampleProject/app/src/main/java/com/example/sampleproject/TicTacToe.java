@@ -3,8 +3,10 @@ package com.example.sampleproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -39,6 +41,8 @@ public class TicTacToe extends AppCompatActivity {
     private TextView textViewPlayer;
     private TextView textViewCpu;
 
+    SQLiteDatabase tappyDB;
+
     String username;
 
     @Override
@@ -46,10 +50,12 @@ public class TicTacToe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
 
+        openDB(); //open our DB
+
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = sharedPref.getString(USERNAME_CURRENT, "Anonymous");
 
-        timeRecorder = new TimeRecorder(this,username,"Tic Tap Toe" );
+        timeRecorder = new TimeRecorder(this);
 
         textViewPlayer = findViewById(R.id.textViewPlayerScore);
         textViewCpu = findViewById(R.id.textViewCpuScore);
@@ -108,6 +114,7 @@ public class TicTacToe extends AppCompatActivity {
         playerPoints++;
         if (playerPoints == 3) {
             gameStarted = false;
+            addUserScore(username,"Tic Tap Toe",(long)timeRecorder.getTime());
             timeRecorder.stopAndResetTimer(true);
             resetPoints();
             updatePointsText();
@@ -312,6 +319,38 @@ public class TicTacToe extends AppCompatActivity {
         Log.d("AI","Picking Random position");
 
         return availablePositions.get(randomPos);
+    }
+
+    private void openDB()
+    {
+        try
+        {
+            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
+        }
+        catch (Exception e)
+        {
+            Log.d("Tappy DB", "Database opening error" + e.getMessage());
+        }
+    }
+
+    public void addUserScore (String username, String game, long score)
+    {
+        long result = 0;
+        ContentValues val = new ContentValues();
+        val.put("username", username);
+        val.put("game", game);
+        val.put("score", score);
+
+        result = tappyDB.insert("scores", null, val);
+
+        if (result != -1)
+        {
+            Log.d("DB Tappy", "Added score for user " + username );
+        }
+        else
+        {
+            Log.d("DB Tappy", "Error adding score for user " + username );
+        }
     }
 
     //this method makes sure we doesn't lose the state of our variables if the device rotates

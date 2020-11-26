@@ -24,16 +24,13 @@ public class TimeRecorder {
     private double time;
     private boolean timerStarted;
     private Context context;
-    private String username;
-    private String game;
 
-    public TimeRecorder(Context context, String username, String game) {
+
+    public TimeRecorder(Context context) {
         this.context = context;
         this.timer = new Timer();
         this.timerStarted= false;
         this.time = 0.0;
-        this.username = username;
-        this.game = game;
     }
 
     public void startRecording() {
@@ -71,6 +68,16 @@ public class TimeRecorder {
     }
 
 //    public void sendScoreToDB () {
+//
+//        try
+//        {
+//            SQLiteDatabase tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
+//        }
+//        catch (Exception e)
+//        {
+//            Log.d("DB DEMO", "Database opening error" + e.getMessage());
+//        }
+//
 //        long result = 0;
 //        ContentValues val = new ContentValues();
 //        val.put("username",this.username);

@@ -508,7 +508,7 @@ public class NameThatSong extends AppCompatActivity {
         }
         catch (Exception e)
         {
-            Log.d("DB DEMO", "Database opening error" + e.getMessage());
+            Log.d("Tappy DB", "Database opening error" + e.getMessage());
         }
     }
 
