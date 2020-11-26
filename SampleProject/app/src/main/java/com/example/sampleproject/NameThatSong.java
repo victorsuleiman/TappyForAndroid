@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sampleproject.SupportClasses.Song;
-import com.example.sampleproject.MainActivity;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -54,8 +54,6 @@ Uses quite a few of animations
 public class NameThatSong extends AppCompatActivity {
 
     SQLiteDatabase tappyDB;
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String USERNAME_CURRENT = "Username";
     public static final String GAME_NAME = "Name that song";
 
     ImageView bgImg;
@@ -102,7 +100,7 @@ public class NameThatSong extends AppCompatActivity {
 
         openDB(); //open our DB
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        username = sharedPref.getString(USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
+        username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
         Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
 
         submitBtn = findViewById(R.id.ntsSubmitBtn);

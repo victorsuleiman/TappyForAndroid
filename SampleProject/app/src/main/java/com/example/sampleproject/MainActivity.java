@@ -20,12 +20,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.example.sampleproject.Constants;
 
 public class MainActivity extends AppCompatActivity
 {
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String USERNAME_CURRENT = "Username";
-
     SQLiteDatabase tappyDB;
 
     ImageView img;
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity
 
 
             tappyDB.execSQL(setPRAGMAForeignKeysOn);
-            tappyDB.execSQL(dropScoresTableCmd);
+//            tappyDB.execSQL(dropScoresTableCmd);
 //            tappyDB.execSQL(dropUsersTableCmd); //cannot be dropped first because of user table reference
 
 //            tappyDB.execSQL(createUsersTableCmd);
