@@ -14,7 +14,7 @@
         <activity android:name=".LevelGrid" />
         <activity android:name=".ReactionGraph" />
         <activity android:name=".ReactionTap" />
-        <activity android:name=".ReactionTapDos" />
+<!--        <activity android:name=".ReactionTapDos" />-->
         <activity
             android:name=".NameThatSong"
             android:theme="@style/AppTheme.NoActionBar" />

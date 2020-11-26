@@ -1,8 +1,12 @@
 package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.ContentValues;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sampleproject.SupportClasses.Song;
+import com.example.sampleproject.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -47,6 +52,10 @@ Uses quite a few of animations
  */
 public class NameThatSong extends AppCompatActivity {
 
+    SQLiteDatabase tappyDB;
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String USERNAME = "Username";
+
     ImageView bgImg;
     ImageView decImgLeft;
     ImageView decImgRight;
@@ -55,6 +64,11 @@ public class NameThatSong extends AppCompatActivity {
     MediaPlayer aPlayer = null;
     ImageButton playPauseBtn;
     TextView ntsTitle;
+
+
+//    String username = "James"; //TODO: switch to dynamic
+    String GAME_NAME = "Name that song";
+
 
     List<Song> songList = new ArrayList<>(); //holds all song;
     //TODO:switch to DB implementation, uses songParser class (currently using a CSV file to hold all song info)
@@ -83,6 +97,11 @@ public class NameThatSong extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_that_song);
+
+        openDB(); //open our DB
+        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String username = sharedPref.getString(USERNAME, "Anonymous"); //if user not found, make username "Anonymous"
+
 
         submitBtn = findViewById(R.id.ntsSubmitBtn);
         answerText = findViewById(R.id.ntsAnswerField);
@@ -200,6 +219,8 @@ public class NameThatSong extends AppCompatActivity {
                             submitBtn.setText("Correct! You answered in " + formatMilliseconds(timeTaken) + "\nIt took you " + tries + " guesses"
                                     + "\nTry again? A new song is waiting!");
                         }
+
+                        addUserScore(username, GAME_NAME, timeTaken); //add score to DB
 
                         decImgLeft.startAnimation(animL); //spin left image
                         decImgRight.startAnimation(animR); //spin right image
@@ -477,13 +498,47 @@ public class NameThatSong extends AppCompatActivity {
         }
     } //ends formatMilliseconds
 
+    private void openDB()
+    {
+        try
+        {
+            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
+        }
+        catch (Exception e)
+        {
+            Log.d("DB DEMO", "Database opening error" + e.getMessage());
+        }
+    }
+
+    public void addUserScore (String username, String game, long score)
+    {
+        long result = 0;
+        ContentValues val = new ContentValues();
+        val.put("username", username);
+        val.put("game", game);
+        val.put("score", score);
+
+        result = tappyDB.insert("scores", null, val);
+
+        if (result != -1)
+        {
+            Log.d("DB Tappy", "Added score for user " + username );
+        }
+        else
+        {
+            Log.d("DB Tappy", "Error adding score for user " + username );
+        }
+    }
+
     //returns to Level List when back button is pressed
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(this,LevelList.class));
-        aPlayer.stop(); //stop song
-        aPlayer.reset(); //prevent memory leaks
+        startActivity(new Intent(this,LevelGrid.class));
+        if (songPlayed) {
+            aPlayer.stop(); //stop song
+            aPlayer.reset(); //prevent memory leaks
+        }
     }
 
 }

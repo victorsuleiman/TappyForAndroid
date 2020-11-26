@@ -54,7 +54,7 @@ public class LevelGrid extends AppCompatActivity {
                 startActivity(new Intent(LevelGrid.this, NameThatSong.class));
                 break;
                 case 4:
-                startActivity(new Intent(LevelGrid.this, SimonSays.class));
+                startActivity(new Intent(LevelGrid.this, HighScores.class)); //TODO: change back to simon says
                 break;
                 case 5:
                 startActivity(new Intent(LevelGrid.this,ReactionTap.class));
@@ -66,11 +66,12 @@ public class LevelGrid extends AppCompatActivity {
 
         });
 
-
-
-
-
     }
 
 
+    //returns to Level List when back button is pressed
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,MainActivity.class));
+    }
 }

@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity
     SQLiteDatabase tappyDB;
 
     ImageView img;
+    ImageButton buttonToScore;
     Animation rotateAnim;
     EditText editText;
     String username;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        buttonToScore = findViewById(R.id.buttonScoreList);
         editText=findViewById(R.id.userName);
         img=findViewById(R.id.playButton);
         img.setClickable(true);
@@ -52,6 +55,12 @@ public class MainActivity extends AppCompatActivity
 
         final Intent intent=new Intent(MainActivity.this,LevelGrid.class);
 
+        buttonToScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, HighScores.class));
+            }
+        });
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +122,7 @@ public class MainActivity extends AppCompatActivity
     private void createDB()
     {
         try {
-            tappyDB = openOrCreateDatabase("Tappy.db", MODE_PRIVATE, null);
+            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
 
             Log.d("DB Tappy", "DB created");
         }
@@ -135,19 +144,19 @@ public class MainActivity extends AppCompatActivity
             String dropScoresTableCmd = "DROP TABLE IF EXISTS " + "scores;";
 
             //User table
-            String createUsersTableCmd = "CREATE TABLE users "
-                    + "(username TEXT PRIMARY KEY, fullName TEXT, email TEXT);";
+//            String createUsersTableCmd = "CREATE TABLE users "
+//                    + "(username TEXT PRIMARY KEY, fullName TEXT, email TEXT);";
 
             //Score table
             String createScoresTableCmd = "CREATE TABLE scores "
-                    + "(username TEXT, game TEXT, score REAL, FOREIGN KEY(username) REFERENCES users(username));";
+                    + "(username TEXT, game TEXT, score REAL);";
 
 
             tappyDB.execSQL(setPRAGMAForeignKeysOn);
             tappyDB.execSQL(dropScoresTableCmd);
-            tappyDB.execSQL(dropUsersTableCmd); //cannot be dropped first because of user table reference
+//            tappyDB.execSQL(dropUsersTableCmd); //cannot be dropped first because of user table reference
 
-            tappyDB.execSQL(createUsersTableCmd);
+//            tappyDB.execSQL(createUsersTableCmd);
             tappyDB.execSQL(createScoresTableCmd);
 
             Log.d("DB Tappy", "Tables created");
@@ -159,36 +168,18 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void addUserToDB(String username)
+    public List<String[]> browseScoresRecs()
     {
-        long result = 0;
-        ContentValues val = new ContentValues();
-        val.put("username", username);
-
-        result = tappyDB.insert("username",null, val);
-        if (result != -1)
-        {
-            Log.d("DB Tappy", "rowid == " + result + " user " + username + " inserted!");
-        }
-        else
-        {
-            Log.e("DB Tappy", "Error inserting user with username " + username);
-
-        }
-    }
-
-    private List<String[]> browseUsersRecs()
-    {
-        List<String[]> UserList = new ArrayList<>();
+        List<String[]> ScoreList = new ArrayList<>();
 
         String[] headRec = new String[3];
         headRec[0] = "username";
-        headRec[1] = "fullname";
-        headRec[2] = "email";
+        headRec[1] = "game";
+        headRec[2] = "score";
 
-        UserList.add(headRec);
+        ScoreList.add(headRec);
 
-        String queryStr = "SELECT * FROM users";
+        String queryStr = "SELECT * FROM scores";
 
         try {
             Cursor cursor = tappyDB.rawQuery(queryStr, null);
@@ -199,10 +190,10 @@ public class MainActivity extends AppCompatActivity
                 {
                     String[] eachRecArray = new String[3];
                     eachRecArray[0] = cursor.getString(0); //correspond to username
-                    eachRecArray[1] = cursor.getString(1); // full name
-                    eachRecArray[2] = cursor.getString(2); // email
+                    eachRecArray[1] = cursor.getString(1); // game
+                    eachRecArray[2] = cursor.getString(2); // score
 
-                    UserList.add(eachRecArray);
+                    ScoreList.add(eachRecArray);
                     cursor.moveToNext();
                 }
             }
@@ -212,7 +203,27 @@ public class MainActivity extends AppCompatActivity
             Log.d("DB Tappy", "Querying user  recs error " + ex.getMessage());
         }
 
-        return UserList;
+        return ScoreList;
+    } //ends browse Scores
+
+    public void addUserScore (String username, String game, long score)
+    {
+        long result = 0;
+        ContentValues val = new ContentValues();
+        val.put("username", username);
+        val.put("game", game);
+        val.put("score", score);
+
+        result = tappyDB.insert("scores", null, val);
+
+        if (result != -1)
+        {
+            Log.d("DB Tappy", "Added score for user " + username );
+        }
+        else
+        {
+            Log.d("DB Tappy", "Error adding score for user " + username );
+        }
     }
 
 
