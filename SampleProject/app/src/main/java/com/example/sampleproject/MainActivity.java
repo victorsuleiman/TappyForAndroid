@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,13 +20,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 public class MainActivity extends AppCompatActivity
 {
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String USERNAME = "Username";
+    public static final String USERNAME_CURRENT = "Username";
 
     SQLiteDatabase tappyDB;
 
@@ -105,7 +102,7 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         SharedPreferences.Editor editor = sharedPref.edit(); //editor needed to put content in
 
-        editor.putString(USERNAME, username);
+        editor.putString(USERNAME_CURRENT, username);
         editor.commit();
 
         Toast.makeText(this, username + " written to sharedpref", Toast.LENGTH_SHORT).show();
@@ -115,7 +112,7 @@ public class MainActivity extends AppCompatActivity
     public void loadData()
     {
         SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        currentUser = sharedPref.getString(USERNAME, "Anonymous"); //if user not found, make username "Anonymous"
+        currentUser = sharedPref.getString(USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
     }
 
     /*create main DB*/

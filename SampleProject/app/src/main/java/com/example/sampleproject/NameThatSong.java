@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -100,7 +101,7 @@ public class NameThatSong extends AppCompatActivity {
         setContentView(R.layout.activity_name_that_song);
 
         openDB(); //open our DB
-        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = sharedPref.getString(USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
         Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
 
