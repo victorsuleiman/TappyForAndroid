@@ -52,6 +52,7 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:fontFamily="casual"
+        android:textColor="@color/darkOrange"
         android:textColorHint="@color/buttonHangMan"
         android:hint="@string/userName"
         android:inputType="textPersonName"
