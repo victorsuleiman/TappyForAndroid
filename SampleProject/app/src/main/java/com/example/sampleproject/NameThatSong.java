@@ -54,7 +54,8 @@ public class NameThatSong extends AppCompatActivity {
 
     SQLiteDatabase tappyDB;
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String USERNAME = "Username";
+    public static final String USERNAME_CURRENT = "Username";
+    public static final String GAME_NAME = "Name that song";
 
     ImageView bgImg;
     ImageView decImgLeft;
@@ -66,8 +67,8 @@ public class NameThatSong extends AppCompatActivity {
     TextView ntsTitle;
 
 
-//    String username = "James"; //TODO: switch to dynamic
-    String GAME_NAME = "Name that song";
+    String username;// = "James"; //TODO: switch to dynamic
+
 
 
     List<Song> songList = new ArrayList<>(); //holds all song;
@@ -100,8 +101,8 @@ public class NameThatSong extends AppCompatActivity {
 
         openDB(); //open our DB
         SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String username = sharedPref.getString(USERNAME, "Anonymous"); //if user not found, make username "Anonymous"
-
+        username = sharedPref.getString(USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
+        Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
 
         submitBtn = findViewById(R.id.ntsSubmitBtn);
         answerText = findViewById(R.id.ntsAnswerField);
