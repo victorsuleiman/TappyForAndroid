@@ -71,7 +71,7 @@ public class Level1 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(this,LevelList.class));
+        startActivity(new Intent(this,LevelGrid.class));
 
     }
 }
