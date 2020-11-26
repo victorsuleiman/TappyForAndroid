@@ -22,7 +22,7 @@ public class Level2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2);
 
-        timeRecorder = new TimeRecorder(this);
+//        timeRecorder = new TimeRecorder(this);
 
         Button startTimerButton = findViewById(R.id.level2Btn);
         Button stopTimerButton = findViewById(R.id.level2BtnStopTimer);

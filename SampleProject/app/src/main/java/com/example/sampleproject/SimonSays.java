@@ -2,13 +2,18 @@ package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +25,8 @@ import com.example.sampleproject.SupportClasses.TimeRecorder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static com.example.sampleproject.MainActivity.USERNAME_CURRENT;
 
 public class SimonSays extends AppCompatActivity {
 
@@ -55,11 +62,19 @@ public class SimonSays extends AppCompatActivity {
 
     private TimeRecorder timeRecorder;
 
+    SQLiteDatabase tappyDB;
+    String username;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_says);
+
+        openDB(); //open our DB
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        username = sharedPref.getString(USERNAME_CURRENT, "Anonymous");
 
         timeRecorder = new TimeRecorder(this);
 
@@ -178,6 +193,7 @@ public class SimonSays extends AppCompatActivity {
                                 if (roundNumber > NUMBER_OF_ROUNDS) {
                                     //game is won!
                                     gameStarted = false;
+                                    addUserScore(username,"Simon Tap",(long) timeRecorder.getTime());
                                     timeRecorder.stopAndResetTimer(true);
                                 } else {
                                     //round won, need to show
@@ -259,11 +275,43 @@ public class SimonSays extends AppCompatActivity {
         }
     }
 
+    private void openDB()
+    {
+        try
+        {
+            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
+        }
+        catch (Exception e)
+        {
+            Log.d("Tappy DB", "Database opening error" + e.getMessage());
+        }
+    }
+
+    public void addUserScore (String username, String game, long score)
+    {
+        long result = 0;
+        ContentValues val = new ContentValues();
+        val.put("username", username);
+        val.put("game", game);
+        val.put("score", score);
+
+        result = tappyDB.insert("scores", null, val);
+
+        if (result != -1)
+        {
+            Log.d("DB Tappy", "Added score for user " + username );
+        }
+        else
+        {
+            Log.d("DB Tappy", "Error adding score for user " + username );
+        }
+    }
+
     //returns to Level List when back button is pressed
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(this,LevelList.class));
+        startActivity(new Intent(this,LevelGrid.class));
 
     }
 }

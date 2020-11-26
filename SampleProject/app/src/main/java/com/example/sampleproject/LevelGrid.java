@@ -42,7 +42,7 @@ public class LevelGrid extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
                 case 0:
-                startActivity(new Intent(LevelGrid.this, Level1.class));
+                startActivity(new Intent(LevelGrid.this, HighScores.class));
                 break;
                 case 1:
                 startActivity(new Intent(LevelGrid.this, TicTacToe.class));
@@ -54,7 +54,7 @@ public class LevelGrid extends AppCompatActivity {
                 startActivity(new Intent(LevelGrid.this, NameThatSong.class));
                 break;
                 case 4:
-                startActivity(new Intent(LevelGrid.this, HighScores.class)); //TODO: change back to simon says
+                startActivity(new Intent(LevelGrid.this, SimonSays.class)); //TODO: change back to simon says
                 break;
                 case 5:
                 startActivity(new Intent(LevelGrid.this,ReactionTap.class));

@@ -14,6 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.content.Context.MODE_PRIVATE;
+import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 //I still wanna do a method that directly updates the time to the database and maybe format it?
 
@@ -23,16 +24,13 @@ public class TimeRecorder {
     private double time;
     private boolean timerStarted;
     private Context context;
-//    private SQLiteDatabase db;
-//    private String username;
-//    private String game;
+
 
     public TimeRecorder(Context context) {
         this.context = context;
         this.timer = new Timer();
         this.timerStarted= false;
         this.time = 0.0;
-//        this.db = SQLiteDatabase.openOrCreateDatabase("Tappy.db",null);
     }
 
     public void startRecording() {
@@ -70,6 +68,16 @@ public class TimeRecorder {
     }
 
 //    public void sendScoreToDB () {
+//
+//        try
+//        {
+//            SQLiteDatabase tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
+//        }
+//        catch (Exception e)
+//        {
+//            Log.d("DB DEMO", "Database opening error" + e.getMessage());
+//        }
+//
 //        long result = 0;
 //        ContentValues val = new ContentValues();
 //        val.put("username",this.username);
