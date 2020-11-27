@@ -162,6 +162,7 @@ public class HangMan extends AppCompatActivity {
                 {
                     //Win condition
                     hangManImg.setImageResource(R.drawable.hangman_winpose);
+                    //TODO:add score
                     msgBox.setText("You Won!");
                 }
             }
