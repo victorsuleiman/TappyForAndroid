@@ -40,9 +40,10 @@
         android:layout_height="144dp"
         app:layout_constraintBottom_toBottomOf="@+id/splashImg"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.941"
+        app:layout_constraintVertical_bias="0.933"
         app:srcCompat="@drawable/videoplayer" />
 
     <EditText
@@ -63,14 +64,14 @@
 
     <ImageButton
         android:id="@+id/buttonScoreList"
-        android:layout_width="57dp"
-        android:layout_height="58dp"
+        android:layout_width="119dp"
+        android:layout_height="101dp"
         app:layout_constraintBottom_toBottomOf="@+id/splashImg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/foursquares" />
+        app:layout_constraintVertical_bias="0.911"
+        app:srcCompat="@drawable/leaderboard_logo_small" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
