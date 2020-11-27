@@ -363,6 +363,7 @@ public class TicTacToe extends AppCompatActivity {
         outState.putInt("cpuPoints",cpuPoints);
         outState.putBoolean("player1Turn",playerTurn);
         outState.putDouble("currentTime",timeRecorder.getTime());
+        outState.putBoolean("gameStarted",gameStarted);
     }
 
     @Override
@@ -373,6 +374,7 @@ public class TicTacToe extends AppCompatActivity {
         playerPoints = savedInstanceState.getInt("player1Points");
         cpuPoints = savedInstanceState.getInt("player2Points");
         playerTurn = savedInstanceState.getBoolean("player1Turn");
+        gameStarted = savedInstanceState.getBoolean("gameStarted");
         timeRecorder.stopAndResetTimer(false);
         timeRecorder.setTime(savedInstanceState.getDouble("currentTime"));
         timeRecorder.startRecording();
