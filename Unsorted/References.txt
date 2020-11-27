@@ -1,2 +1,4 @@
 References:
 Tic-tac-toe: https://www.youtube.com/watch?v=apDL78MFR3o
+Tic Tac Toe font: https://www.dafont.com/brushot.font
+Retro Computer font: https://www.dafont.com/retro-computer.font

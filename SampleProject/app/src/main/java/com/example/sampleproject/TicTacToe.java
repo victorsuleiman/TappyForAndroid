@@ -3,9 +3,13 @@ package com.example.sampleproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +21,8 @@ import com.example.sampleproject.SupportClasses.TimeRecorder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static com.example.sampleproject.MainActivity.USERNAME_CURRENT;
 
 public class TicTacToe extends AppCompatActivity {
 
@@ -35,10 +41,19 @@ public class TicTacToe extends AppCompatActivity {
     private TextView textViewPlayer;
     private TextView textViewCpu;
 
+    SQLiteDatabase tappyDB;
+
+    String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
+
+        openDB(); //open our DB
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        username = sharedPref.getString(USERNAME_CURRENT, "Anonymous");
 
         timeRecorder = new TimeRecorder(this);
 
@@ -99,6 +114,7 @@ public class TicTacToe extends AppCompatActivity {
         playerPoints++;
         if (playerPoints == 3) {
             gameStarted = false;
+            addUserScore(username,"Tic Tap Toe",(long)timeRecorder.getTime());
             timeRecorder.stopAndResetTimer(true);
             resetPoints();
             updatePointsText();
@@ -305,6 +321,38 @@ public class TicTacToe extends AppCompatActivity {
         return availablePositions.get(randomPos);
     }
 
+    private void openDB()
+    {
+        try
+        {
+            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
+        }
+        catch (Exception e)
+        {
+            Log.d("Tappy DB", "Database opening error" + e.getMessage());
+        }
+    }
+
+    public void addUserScore (String username, String game, long score)
+    {
+        long result = 0;
+        ContentValues val = new ContentValues();
+        val.put("username", username);
+        val.put("game", game);
+        val.put("score", score);
+
+        result = tappyDB.insert("scores", null, val);
+
+        if (result != -1)
+        {
+            Log.d("DB Tappy", "Added score for user " + username );
+        }
+        else
+        {
+            Log.d("DB Tappy", "Error adding score for user " + username );
+        }
+    }
+
     //this method makes sure we doesn't lose the state of our variables if the device rotates
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -315,6 +363,7 @@ public class TicTacToe extends AppCompatActivity {
         outState.putInt("cpuPoints",cpuPoints);
         outState.putBoolean("player1Turn",playerTurn);
         outState.putDouble("currentTime",timeRecorder.getTime());
+        outState.putBoolean("gameStarted",gameStarted);
     }
 
     @Override
@@ -325,6 +374,7 @@ public class TicTacToe extends AppCompatActivity {
         playerPoints = savedInstanceState.getInt("player1Points");
         cpuPoints = savedInstanceState.getInt("player2Points");
         playerTurn = savedInstanceState.getBoolean("player1Turn");
+        gameStarted = savedInstanceState.getBoolean("gameStarted");
         timeRecorder.stopAndResetTimer(false);
         timeRecorder.setTime(savedInstanceState.getDouble("currentTime"));
         timeRecorder.startRecording();
@@ -334,7 +384,7 @@ public class TicTacToe extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(this,LevelList.class));
+        startActivity(new Intent(this,LevelGrid.class));
 
     }
 }

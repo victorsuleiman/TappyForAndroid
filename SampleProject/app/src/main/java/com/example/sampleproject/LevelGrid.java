@@ -19,7 +19,7 @@ import java.util.List;
 public class LevelGrid extends AppCompatActivity {
     List<Integer> lvlImg = new ArrayList<>(Arrays.asList(R.drawable.touch,R.drawable.tictactoe,
             R.drawable.hangmangame,R.drawable.headphones,R.drawable.foursquares,R.drawable.apps));
-    List<String> levelName=new ArrayList<>(Arrays.asList("Tap","TIC TAP TOE","TapMan",
+    List<String> levelName=new ArrayList<>(Arrays.asList("TapTorial","Tic Tap Toe","TapMan",
             "Tap That Song","Simon Tap","Reaction Tap"));
 
 
@@ -54,7 +54,7 @@ public class LevelGrid extends AppCompatActivity {
                 startActivity(new Intent(LevelGrid.this, NameThatSong.class));
                 break;
                 case 4:
-                startActivity(new Intent(LevelGrid.this, SimonSays.class));
+                startActivity(new Intent(LevelGrid.this, SimonSays.class)); //TODO: change back to simon says
                 break;
                 case 5:
                 startActivity(new Intent(LevelGrid.this,ReactionTap.class));
@@ -66,11 +66,12 @@ public class LevelGrid extends AppCompatActivity {
 
         });
 
-
-
-
-
     }
 
 
+    //returns to Level List when back button is pressed
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,MainActivity.class));
+    }
 }

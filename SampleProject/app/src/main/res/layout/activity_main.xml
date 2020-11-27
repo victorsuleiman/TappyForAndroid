@@ -52,6 +52,7 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:fontFamily="casual"
+        android:textColor="@color/darkOrange"
         android:textColorHint="@color/buttonHangMan"
         android:hint="@string/userName"
         android:inputType="textPersonName"
@@ -61,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageButton
-        android:id="@+id/buttonUserInfo"
+        android:id="@+id/buttonScoreList"
         android:layout_width="57dp"
         android:layout_height="58dp"
         app:layout_constraintBottom_toBottomOf="@+id/splashImg"

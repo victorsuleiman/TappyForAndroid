@@ -5,11 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 public class DBHelper
 {
-    SQLiteDatabase db;
-//    private void createDB()
+//    public static SQLiteDatabase db;
+//    public static void createDB()
 //    {
 //        try {
-//            db = openOrCreateDatabase("Users.db", MODE_PRIVATE, null);
+//            db = openOrCreateDatabase("Users.db", null, 0);
 //            Log.d("DB Tappy", "Database created");
 //        }
 //        catch (Exception ex)

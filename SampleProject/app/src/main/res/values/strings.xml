@@ -37,7 +37,7 @@
     <string name="x">X</string>
     <string name="y">Y</string>
     <string name="z">Z</string>
-    <string name="simonTitle">Simon</string>
+    <string name="simonTitle">Simon Tap</string>
     <string name="test">test</string>
     <string name="init_word">_ _ _ _ _ _ _</string>
     <string name="new_game">New Game</string>
