@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sampleproject.Helper.JamesUtilities;
 import com.example.sampleproject.Helper.SQLHelper;
 import com.example.sampleproject.SupportClasses.TimeRecorder;
 
@@ -82,7 +83,8 @@ public class Level1 extends AppCompatActivity {
                     tapBtn.setText("");
                     tapBtn.setBackgroundColor(getResources().getColor(R.color.black));
                     addUserScore(username,"TapTorial",(long) timeRecorder.getTime());
-                    Toast.makeText(Level1.this, "Nice! Your time was " + timeRecorder.getTime() + " s. Now go play the other games!",
+                    String score = JamesUtilities.formatMilliseconds((long) timeRecorder.getTime());
+                    Toast.makeText(Level1.this, "Nice! Your time was " + score + ". Now go play the other games!",
                             Toast.LENGTH_LONG).show();
                     Toast.makeText(Level1.this, "Press the back button to go back to the level list.",
                             Toast.LENGTH_LONG).show();

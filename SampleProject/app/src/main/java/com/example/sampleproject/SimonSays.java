@@ -59,6 +59,7 @@ public class SimonSays extends AppCompatActivity {
     private boolean gameStarted = false;
     private boolean patternShowing = false;
     private MediaPlayer mediaPlayer;
+    private int numberOfTries = 0;
 
     private TimeRecorder timeRecorder;
 
@@ -98,6 +99,7 @@ public class SimonSays extends AppCompatActivity {
                 if (gameStarted) {
                     Toast.makeText(SimonSays.this, "Game is still running!", Toast.LENGTH_SHORT).show();
                 } else {
+                    numberOfTries++;
                     roundNumber = 1;
                     playerPresses = 0;
                     //instantiating a ButtonColor list for the random ButtonColors
@@ -193,7 +195,9 @@ public class SimonSays extends AppCompatActivity {
                                 if (roundNumber > NUMBER_OF_ROUNDS) {
                                     //game is won!
                                     gameStarted = false;
-                                    DBHelper.addUserScore(username,"Simon Tap",(long) timeRecorder.getTime());
+
+                                    DBHelper.addUserScore(username,"Simon Tap",(long) timeRecorder.getTime(),
+                                            formatAdditionalInfo());
                                     timeRecorder.stopAndResetTimer(true);
                                 } else {
                                     //round won, need to show
@@ -287,6 +291,14 @@ public class SimonSays extends AppCompatActivity {
         }
     }
 
+    private String formatAdditionalInfo() {
+        String formattedInfo = "";
+
+        if (numberOfTries <= 1) formattedInfo = "First try";
+        else formattedInfo = String.valueOf(numberOfTries) + " tries";
+
+        return formattedInfo;
+    }
 
     //returns to Level List when back button is pressed
     @Override
@@ -295,4 +307,6 @@ public class SimonSays extends AppCompatActivity {
         startActivity(new Intent(this,LevelGrid.class));
 
     }
+
+
 }

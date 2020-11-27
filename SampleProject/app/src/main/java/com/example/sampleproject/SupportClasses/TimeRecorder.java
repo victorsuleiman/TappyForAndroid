@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.sampleproject.Helper.JamesUtilities;
 import com.example.sampleproject.Level2;
 
 import java.util.Timer;
@@ -44,7 +45,7 @@ public class TimeRecorder {
                 }
             };
 
-            this.timer.scheduleAtFixedRate(this.timerTask,0,1000);
+            this.timer.scheduleAtFixedRate(this.timerTask,0,1);
         }
     }
 
@@ -52,7 +53,8 @@ public class TimeRecorder {
         if (timerStarted) {
             this.timerStarted = false;
             this.timerTask.cancel();
-            if (playerWon) Toast.makeText(this.context, "You Win! Your time was " + getTime() + " seconds.", Toast.LENGTH_SHORT).show();
+            if (playerWon) Toast.makeText(this.context, "You Win! Your time was " + JamesUtilities.formatMilliseconds((long) this.time) + ".",
+                    Toast.LENGTH_SHORT).show();
             Log.d("TIMER STUFF", "Timer Stopped and time = " + getTime() + "seconds.");
             time = 0.0;
         }
@@ -67,31 +69,6 @@ public class TimeRecorder {
         this.time = time;
     }
 
-//    public void sendScoreToDB () {
-//
-//        try
-//        {
-//            SQLiteDatabase tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
-//        }
-//        catch (Exception e)
-//        {
-//            Log.d("DB DEMO", "Database opening error" + e.getMessage());
-//        }
-//
-//        long result = 0;
-//        ContentValues val = new ContentValues();
-//        val.put("username",this.username);
-//        val.put("game",this.game);
-//        val.put("score",this.time);
-//
-//        result = this.db.insert("scores",null,val);
-//
-//        if (result != -1) {
-//            Log.d("DB DEMO", "added score for username " + this.username + " game " + this.game + " score " + this.time);
-//        } else {
-//            Log.d("DB DEMO", "Error adding score for username " + this.username);
-//        }
-//    }
 
 
 }
