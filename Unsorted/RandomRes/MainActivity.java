@@ -1,4 +1,4 @@
-package com.example.elyas.mathapplication;
+package com.example.hangmanpractice;
 
 import android.app.Activity;
 import android.content.Context;
@@ -36,7 +36,7 @@ import java.io.InputStream;
 import java.security.KeyStore;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
 
     LinearLayout lyContent;
     ImageButton [][] arrImg ;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
 
         txtScore = (TextView)findViewById(R.id.txtScore);

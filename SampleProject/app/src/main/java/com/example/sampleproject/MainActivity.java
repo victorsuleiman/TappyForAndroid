@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity
         img.setClickable(true);
         rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate);
 
+//        final Intent intent = new Intent(MainActivity.this,LevelList.class);
+
         createDB();
         createTables();
 

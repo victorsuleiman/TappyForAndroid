@@ -19,8 +19,10 @@ public class ReactionGraph extends AppCompatActivity {
         setContentView(R.layout.activity_reaction_graph);
 
         com.jjoe64.graphview.GraphView graphView=(com.jjoe64.graphview.GraphView)findViewById(R.id.graphTime);
-
         graphView.addSeries(series);
+
+
+
         graphView.getViewport().setMinX(0);
         graphView.getViewport().setMaxX(5);
         graphView.getViewport().setMinY(0);
@@ -30,7 +32,6 @@ public class ReactionGraph extends AppCompatActivity {
         series.setDrawBackground(true);
         series.setBackgroundColor(Color.argb(60,242, 199, 70));
         series.setDrawDataPoints(true);
-
         series.setDataPointsRadius(20);
     }
 }
