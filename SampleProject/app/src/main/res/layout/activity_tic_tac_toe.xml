@@ -92,7 +92,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
 
         <Button
             android:id="@+id/button_01"
@@ -101,7 +101,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
 
         <Button
             android:id="@+id/button_02"
@@ -110,7 +110,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -126,7 +126,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
 
         <Button
             android:id="@+id/button_11"
@@ -135,7 +135,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
 
         <Button
             android:id="@+id/button_12"
@@ -144,7 +144,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -161,7 +161,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
 
         <Button
             android:id="@+id/button_21"
@@ -170,7 +170,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
 
         <Button
             android:id="@+id/button_22"
@@ -179,7 +179,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/brush"
             android:freezesText="true"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
     </LinearLayout>
 
 </LinearLayout>
