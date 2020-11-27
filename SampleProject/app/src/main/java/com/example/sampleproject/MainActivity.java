@@ -24,8 +24,6 @@ import com.example.sampleproject.Constants;
 
 public class MainActivity extends AppCompatActivity
 {
-
-
     ImageView img;
     ImageButton buttonToScore;
     Animation rotateAnim;

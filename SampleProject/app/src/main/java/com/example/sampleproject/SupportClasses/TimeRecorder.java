@@ -1,21 +1,11 @@
 package com.example.sampleproject.SupportClasses;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.sampleproject.SupportClasses.JamesUtilities;
-import com.example.sampleproject.Level2;
-
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static android.content.Context.MODE_PRIVATE;
-import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 //I still wanna do a method that directly updates the time to the database and maybe format it?
 
