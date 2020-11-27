@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.sampleproject.Models.Score;
+import com.example.sampleproject.SupportClasses.JamesUtilities;
+
+import java.util.ArrayList;
 import java.util.List;
 
 //show all scores saved in DB, use a ListView perhaps?
@@ -26,8 +30,7 @@ public class HighScores extends AppCompatActivity {
 
         openDB();
 
-        outputText.append("Something is going on weeeee \n");
-        browseGradeRecs();
+        browseGradeRecsLegacy();
 
         scoreTextView.setText(outputText.toString());
 
@@ -35,7 +38,8 @@ public class HighScores extends AppCompatActivity {
 
     private void openDB()
     {
-        try {
+        try
+        {
             tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
         }
         catch (Exception e)
@@ -44,11 +48,42 @@ public class HighScores extends AppCompatActivity {
         }
     }
 
-    private void browseGradeRecs()
+    private List<Score> browseGradeRecs()
+    {
+        List<Score> allScores = new ArrayList<Score>();
+        String queryStr = "SELECT * FROM scores;";
+
+//        Score headRec = new Score("Username", "Game Name", "Score", "Additional Info");
+//
+        //TODO: work out headRec
+
+        try
+        {
+            Cursor cursor = tappyDB.rawQuery(queryStr, null);
+            if (cursor != null)
+            {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast())
+                {
+                    Score eachScore = new Score(cursor.getString(0), cursor.getString(1), cursor.getLong(2), cursor.getString(3));
+                    allScores.add(eachScore);
+                    cursor.moveToNext();
+                }
+            }
+            return allScores;
+        }
+        catch (Exception ex)
+        {
+            Log.d("DB Tappy", "Querying score error " + ex.getMessage());
+            return null;
+        }
+    }
+
+    private void browseGradeRecsLegacy()
     {
         String queryStr = "SELECT * FROM scores;";
 
-        String headRec = String.format("%-15s%-15s%-15s\n", "Username", "Game", "Score");
+        String headRec = String.format("%-15s%-15s%-15s%-15s\n", "Username", "Game", "Score", "Additional info");
 
         outputText.append(headRec);
 
@@ -60,8 +95,8 @@ public class HighScores extends AppCompatActivity {
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast())
                 {
-                    String eachRec = String.format("%-15s%-15s%-15s\n",
-                            cursor.getString(0), cursor.getString(1), cursor.getLong(2));
+                    String eachRec = String.format("%-15s%-15s%-15s%-15s\n",
+                            cursor.getString(0), cursor.getString(1), JamesUtilities.formatMilliseconds(cursor.getLong(2)), cursor.getString(3));
                     outputText.append(eachRec);
                     cursor.moveToNext();
                 }

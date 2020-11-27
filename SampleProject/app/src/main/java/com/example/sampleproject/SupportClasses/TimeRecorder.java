@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.sampleproject.Helper.JamesUtilities;
+import com.example.sampleproject.SupportClasses.JamesUtilities;
 import com.example.sampleproject.Level2;
 
 import java.util.Timer;

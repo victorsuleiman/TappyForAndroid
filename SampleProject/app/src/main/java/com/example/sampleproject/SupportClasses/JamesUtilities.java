@@ -1,4 +1,4 @@
-package com.example.sampleproject.Helper;
+package com.example.sampleproject.SupportClasses;
 
 import java.util.ArrayList;
 

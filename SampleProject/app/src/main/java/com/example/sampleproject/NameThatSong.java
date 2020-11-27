@@ -2,7 +2,6 @@ package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 
 import android.content.SharedPreferences;
@@ -23,8 +22,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sampleproject.Helper.JamesUtilities;
-import com.example.sampleproject.SupportClasses.Song;
+import com.example.sampleproject.SupportClasses.JamesUtilities;
+import com.example.sampleproject.Models.Song;
 
 
 import java.io.BufferedReader;
@@ -66,10 +65,7 @@ public class NameThatSong extends AppCompatActivity {
     ImageButton playPauseBtn;
     TextView ntsTitle;
 
-
-    String username;// = "James"; //TODO: switch to dynamic
-
-
+    String username;
 
     List<Song> songList = new ArrayList<>(); //holds all song;
     //TODO:switch to DB implementation, uses songParser class (currently using a CSV file to hold all song info)

@@ -1,7 +1,5 @@
 package com.example.sampleproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,11 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.sampleproject.Helper.JamesUtilities;
-import com.example.sampleproject.Helper.SQLHelper;
-import com.example.sampleproject.SupportClasses.TimeRecorder;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.sql.Time;
+import com.example.sampleproject.SupportClasses.JamesUtilities;
+import com.example.sampleproject.SupportClasses.TimeRecorder;
 
 
 public class Level1 extends AppCompatActivity {

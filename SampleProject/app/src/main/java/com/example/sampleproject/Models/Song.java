@@ -1,4 +1,4 @@
-package com.example.sampleproject.SupportClasses;
+package com.example.sampleproject.Models;
 
 import androidx.annotation.NonNull;
 
@@ -61,12 +61,6 @@ public class Song
     public void setHint(String hint) {
         this.hint = hint;
     }
-
-
-
-
-
-
 
 
     //toString used for testing
