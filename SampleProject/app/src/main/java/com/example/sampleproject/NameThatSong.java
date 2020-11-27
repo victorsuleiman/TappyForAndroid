@@ -221,7 +221,8 @@ public class NameThatSong extends AppCompatActivity {
                                     + "\nTry again? A new song is waiting!");
                         }
 
-                        addUserScore(username, GAME_NAME, timeTaken); //add score to DB
+                        String additionalInfo = "The song was " +songList.get(currentSong).getSongName() + ", guess amount: " + tries;
+                        DBHelper.addUserScore(username, GAME_NAME, timeTaken, additionalInfo); //add score to DB
 
                         decImgLeft.startAnimation(animL); //spin left image
                         decImgRight.startAnimation(animR); //spin right image
@@ -344,9 +345,6 @@ public class NameThatSong extends AppCompatActivity {
         }
     }
 
-
-
-
     private void openDB()
     {
         try
@@ -356,26 +354,6 @@ public class NameThatSong extends AppCompatActivity {
         catch (Exception e)
         {
             Log.d("Tappy DB", "Database opening error" + e.getMessage());
-        }
-    }
-
-    public void addUserScore (String username, String game, long score)
-    {
-        long result = 0;
-        ContentValues val = new ContentValues();
-        val.put("username", username);
-        val.put("game", game);
-        val.put("score", score);
-
-        result = tappyDB.insert("scores", null, val);
-
-        if (result != -1)
-        {
-            Log.d("DB Tappy", "Added score for user " + username );
-        }
-        else
-        {
-            Log.d("DB Tappy", "Error adding score for user " + username );
         }
     }
 

@@ -22,8 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.sampleproject.MainActivity.USERNAME_CURRENT;
-
 public class TicTacToe extends AppCompatActivity {
 
     private TimeRecorder timeRecorder;
@@ -53,7 +51,7 @@ public class TicTacToe extends AppCompatActivity {
         openDB(); //open our DB
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        username = sharedPref.getString(USERNAME_CURRENT, "Anonymous");
+        username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous");
 
         timeRecorder = new TimeRecorder(this);
 
@@ -114,7 +112,9 @@ public class TicTacToe extends AppCompatActivity {
         playerPoints++;
         if (playerPoints == 3) {
             gameStarted = false;
-            addUserScore(username,"Tic Tap Toe",(long)timeRecorder.getTime());
+
+            String additionalInfo = "Player won " + playerPoints + " - " + cpuPoints;
+            DBHelper.addUserScore(username,"Tic Tap Toe",(long)timeRecorder.getTime(), additionalInfo);
             timeRecorder.stopAndResetTimer(true);
             resetPoints();
             updatePointsText();
@@ -330,26 +330,6 @@ public class TicTacToe extends AppCompatActivity {
         catch (Exception e)
         {
             Log.d("Tappy DB", "Database opening error" + e.getMessage());
-        }
-    }
-
-    public void addUserScore (String username, String game, long score)
-    {
-        long result = 0;
-        ContentValues val = new ContentValues();
-        val.put("username", username);
-        val.put("game", game);
-        val.put("score", score);
-
-        result = tappyDB.insert("scores", null, val);
-
-        if (result != -1)
-        {
-            Log.d("DB Tappy", "Added score for user " + username );
-        }
-        else
-        {
-            Log.d("DB Tappy", "Error adding score for user " + username );
         }
     }
 

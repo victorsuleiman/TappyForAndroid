@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.sampleproject.MainActivity.USERNAME_CURRENT;
+
 
 public class SimonSays extends AppCompatActivity {
 
@@ -74,7 +74,7 @@ public class SimonSays extends AppCompatActivity {
         openDB(); //open our DB
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        username = sharedPref.getString(USERNAME_CURRENT, "Anonymous");
+        username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous");
 
         timeRecorder = new TimeRecorder(this);
 
@@ -193,7 +193,7 @@ public class SimonSays extends AppCompatActivity {
                                 if (roundNumber > NUMBER_OF_ROUNDS) {
                                     //game is won!
                                     gameStarted = false;
-                                    addUserScore(username,"Simon Tap",(long) timeRecorder.getTime());
+                                    DBHelper.addUserScore(username,"Simon Tap",(long) timeRecorder.getTime());
                                     timeRecorder.stopAndResetTimer(true);
                                 } else {
                                     //round won, need to show
@@ -287,25 +287,6 @@ public class SimonSays extends AppCompatActivity {
         }
     }
 
-    public void addUserScore (String username, String game, long score)
-    {
-        long result = 0;
-        ContentValues val = new ContentValues();
-        val.put("username", username);
-        val.put("game", game);
-        val.put("score", score);
-
-        result = tappyDB.insert("scores", null, val);
-
-        if (result != -1)
-        {
-            Log.d("DB Tappy", "Added score for user " + username );
-        }
-        else
-        {
-            Log.d("DB Tappy", "Error adding score for user " + username );
-        }
-    }
 
     //returns to Level List when back button is pressed
     @Override

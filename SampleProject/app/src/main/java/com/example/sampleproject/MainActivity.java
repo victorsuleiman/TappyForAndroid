@@ -24,9 +24,7 @@ import com.example.sampleproject.Constants;
 
 public class MainActivity extends AppCompatActivity
 {
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String USERNAME_CURRENT = "Username";
-    SQLiteDatabase tappyDB;
+
 
     ImageView img;
     ImageButton buttonToScore;
@@ -92,10 +90,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-//        Bundle bundle = new Bundle();
-//        bundle.getString("UserName",editText.getText().toString());
-//        intent.putExtras(bundle);
-
     }
 
     /*save username into shared pref*/
@@ -104,24 +98,24 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         SharedPreferences.Editor editor = sharedPref.edit(); //editor needed to put content in
 
-        editor.putString(USERNAME_CURRENT, username);
+        editor.putString(Constants.USERNAME_CURRENT, username);
         editor.commit();
 
         Toast.makeText(this, username + " written to sharedpref", Toast.LENGTH_SHORT).show();
-        //TODO: check if existing user or not
+
     }
 
     public void loadData()
     {
-        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        currentUser = sharedPref.getString(USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
+        SharedPreferences sharedPref = getSharedPreferences(Constants.SHARED_PREFS, MODE_PRIVATE);
+        currentUser = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
     }
 
     /*create main DB*/
     private void createDB()
     {
         try {
-            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
+            DBHelper.tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
 
             Log.d("DB Tappy", "DB created");
         }
@@ -148,15 +142,15 @@ public class MainActivity extends AppCompatActivity
 
             //Score table
             String createScoresTableCmd = "CREATE TABLE scores "
-                    + "(username TEXT, game TEXT, score REAL);";
+                    + "(username TEXT, game TEXT, score REAL, info TEXT);";
 
 
-            tappyDB.execSQL(setPRAGMAForeignKeysOn);
-//            tappyDB.execSQL(dropScoresTableCmd);
+            DBHelper.tappyDB.execSQL(setPRAGMAForeignKeysOn);
+//            DBHelper.tappyDB.execSQL(dropScoresTableCmd);
 //            tappyDB.execSQL(dropUsersTableCmd); //cannot be dropped first because of user table reference
 
 //            tappyDB.execSQL(createUsersTableCmd);
-            tappyDB.execSQL(createScoresTableCmd);
+            DBHelper.tappyDB.execSQL(createScoresTableCmd);
 
             Log.d("DB Tappy", "Tables created");
         }
@@ -165,64 +159,6 @@ public class MainActivity extends AppCompatActivity
             Log.e("DB Tappy", "Error creating table" + ex.getMessage());
         }
 
-    }
-
-    public List<String[]> browseScoresRecs()
-    {
-        List<String[]> ScoreList = new ArrayList<>();
-
-        String[] headRec = new String[3];
-        headRec[0] = "username";
-        headRec[1] = "game";
-        headRec[2] = "score";
-
-        ScoreList.add(headRec);
-
-        String queryStr = "SELECT * FROM scores";
-
-        try {
-            Cursor cursor = tappyDB.rawQuery(queryStr, null);
-            if (cursor != null)
-            {
-                cursor.moveToFirst();
-                while (!cursor.isAfterLast())
-                {
-                    String[] eachRecArray = new String[3];
-                    eachRecArray[0] = cursor.getString(0); //correspond to username
-                    eachRecArray[1] = cursor.getString(1); // game
-                    eachRecArray[2] = cursor.getString(2); // score
-
-                    ScoreList.add(eachRecArray);
-                    cursor.moveToNext();
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.d("DB Tappy", "Querying user  recs error " + ex.getMessage());
-        }
-
-        return ScoreList;
-    } //ends browse Scores
-
-    public void addUserScore (String username, String game, long score)
-    {
-        long result = 0;
-        ContentValues val = new ContentValues();
-        val.put("username", username);
-        val.put("game", game);
-        val.put("score", score);
-
-        result = tappyDB.insert("scores", null, val);
-
-        if (result != -1)
-        {
-            Log.d("DB Tappy", "Added score for user " + username );
-        }
-        else
-        {
-            Log.d("DB Tappy", "Error adding score for user " + username );
-        }
     }
 
 

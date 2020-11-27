@@ -18,7 +18,6 @@ import com.example.sampleproject.SupportClasses.TimeRecorder;
 
 import java.sql.Time;
 
-import static com.example.sampleproject.MainActivity.USERNAME_CURRENT;
 
 public class Level1 extends AppCompatActivity {
 
@@ -40,7 +39,7 @@ public class Level1 extends AppCompatActivity {
         openDB();
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        username = sharedPref.getString(USERNAME_CURRENT, "Anonymous");
+        username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous");
 
         tapBtn = findViewById(R.id.tappyTappy);
         int resColor = R.color.Press10;
