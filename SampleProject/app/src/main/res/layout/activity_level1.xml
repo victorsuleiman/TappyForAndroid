@@ -19,4 +19,18 @@
         android:background="@color/Press10"
         android:textColor="@color/TextColor"
         />
+
+    <TextView
+        android:id="@+id/level1Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/great_vibes"
+        android:text="@string/level1TitleTxt"
+        android:textColor="@color/Press4"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
