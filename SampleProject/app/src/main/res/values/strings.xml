@@ -69,6 +69,7 @@
     <string name="clickagain">Click Again to continue!</string>
     <string name="userName">Enter username with no space</string>
     <string name="updateInfoButton">Update Info</string>
+    <string name="level1TitleTxt">Welcome to Tappy!</string>
     <string-array name="hangmanList">
         <item>Choose a category</item>
         <item>ANIMAL</item>

@@ -80,8 +80,8 @@ public class Level1 extends AppCompatActivity {
                 }
 
                 if (i == 10) {
-                    tapBtn.setText("");
-                    tapBtn.setBackgroundColor(getResources().getColor(R.color.black));
+                    tapBtn.setText("✓");
+                    tapBtn.setBackgroundColor(getResources().getColor(R.color.lightGreen));
                     addUserScore(username,"TapTorial",(long) timeRecorder.getTime());
                     String score = JamesUtilities.formatMilliseconds((long) timeRecorder.getTime());
                     Toast.makeText(Level1.this, "Nice! Your time was " + score + ". Now go play the other games!",
