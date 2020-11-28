@@ -10,15 +10,14 @@
         android:id="@+id/tappyTappy"
         android:layout_width="163dp"
         android:layout_height="124dp"
+        android:background="@color/Press10"
         android:text="@string/tappy"
+        android:textColor="@color/TextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.482"
-        android:background="@color/Press10"
-        android:textColor="@color/TextColor"
-        />
+        app:layout_constraintVertical_bias="0.499" />
 
     <TextView
         android:id="@+id/level1Title"
