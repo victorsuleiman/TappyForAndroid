@@ -6,8 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.sampleproject.Adapters.LevelListAdapter;
+import com.example.sampleproject.Adapters.ScoreAdapter;
 import com.example.sampleproject.Models.Score;
 import com.example.sampleproject.SupportClasses.JamesUtilities;
 
@@ -31,6 +34,10 @@ public class HighScores extends AppCompatActivity {
         openDB();
 
         browseGradeRecsLegacy();
+
+        ListView listViewScore = findViewById(R.id.scoresListView);
+        ScoreAdapter aScoreAdapter = new ScoreAdapter(browseGradeRecs());
+        listViewScore.setAdapter(aScoreAdapter);
 
         scoreTextView.setText(outputText.toString());
 

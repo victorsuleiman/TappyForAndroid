@@ -5,9 +5,11 @@ import androidx.core.content.ContextCompat;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,6 +32,11 @@ import java.util.List;
 import java.util.Random;
 
 public class HangMan extends AppCompatActivity {
+
+    SQLiteDatabase tappyDB;
+    public static final String GAME_NAME = "HangMan";
+    String username; //for DB
+
     Spinner category;
 
     String[] button = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U"
@@ -49,6 +56,11 @@ public class HangMan extends AppCompatActivity {
     SQLiteDatabase db;
     ImageView hintImage;
     String[] wordChosenArr;
+    boolean hintUsed = false;
+
+    long startTime;
+    long endTime;
+    long timeTaken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +69,10 @@ public class HangMan extends AppCompatActivity {
 
         createDB();
         createTables();
+
+        openDB(); //open our DB
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
 
         final List<String[]> animals = ReadCSV("animals");
 
@@ -103,7 +119,7 @@ public class HangMan extends AppCompatActivity {
         category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                startTime = System.currentTimeMillis(); //start timer
                 //reset game when changed
                 dash = ""; //reset dash board
                 //reset picture
@@ -112,6 +128,9 @@ public class HangMan extends AppCompatActivity {
                 tryCounter = 0;
                 //reset message box
                 msgBox.setText("");
+                //reset hintUsed
+                hintUsed = false;
+
                 wordChosenArr=null;
                 letterColorBack(button);
                 switch (position) {
@@ -159,6 +178,7 @@ public class HangMan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HangMan.this,"Hint:"+ wordChosenArr[2],Toast.LENGTH_LONG).show();
+                hintUsed = true;
 //                msgBox.setText(wordChosenArr[2]);
 
             }
@@ -219,7 +239,16 @@ public class HangMan extends AppCompatActivity {
                 {
                     //Win condition
                     hangManImg.setImageResource(R.drawable.hangman_winpose);
-                    //TODO:add score
+                    //TODO:add score + End time
+                    endTime = System.currentTimeMillis();
+                    timeTaken = endTime - startTime;
+
+                    String hintOrNot = "";
+                    if (hintUsed == true) {
+                        hintOrNot = ", you used hint"; //only add this if hint is used
+                    }
+                    String additionalInfo = "Word: " + wordChosen + ", wrong guesses: " + tryCounter + hintOrNot;
+                    DBHelper.addUserScore(username, GAME_NAME, timeTaken, additionalInfo); //add score to DB
                     msgBox.setText("You Won!");
                 }
             }
@@ -385,6 +414,18 @@ public class HangMan extends AppCompatActivity {
         }
 
         return arr;
+    }
+
+    private void openDB()
+    {
+        try
+        {
+            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
+        }
+        catch (Exception e)
+        {
+            Log.d("Tappy DB", "Database opening error" + e.getMessage());
+        }
     }
 }
 
