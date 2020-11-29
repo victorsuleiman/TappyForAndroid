@@ -96,7 +96,6 @@ public class NameThatSong extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_that_song);
         aDB = new DBHelper(NameThatSong.this);
-//        openDB(); //open our DB
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
 
@@ -343,17 +342,6 @@ public class NameThatSong extends AppCompatActivity {
         }
     }
 
-    private void openDB()
-    {
-        try
-        {
-            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
-        }
-        catch (Exception e)
-        {
-            Log.d("Tappy DB", "Database opening error" + e.getMessage());
-        }
-    }
 
     //returns to Level List when back button is pressed
     @Override

@@ -35,7 +35,7 @@
             android:name=".Level2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Level1"
+            android:name=".TapTorial"
             android:theme="@style/AppTheme.NoActionBar" /> <!-- &gt;>>>>>> cc93c6a08847bf228b513cf76000f5cfc55fef52 -->
         <activity android:name=".SplashActivity">
             <intent-filter>

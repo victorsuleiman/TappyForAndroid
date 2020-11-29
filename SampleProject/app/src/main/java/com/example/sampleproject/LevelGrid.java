@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.sampleproject.Adapters.GridAdapter;
@@ -42,7 +41,7 @@ public class LevelGrid extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
                 case 0:
-                startActivity(new Intent(LevelGrid.this, Level1.class));
+                startActivity(new Intent(LevelGrid.this, TapTorial.class));
                 break;
                 case 1:
                 startActivity(new Intent(LevelGrid.this, TicTacToe.class));

@@ -39,8 +39,7 @@ public class TicTacToe extends AppCompatActivity {
     private TextView textViewPlayer;
     private TextView textViewCpu;
 
-    SQLiteDatabase tappyDB;
-
+    DBHelper aDB;
     String username;
 
     @Override
@@ -48,7 +47,7 @@ public class TicTacToe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
 
-        openDB(); //open our DB
+        aDB = new DBHelper(TicTacToe.this);
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous");
@@ -321,18 +320,6 @@ public class TicTacToe extends AppCompatActivity {
         return availablePositions.get(randomPos);
     }
 
-    private void openDB()
-    {
-        try
-        {
-            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
-        }
-        catch (Exception e)
-        {
-            Log.d("Tappy DB", "Database opening error" + e.getMessage());
-        }
-    }
-
     //this method makes sure we doesn't lose the state of our variables if the device rotates
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -363,8 +350,6 @@ public class TicTacToe extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
         startActivity(new Intent(this,LevelGrid.class));
-
     }
 }

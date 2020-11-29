@@ -63,16 +63,15 @@ public class SimonSays extends AppCompatActivity {
 
     private TimeRecorder timeRecorder;
 
-    SQLiteDatabase tappyDB;
+    DBHelper aDB;
     String username;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_says);
 
-        openDB(); //open our DB
+        aDB = new DBHelper(SimonSays.this);
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous");
@@ -279,17 +278,6 @@ public class SimonSays extends AppCompatActivity {
         }
     }
 
-    private void openDB()
-    {
-        try
-        {
-            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
-        }
-        catch (Exception e)
-        {
-            Log.d("Tappy DB", "Database opening error" + e.getMessage());
-        }
-    }
 
     private String formatAdditionalInfo() {
         String formattedInfo = "";
@@ -303,10 +291,7 @@ public class SimonSays extends AppCompatActivity {
     //returns to Level List when back button is pressed
     @Override
     public void onBackPressed() {
-
         startActivity(new Intent(this,LevelGrid.class));
-
     }
-
 
 }

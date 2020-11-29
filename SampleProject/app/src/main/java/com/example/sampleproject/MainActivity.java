@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
 
             //Drop tables if exists
 //            String dropUsersTableCmd = "DROP TABLE IF EXISTS " + "users;";
-            String dropScoresTableCmd = "DROP TABLE IF EXISTS " + "scores;";
+//            String dropScoresTableCmd = "DROP TABLE IF EXISTS " + "scores;";
 
             //User table
 //            String createUsersTableCmd = "CREATE TABLE users "
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity
 
 
             DBHelper.tappyDB.execSQL(setPRAGMAForeignKeysOn);
-            DBHelper.tappyDB.execSQL(dropScoresTableCmd);
+//            DBHelper.tappyDB.execSQL(dropScoresTableCmd);
 //            tappyDB.execSQL(dropUsersTableCmd); //cannot be dropped first because of user table reference
 
 //            tappyDB.execSQL(createUsersTableCmd);

@@ -46,7 +46,7 @@ public class LevelList extends AppCompatActivity {
                 switch(i)
                 {
                     case 0:
-                        startActivity(new Intent(LevelList.this, Level1.class));
+                        startActivity(new Intent(LevelList.this, TapTorial.class));
                         break;
                     case 1:
                         startActivity(new Intent(LevelList.this, NameThatSong.class));

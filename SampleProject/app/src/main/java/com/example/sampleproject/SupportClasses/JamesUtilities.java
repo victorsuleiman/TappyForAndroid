@@ -1,6 +1,7 @@
 package com.example.sampleproject.SupportClasses;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class JamesUtilities {
     /*method to convert milliseconds into different time format*/
@@ -156,5 +157,17 @@ public class JamesUtilities {
         //regular expression: only numbers and letters will be kept in string
         String newString = aString.replaceAll("[^a-zA-Z0-9]","");
         return newString.toLowerCase();
+    }
+
+    public static long getAvg(List<Long> aList)
+    {
+        long total = 0;
+        long result;
+        for (long item : aList)
+        {
+            total += item;
+        }
+        result = total/ aList.size();
+        return result;
     }
 }

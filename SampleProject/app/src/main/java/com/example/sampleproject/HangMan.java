@@ -33,9 +33,10 @@ import java.util.Random;
 
 public class HangMan extends AppCompatActivity {
 
-    SQLiteDatabase tappyDB;
     public static final String GAME_NAME = "HangMan";
     String username; //for DB
+    SQLiteDatabase db;
+    DBHelper aDB;
 
     Spinner category;
 
@@ -53,7 +54,6 @@ public class HangMan extends AppCompatActivity {
     TextView msgBox;
     String dash = "";
     int tryCounter = 0; //amount of times the user guessed
-    SQLiteDatabase db;
     ImageView hintImage;
     String[] wordChosenArr;
     boolean hintUsed = false;
@@ -67,10 +67,11 @@ public class HangMan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hang_man);
 
+        aDB = new DBHelper(HangMan.this);
         createDB();
         createTables();
 
-        openDB(); //open our DB
+
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
 
@@ -416,17 +417,6 @@ public class HangMan extends AppCompatActivity {
         return arr;
     }
 
-    private void openDB()
-    {
-        try
-        {
-            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
-        }
-        catch (Exception e)
-        {
-            Log.d("Tappy DB", "Database opening error" + e.getMessage());
-        }
-    }
 }
 
 

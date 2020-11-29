@@ -16,4 +16,19 @@
         app:layout_constraintTop_toTopOf="parent">
     </com.jjoe64.graphview.GraphView>
 
+    <TextView
+        android:id="@+id/scoreTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/lightYellow"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

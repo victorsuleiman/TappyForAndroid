@@ -3,10 +3,8 @@ package com.example.sampleproject;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -17,14 +15,15 @@ import com.example.sampleproject.SupportClasses.JamesUtilities;
 import com.example.sampleproject.SupportClasses.TimeRecorder;
 
 
-public class Level1 extends AppCompatActivity {
+public class TapTorial extends AppCompatActivity {
 
    // String colorID = "";
     int i = 0;
     Button tapBtn;
 
-    SQLiteDatabase tappyDB;
+    DBHelper aDB;
     String username;
+    final String GAME_NAME = "Taptorial";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +32,7 @@ public class Level1 extends AppCompatActivity {
 
         final TimeRecorder timeRecorder = new TimeRecorder(this);
 
-
-        openDB();
+        aDB = new DBHelper(TapTorial.this);
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous");
@@ -76,18 +74,21 @@ public class Level1 extends AppCompatActivity {
                     tapBtn.setBackgroundColor(getResources().getColor(R.color.Press1));
                 }
 
-                if (i == 10) {
+                else if (i == 10) {
                     tapBtn.setText("✓");
                     tapBtn.setBackgroundColor(getResources().getColor(R.color.lightGreen));
                     addUserScore(username,"TapTorial",(long) timeRecorder.getTime());
                     String score = JamesUtilities.formatMilliseconds((long) timeRecorder.getTime());
-                    Toast.makeText(Level1.this, "Nice! Your time was " + score + ". Now go play the other games!",
-                            Toast.LENGTH_LONG).show();
-                    Toast.makeText(Level1.this, "Press the back button to go back to the level list.",
+                    Toast.makeText(TapTorial.this, "Nice! Your time was " + score + ". Now go play the other games!",
                             Toast.LENGTH_LONG).show();
                     timeRecorder.stopAndResetTimer(false);
-
                 }
+                else
+                {
+                    Toast.makeText(TapTorial.this, "Press the back button to go back to the level list.",
+                            Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
@@ -100,35 +101,13 @@ public class Level1 extends AppCompatActivity {
 
     }
 
-    private void openDB()
-    {
-        try
-        {
-            tappyDB = openOrCreateDatabase("tappy.db", MODE_PRIVATE, null);
-        }
-        catch (Exception e)
-        {
-            Log.d("Tappy DB", "Database opening error" + e.getMessage());
-        }
-    }
-
     public void addUserScore (String username, String game, long score)
     {
-        long result = 0;
         ContentValues val = new ContentValues();
         val.put("username", username);
         val.put("game", game);
         val.put("score", score);
 
-        result = tappyDB.insert("scores", null, val);
-
-        if (result != -1)
-        {
-            Log.d("DB Tappy", "Added score for user " + username );
-        }
-        else
-        {
-            Log.d("DB Tappy", "Error adding score for user " + username );
-        }
+        DBHelper.addUserScore(username, GAME_NAME, score); //add score to DB (avg time recorded)
     }
 }
