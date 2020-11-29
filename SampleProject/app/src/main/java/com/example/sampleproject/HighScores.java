@@ -27,6 +27,9 @@ public class HighScores extends AppCompatActivity {
 //    SQLiteDatabase tappyDB;
     DBHelper aDB;
     TextView scoreTextView;
+    Spinner sortBySpinner;
+    ListView listViewScore;
+    ScoreAdapter aScoreAdapter;
     List<Score> scoreList = new ArrayList<Score>();
 
     @Override
