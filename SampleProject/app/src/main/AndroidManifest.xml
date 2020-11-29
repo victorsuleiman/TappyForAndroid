@@ -11,14 +11,17 @@
         android:theme="@style/AwesomeTheme">
         <activity android:name=".HighScores"></activity>
         <activity android:name=".UserInfo" />
-        <activity android:name=".LevelGrid" />
-        <activity android:name=".ReactionGraph" />
-        <activity android:name=".ReactionTap" />
-<!--        <activity android:name=".ReactionTapDos" />-->
+        <activity android:name=".LevelGrid"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ReactionGraph"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ReactionTap"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".NameThatSong"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HangMan" />
+        <activity android:name=".HangMan"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".SimonSays"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -41,7 +44,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

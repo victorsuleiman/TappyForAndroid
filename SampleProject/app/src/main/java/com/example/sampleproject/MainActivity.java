@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
             String setPRAGMAForeignKeysOn = "PRAGMA foreign_keys = ON;";
 
             //Drop tables if exists
-            String dropUsersTableCmd = "DROP TABLE IF EXISTS " + "users;";
+//            String dropUsersTableCmd = "DROP TABLE IF EXISTS " + "users;";
             String dropScoresTableCmd = "DROP TABLE IF EXISTS " + "scores;";
 
             //User table
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity
 
 
             DBHelper.tappyDB.execSQL(setPRAGMAForeignKeysOn);
-//            DBHelper.tappyDB.execSQL(dropScoresTableCmd);
+            DBHelper.tappyDB.execSQL(dropScoresTableCmd);
 //            tappyDB.execSQL(dropUsersTableCmd); //cannot be dropped first because of user table reference
 
 //            tappyDB.execSQL(createUsersTableCmd);
