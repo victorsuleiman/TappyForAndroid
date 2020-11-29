@@ -8,9 +8,12 @@
 
     <Button
         android:id="@+id/buttonReaction"
-        android:layout_width="400dp"
-        android:layout_height="199dp"
+        android:layout_width="445dp"
+        android:layout_height="726dp"
+        android:background="@color/lightYellow"
+        android:fontFamily="casual"
         android:text="@string/Start"
+        android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
