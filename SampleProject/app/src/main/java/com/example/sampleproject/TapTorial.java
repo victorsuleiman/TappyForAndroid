@@ -109,6 +109,15 @@ public class TapTorial extends AppCompatActivity {
         val.put("game", game);
         val.put("score", score);
 
-        DBHelper.addUserScore(username, GAME_NAME, score); //add score to DB (avg time recorded)
+        if(score<1000){
+            msg="You are ready to become the Tappy master";
+        }
+        else if(score<4000 && score>1000){
+            msg="Dang! You are very close to being a Tappy master";
+        }else{
+            msg="Don't lose hope! Not all Tappy masters wear capes...yet";
+        }
+
+        DBHelper.addUserScore(username, GAME_NAME, score,msg); //add score to DB (avg time recorded)
     }
 }
