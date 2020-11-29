@@ -43,6 +43,8 @@ public class HighScores extends AppCompatActivity {
 
     }
 
+
+
     private void openDB()
     {
         try

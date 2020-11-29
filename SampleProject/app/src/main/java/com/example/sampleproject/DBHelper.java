@@ -1,35 +1,42 @@
 package com.example.sampleproject;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBHelper //extends SQLiteOpenHelper
+public class DBHelper extends SQLiteOpenHelper
 {
     public static SQLiteDatabase tappyDB;
+    public static final String TABLE_NAME = "scores";
+    public static final String DB_NAME = "tappy.db";
+
+    public DBHelper(@Nullable Context context) {
+        super(context, DB_NAME, null, 1);
+    }
 
 
-
-    /*
     // Called on creation for the FIRST time.
     // If a database already exists on disk with the same DATABASE_NAME, this method will NOT be called.
     @Override
     public void onCreate(SQLiteDatabase tappyDB) {
 
         String createScoresTableCmd =
-                "CREATE TABLE scores "
-                + "(username TEXT, " +
+                "CREATE TABLE " + TABLE_NAME
+                + " (username TEXT, " +
                     "game TEXT, " +
                     "score REAL, " +
                     "info TEXT);";
 
-        tappyDB.execSQL("DROP TABLE IF EXISTS " + "scores");
+        tappyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
 
         tappyDB.execSQL(createScoresTableCmd);
     }
@@ -38,12 +45,12 @@ public class DBHelper //extends SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion) {
             // if the two DB version doesn't
-            db.execSQL("DROP TABLE IF EXISTS " + "scores");
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
 
             onCreate(db);
         }
     }
-    */
+
 
 
     public List<String[]> browseScoresRecs()
@@ -124,5 +131,7 @@ public class DBHelper //extends SQLiteOpenHelper
             Log.d("DB Tappy", "Error adding score for user " + username );
         }
     }
+
+
 }
 

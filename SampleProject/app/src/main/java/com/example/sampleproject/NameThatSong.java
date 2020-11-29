@@ -54,6 +54,7 @@ Uses quite a few of animations
 public class NameThatSong extends AppCompatActivity {
 
     SQLiteDatabase tappyDB;
+    DBHelper aDB ;
     public static final String GAME_NAME = "Name that song";
 
     ImageView bgImg;
@@ -94,10 +95,11 @@ public class NameThatSong extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_that_song);
-
-        openDB(); //open our DB
+        aDB = new DBHelper(NameThatSong.this);
+//        openDB(); //open our DB
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous"); //if user not found, make username "Anonymous"
+
         Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
 
         submitBtn = findViewById(R.id.ntsSubmitBtn);

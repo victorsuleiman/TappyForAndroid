@@ -61,14 +61,12 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 username = editText.getText().toString();
-//                if (username.equals(""))
-//                    Toast.makeText(MainActivity.this, "Please enter a username.", Toast.LENGTH_SHORT).show();
-//                else if (username.contains(" "))
-//                    Toast.makeText(MainActivity.this, "Please enter a username without any spaces.", Toast.LENGTH_LONG).show();
-//                else {
-                    saveUser(username);
-                    img.startAnimation(rotateAnim);
-//                }
+                if (username.equals("")) {
+                    username = "Anonymous";
+//                    Toast.makeText(MainActivity.this, "Username set to Anonymous.", Toast.LENGTH_SHORT).show();
+                }
+                saveUser(username);
+                img.startAnimation(rotateAnim);
 
             }
         });
