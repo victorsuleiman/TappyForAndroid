@@ -6,16 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".HighScores">
 
-    <TextView
-        android:id="@+id/scoreResults"
-        android:layout_width="17dp"
-        android:layout_height="101dp"
-        android:text="@string/a"
+    <Spinner
+        android:id="@+id/scoreSortSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/sorting"
+        android:spinnerMode="dialog"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/scoreResults"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:textSize="32.5dp"
+        android:fontFamily="casual"
+        android:text="@string/scoreTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04" />
 
     <ListView
         android:id="@+id/scoresListView"

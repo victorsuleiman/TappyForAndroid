@@ -53,7 +53,6 @@ Uses quite a few of animations
  */
 public class NameThatSong extends AppCompatActivity {
 
-    SQLiteDatabase tappyDB;
     DBHelper aDB ;
     public static final String GAME_NAME = "Name that song";
 

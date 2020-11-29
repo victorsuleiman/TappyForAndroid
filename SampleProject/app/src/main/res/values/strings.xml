@@ -70,11 +70,17 @@
     <string name="userName">Enter username with no space</string>
     <string name="updateInfoButton">Update Info</string>
     <string name="level1TitleTxt">Welcome to Tappy!</string>
+    <string name="scoreTitle">SCORES!</string>
     <string-array name="hangmanList">
         <item>Choose a category</item>
         <item>ANIMAL</item>
         <item>ACTIVITIES</item>
         <item>2020</item>
+    </string-array>
+    <string-array name="sorting">
+        <item>Sort by Last Added</item>
+        <item>Sort by Name</item>
+        <item>Sort by Game</item>
     </string-array>
 
 

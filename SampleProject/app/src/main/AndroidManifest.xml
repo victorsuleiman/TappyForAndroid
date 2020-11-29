@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/steps_round"
         android:supportsRtl="true"
         android:theme="@style/AwesomeTheme">
-        <activity android:name=".HighScores"></activity>
+        <activity android:name=".HighScores"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".UserInfo" />
         <activity android:name=".LevelGrid"
             android:theme="@style/AppTheme.NoActionBar"/>
@@ -37,7 +39,8 @@
         <activity
             android:name=".TapTorial"
             android:theme="@style/AppTheme.NoActionBar" /> <!-- &gt;>>>>>> cc93c6a08847bf228b513cf76000f5cfc55fef52 -->
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
