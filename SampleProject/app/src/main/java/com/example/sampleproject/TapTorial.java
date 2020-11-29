@@ -24,6 +24,7 @@ public class TapTorial extends AppCompatActivity {
     DBHelper aDB;
     String username;
     final String GAME_NAME = "Taptorial";
+    String msg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
