@@ -1,13 +1,11 @@
 package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
-import android.media.Image;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -15,12 +13,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sampleproject.Models.TapManModel;
+import com.example.sampleproject.SupportClasses.Constants;
+import com.example.sampleproject.SupportClasses.DBHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;

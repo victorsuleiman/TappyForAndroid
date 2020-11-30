@@ -2,13 +2,12 @@ package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.jjoe64.graphview.GraphView;
+import com.example.sampleproject.SupportClasses.DBHelper;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
