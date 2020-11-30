@@ -34,18 +34,6 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logo" />
 
-    <ImageView
-        android:id="@+id/playButton"
-        android:layout_width="247dp"
-        android:layout_height="144dp"
-        app:layout_constraintBottom_toBottomOf="@+id/splashImg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.835"
-        app:srcCompat="@drawable/videoplayer" />
-
     <EditText
         android:id="@+id/userName"
         android:layout_width="wrap_content"
@@ -66,14 +54,26 @@
         android:id="@+id/buttonScoreList"
         android:layout_width="189dp"
         android:layout_height="126dp"
-        android:scaleType="centerInside"
         android:background="@android:color/transparent"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/splashImg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861"
+        app:layout_constraintVertical_bias="0.935"
         app:srcCompat="@drawable/topthree" />
+
+    <ImageView
+        android:id="@+id/playButton"
+        android:layout_width="247dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="@+id/splashImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.923"
+        app:srcCompat="@drawable/videoplayer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
