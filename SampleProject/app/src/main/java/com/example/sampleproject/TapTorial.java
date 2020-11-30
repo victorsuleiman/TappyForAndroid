@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sampleproject.SupportClasses.Constants;
+import com.example.sampleproject.SupportClasses.DBHelper;
 import com.example.sampleproject.SupportClasses.JamesUtilities;
 import com.example.sampleproject.SupportClasses.TimeRecorder;
 
@@ -20,6 +22,7 @@ public class TapTorial extends AppCompatActivity {
    // String colorID = "";
     int i = 0;
     Button tapBtn;
+    Button endBtn;
 
     DBHelper aDB;
     String username;
@@ -39,7 +42,9 @@ public class TapTorial extends AppCompatActivity {
         username = sharedPref.getString(Constants.USERNAME_CURRENT, "Anonymous");
 
         tapBtn = findViewById(R.id.tappyTappy);
+        endBtn = findViewById(R.id.endTorialBtn);
         int resColor = R.color.Press10;
+        endBtn.setVisibility(View.GONE);
 
         tapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,11 +53,6 @@ public class TapTorial extends AppCompatActivity {
                 String tappy = (10 - i) + " more!";
                 if (!(i >= 10))
                     tapBtn.setText(tappy);
-
-                // colorID = "Press" + (10 - i);
-                // int resColor= getResources().getIdentifier(R.color.Press(10-i);
-                //   int resID = getResources().getIdentifier("com.example.sampleproject:color/"+colorID, null, null);
-                //    tapBtn.setBackgroundColor(resID);
 
                 if (i == 1) {
                     timeRecorder.startRecording();
@@ -80,8 +80,8 @@ public class TapTorial extends AppCompatActivity {
                     tapBtn.setBackgroundColor(getResources().getColor(R.color.lightGreen));
                     addUserScore(username,"TapTorial",(long) timeRecorder.getTime());
                     String score = JamesUtilities.formatMilliseconds((long) timeRecorder.getTime());
-                    Toast.makeText(TapTorial.this, "Nice! Your time was " + score + ". Now go play the other games!",
-                            Toast.LENGTH_LONG).show();
+//                    Toast.makeText(TapTorial.this, "Nice! Your time was " + score + ". Now go play the other games!",
+//                            Toast.LENGTH_LONG).show();
                     timeRecorder.stopAndResetTimer(false);
                 }
                 else
@@ -92,6 +92,15 @@ public class TapTorial extends AppCompatActivity {
 
             }
         });
+
+        endBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed(); //return to main
+            }
+        });
+
+
     }
 
     //returns to Level List when back button is pressed
@@ -109,15 +118,16 @@ public class TapTorial extends AppCompatActivity {
         val.put("game", game);
         val.put("score", score);
 
-        if(score<1000){
+        if(score<2000){
             msg="You are ready to become the Tappy master";
         }
-        else if(score<4000 && score>1000){
+        else if(score<3500 && score>2000){
             msg="Dang! You are very close to being a Tappy master";
         }else{
             msg="Don't lose hope! Not all Tappy masters wear capes...yet";
         }
-
+        endBtn.setVisibility(View.VISIBLE);
+        endBtn.setText("You took " + JamesUtilities.formatMilliseconds(score) + "\n" + msg + "\nClick here to return to game list");
         DBHelper.addUserScore(username, GAME_NAME, score,msg); //add score to DB (avg time recorded)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.sampleproject;
+package com.example.sampleproject.SupportClasses;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -19,10 +19,10 @@ public class DBHelper extends SQLiteOpenHelper
 {
     public static SQLiteDatabase tappyDB;
     public static final String TABLE_NAME = "scores";
-    public static final String DB_NAME = "tappy.db";
+
 
     public DBHelper(@Nullable Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, Constants.DB_NAME, null, 1);
     }
 
 

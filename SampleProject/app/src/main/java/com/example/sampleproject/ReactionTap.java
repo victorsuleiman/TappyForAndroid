@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sampleproject.SupportClasses.Constants;
+import com.example.sampleproject.SupportClasses.DBHelper;
 import com.example.sampleproject.SupportClasses.JamesUtilities;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;

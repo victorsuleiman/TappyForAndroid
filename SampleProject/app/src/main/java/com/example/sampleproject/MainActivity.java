@@ -2,11 +2,8 @@ package com.example.sampleproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -18,9 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.example.sampleproject.Constants;
+import com.example.sampleproject.SupportClasses.Constants;
+import com.example.sampleproject.SupportClasses.DBHelper;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -53,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         buttonToScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, HighScores.class));
+                startActivity(new Intent(MainActivity.this, ViewScores.class));
             }
         });
 

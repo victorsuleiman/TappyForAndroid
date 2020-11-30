@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -22,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sampleproject.SupportClasses.Constants;
+import com.example.sampleproject.SupportClasses.DBHelper;
 import com.example.sampleproject.SupportClasses.JamesUtilities;
 import com.example.sampleproject.Models.Song;
 
@@ -260,35 +261,6 @@ public class NameThatSong extends AppCompatActivity {
         }); //ends clicking submit Button
     } //ends onCreate
 
-    /*used to parse song from DB*/
-    public List<Song> SongParser()
-    {
-        List<String[]> dataFromFile = ReadCSV(); //get data from CSV file
-
-        List<Song> songList = new ArrayList<>(); //holds song objects
-
-        /*loop through data and creates objects*/
-        for (int i = 0; i < dataFromFile.size(); i++)
-        {
-//            Log.e("Something", Arrays.toString(dataFromFile.get(i)));
-
-            int tuneID = getResources().getIdentifier(dataFromFile.get(i)[2], "raw", getPackageName()); //get tune ID
-            int artID = getResources().getIdentifier(dataFromFile.get(i)[3], "drawable", getPackageName()); //get art ID
-
-            /*creates song object*/
-            Song aSong = new Song
-                (
-                    dataFromFile.get(i)[0], //song name
-                    dataFromFile.get(i)[1], //artist name
-                    tuneID, //tune
-                    artID, //cover art
-                    dataFromFile.get(i)[4] //hint
-                );
-            songList.add(aSong); //add object to list
-        }
-        return songList;
-    } //ends songParser
-
     /*get Data from CSV file*/
     private List<String[]> ReadCSV()
     {
@@ -322,6 +294,35 @@ public class NameThatSong extends AppCompatActivity {
         }
         return dataList;
     }
+
+    /*used to parse song from DB*/
+    public List<Song> SongParser()
+    {
+        List<String[]> dataFromFile = ReadCSV(); //get data from CSV file
+
+        List<Song> songList = new ArrayList<>(); //holds song objects
+
+        /*loop through data and creates objects*/
+        for (int i = 0; i < dataFromFile.size(); i++)
+        {
+//            Log.e("Something", Arrays.toString(dataFromFile.get(i)));
+
+            int tuneID = getResources().getIdentifier(dataFromFile.get(i)[2], "raw", getPackageName()); //get tune ID
+            int artID = getResources().getIdentifier(dataFromFile.get(i)[3], "drawable", getPackageName()); //get art ID
+
+            /*creates song object*/
+            Song aSong = new Song
+                (
+                    dataFromFile.get(i)[0], //song name
+                    dataFromFile.get(i)[1], //artist name
+                    tuneID, //tune
+                    artID, //cover art
+                    dataFromFile.get(i)[4] //hint
+                );
+            songList.add(aSong); //add object to list
+        }
+        return songList;
+    } //ends songParser
 
     /*test song resources*/
     public void testResources(List<Song> songList)

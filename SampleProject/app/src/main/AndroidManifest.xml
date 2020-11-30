@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/steps_round"
         android:supportsRtl="true"
         android:theme="@style/AwesomeTheme">
-        <activity android:name=".HighScores"
+        <activity android:name=".ViewScores"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".UserInfo" />
