@@ -103,7 +103,6 @@ public class HangMan extends AppCompatActivity {
             String hint = twenty_twenty.get(i)[2];
 
             addWordsTo2020(id, word, hint);
-
         }
 
 
@@ -111,7 +110,7 @@ public class HangMan extends AppCompatActivity {
         category = findViewById(R.id.categorySpin);
         dashBox = findViewById(R.id.dashBox);
         msgBox = findViewById(R.id.msgBox);
-        hintImage=findViewById(R.id.hintImage);
+        hintImage = findViewById(R.id.hintImage);
 
 
 
