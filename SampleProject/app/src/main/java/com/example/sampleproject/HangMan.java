@@ -36,6 +36,7 @@ public class HangMan extends AppCompatActivity {
     SQLiteDatabase db;
     DBHelper aDB;
 
+
     Spinner category;
 
     String[] button = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U"
