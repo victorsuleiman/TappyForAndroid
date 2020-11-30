@@ -20,7 +20,6 @@ public class DBHelper extends SQLiteOpenHelper
     public static SQLiteDatabase tappyDB;
     public static final String TABLE_NAME = "scores";
 
-
     public DBHelper(@Nullable Context context) {
         super(context, Constants.DB_NAME, null, 1);
     }
