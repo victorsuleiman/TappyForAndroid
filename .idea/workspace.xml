@@ -1,7 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bcc070d0-df71-49c5-9a6b-56bc048a9901" name="Default Changelist" comment="" />
+    <list default="true" id="bcc070d0-df71-49c5-9a6b-56bc048a9901" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/androidTest/java/com/example/tappy/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/java/com/example/tappy/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/app/src/test/java/com/example/tappy/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TappyOfficial/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/facebook_cover_photo_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/facebook_cover_photo_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/facebook_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/instagram_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/linkedin_banner_image_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/linkedin_banner_image_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/linkedin_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/logo_transparent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/pinterest_board_photo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/pinterest_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/twitter_header_photo_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/twitter_header_photo_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/twitter_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/HatchfulExport-All (logos)/youtube_profile_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/Logo Main Activity.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/Logo Step.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/Logo.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/apps.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/four-squares.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/logoextend.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/movie.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/project-management.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/tic-tac-toe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/touch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Logos and Icon resources/video-player.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Notes/Discussion November 15th.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Notes/Discussion November 7th.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Notes/GroupName.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Notes/Ideas.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Notes/Priya meeting.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Notes/Project Outline.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Notes/References.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/Notes/TODO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/activitytables.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/animals.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman-game.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_lvl0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_lvl1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_lvl2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_lvl3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_lvl4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_lvl5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_lvl6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_winpose.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/hangman_winpose2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/list of animals for hang man.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Resources/hangman/twenty_twenty.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Tappy-Group3-Report-v2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/Reaction tap.mkv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/Reaction tap_Trim.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/Tappy (Complete Video).mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/WhatsApp Video 2020-11-29 at 11.30.07 PM.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/database.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/hangman .mkv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/hangman _Trim.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/namethatsong.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/simon tap.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/splash activity and grid view .mkv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/splash_Grid.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/taptorial.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsorted/Videos/tictaptoe.mp4" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,17 +117,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\victo\Desktop\Android Studio\Tappy\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1ivYQVZo5diYHhkt4hRpTh6Xxnw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -42,9 +141,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602789759692">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1606781255605">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1602789759692" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1600.860@0.0.1536.824" timestamp="1606781255605" />
   </component>
 </project>
