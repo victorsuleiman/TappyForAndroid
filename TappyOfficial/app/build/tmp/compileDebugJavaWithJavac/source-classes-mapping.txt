@@ -1,0 +1,4 @@
+com/example/tappy/MainActivity.java
+ com.example.tappy.MainActivity
+com/example/tappy/BuildConfig.java
+ com.example.tappy.BuildConfig

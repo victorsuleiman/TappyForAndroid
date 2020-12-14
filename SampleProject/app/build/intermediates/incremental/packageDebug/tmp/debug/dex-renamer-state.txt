@@ -1,0 +1,4 @@
+#Tue Nov 10 21:36:52 PST 2020
+base.0=F\:\\GitHub\\3175\\VictorLooksAmazing\\SampleProject\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
